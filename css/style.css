@@ -411,3 +411,13 @@
   .price-row .d{font-size:.9rem;color:var(--muted);margin-top:2px;}
   .price-row .p{font-family:var(--ff-mono);font-size:1.05rem;color:var(--sea);white-space:nowrap;}
   .price-row .p small{display:block;font-size:.62rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;}
+
+  /* --- animations douces des bannières de pages internes --- */
+  .page-hero .wrap{position:relative;z-index:2;}
+  .page-hero::after{animation:phGlow 9s ease-in-out infinite;}
+  @keyframes phGlow{0%,100%{transform:translateY(0) scale(1);opacity:1;}50%{transform:translateY(10px) scale(1.09);opacity:.82;}}
+  .ph-wind{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1;}
+  .ph-wind i{position:absolute;height:2px;border-radius:2px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);animation:gust linear infinite;opacity:0;}
+  .ph-wind i:nth-child(1){top:34%;width:150px;animation-duration:9s;animation-delay:0s;}
+  .ph-wind i:nth-child(2){top:54%;width:110px;animation-duration:7s;animation-delay:2.2s;}
+  .ph-wind i:nth-child(3){top:70%;width:190px;animation-duration:11.5s;animation-delay:4.5s;}

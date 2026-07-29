@@ -84,6 +84,16 @@
     }
   }
 
+  // décor animé des bannières de pages internes (page-hero) : filets de vent
+  var ph = document.querySelector('.page-hero');
+  if(ph && !reduce){
+    var wind = document.createElement('div');
+    wind.className = 'ph-wind';
+    wind.setAttribute('aria-hidden','true');
+    wind.innerHTML = '<i></i><i></i><i></i>';
+    ph.insertBefore(wind, ph.firstChild);
+  }
+
   // formulaire de contact : ouvre le client mail avec la demande pré-remplie
   var form = document.getElementById('bookform');
   var msg = document.getElementById('formmsg');
