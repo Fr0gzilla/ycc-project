@@ -130,6 +130,9 @@
   /* ---------------- hero ---------------- */
   .hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;
     background:linear-gradient(180deg,#0B3A46 0%,#0F5064 34%,#1C7C93 70%,#2F97AC 100%);}
+  .hero-photo{position:absolute;inset:0;z-index:0;background:#0B3A46 url("img/hero.jpg") center 32%/cover no-repeat;}
+  .hero-photo::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(11,58,70,.76) 0%,rgba(14,71,87,.62) 42%,rgba(47,151,172,.55) 100%);}
   /* sun */
   .sun{position:absolute;top:16%;right:12%;width:150px;height:150px;border-radius:50%;
     background:radial-gradient(circle at 50% 50%,#FFE7C4 0%,#F7B36B 45%,rgba(244,161,90,0) 72%);
@@ -362,8 +365,8 @@
   .presta a::after{content:"→";color:var(--sea);transition:transform .3s var(--ease);}
   .presta a:hover{transform:translateY(-3px);border-color:var(--sea);}
   .presta a:hover::after{transform:translateX(3px);}
-  @media(max-width:960px){.cards.four{grid-template-columns:1fr 1fr;}}
-  @media(max-width:560px){.cards.four{grid-template-columns:1fr;}}
+  @media(max-width:960px){.cards.four,.stage-gallery{grid-template-columns:1fr 1fr;}}
+  @media(max-width:560px){.cards.four,.stage-gallery{grid-template-columns:1fr;}}
 
   /* ---------------- responsive ---------------- */
   @media (max-width:960px){
@@ -434,6 +437,7 @@
 
 <!-- ================= HERO ================= -->
 <section class="hero" aria-label="Introduction">
+  <div class="hero-photo" aria-hidden="true"></div>
   <div class="sun" aria-hidden="true"></div>
   <div class="wind" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
 
@@ -592,6 +596,35 @@
         <div class="p">sur inscription<small>la semaine</small></div>
       </div>
     </div>
+  </div>
+  <div class="wrap">
+    <div class="stage-gallery reveal d2" role="list" aria-label="Nos stages en images">
+      <article class="sg-card" role="listitem">
+        <div class="ph ph-card"><img src="img/stage3.jpg" alt="Le bateau-école du Yacht Club de Carnac en navigation" loading="lazy" width="1200" height="801"></div>
+        <div class="sg-body">
+          <span class="sg-age">Dès 16 ans</span>
+          <h3>Permis côtier</h3>
+          <div class="sg-foot"><span class="sg-price">Vac. scolaires</span><a href="https://www.yccarnac.com/permis-cotier-morbihan-56" target="_blank" rel="noopener" class="sg-link">En savoir plus <span class="arr" aria-hidden="true">→</span></a></div>
+        </div>
+      </article>
+      <article class="sg-card" role="listitem">
+        <div class="ph ph-card"><img src="img/stage2.jpg" alt="Le Point Location et la flotte du club au bord de l'eau" loading="lazy" width="1200" height="800"></div>
+        <div class="sg-body">
+          <span class="sg-age">Tous niveaux</span>
+          <h3>Location &amp; multi-supports</h3>
+          <div class="sg-foot"><span class="sg-price">Avril → oct.</span><a href="https://www.yccarnac.com/location-cours-particulier" target="_blank" rel="noopener" class="sg-link">Réserver <span class="arr" aria-hidden="true">→</span></a></div>
+        </div>
+      </article>
+      <article class="sg-card" role="listitem">
+        <div class="ph ph-card"><img src="img/stage1.jpg" alt="Jeune régatier sur son catamaran dans la Baie de Quiberon" loading="lazy" width="1920" height="728"></div>
+        <div class="sg-body">
+          <span class="sg-age">14-17 ans</span>
+          <h3>Perfectionnement &amp; régate</h3>
+          <div class="sg-foot"><span class="sg-price">Semaine</span><a href="https://yccarnac.ouiresa.fr/" target="_blank" rel="noopener" class="sg-link">Réserver <span class="arr" aria-hidden="true">→</span></a></div>
+        </div>
+      </article>
+    </div>
+    <p style="text-align:center;margin-top:24px;font-family:var(--ff-mono);font-size:.72rem;letter-spacing:.05em;color:var(--lagoon-soft)">Photos © Yacht Club de Carnac · P. Maheo</p>
   </div>
 </section>
 
