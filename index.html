@@ -1075,7 +1075,7 @@
 })();
 </script>
 <script>
-/* Conditions réelles dans le hero (vent + marée) via Open-Meteo — gratuit, sans clé */
+/* Conditions réelles dans le hero (vent + marée) via Open-Meteo — actualisées toutes les 10 min */
 (function(){
   var el = document.getElementById('hero-cond');
   if(!el || !window.fetch) return;
@@ -1084,24 +1084,29 @@
     var d = ['du nord','du nord-est','d\'est','du sud-est','du sud','du sud-ouest','d\'ouest','du nord-ouest'];
     return d[Math.round(deg/45) % 8];
   }
-  var wind = fetch('https://api.open-meteo.com/v1/forecast?latitude='+LAT+'&longitude='+LON+'&current=wind_direction_10m')
-    .then(function(r){ return r.json(); })
-    .then(function(j){ return 'Vent ' + dirFr(j.current.wind_direction_10m); })
-    .catch(function(){ return null; });
-  var tide = fetch('https://marine-api.open-meteo.com/v1/marine?latitude='+LAT+'&longitude='+LON+'&hourly=sea_level_height_msl&forecast_days=1&timezone=Europe%2FParis')
-    .then(function(r){ return r.json(); })
-    .then(function(j){
-      var t = j.hourly.time, h = j.hourly.sea_level_height_msl;
-      var hh = new Date().getHours(), i = -1;
-      for(var k=0;k<t.length;k++){ if(parseInt(t[k].slice(11,13),10) === hh){ i = k; break; } }
-      if(i < 0 || i+1 >= h.length) return null;
-      return h[i+1] >= h[i] ? 'marée montante' : 'marée descendante';
-    })
-    .catch(function(){ return null; });
-  Promise.all([wind, tide]).then(function(parts){
-    var txt = parts.filter(Boolean).join(' · ');
-    if(txt) el.textContent = txt;
-  });
+  function update(){
+    var bust = '&_=' + Date.now();
+    var wind = fetch('https://api.open-meteo.com/v1/forecast?latitude='+LAT+'&longitude='+LON+'&current=wind_direction_10m'+bust)
+      .then(function(r){ return r.json(); })
+      .then(function(j){ return 'Vent ' + dirFr(j.current.wind_direction_10m); })
+      .catch(function(){ return null; });
+    var tide = fetch('https://marine-api.open-meteo.com/v1/marine?latitude='+LAT+'&longitude='+LON+'&hourly=sea_level_height_msl&forecast_days=1&timezone=Europe%2FParis'+bust)
+      .then(function(r){ return r.json(); })
+      .then(function(j){
+        var t = j.hourly.time, h = j.hourly.sea_level_height_msl;
+        var hh = new Date().getHours(), i = -1;
+        for(var k=0;k<t.length;k++){ if(parseInt(t[k].slice(11,13),10) === hh){ i = k; break; } }
+        if(i < 0 || i+1 >= h.length) return null;
+        return h[i+1] >= h[i] ? 'marée montante' : 'marée descendante';
+      })
+      .catch(function(){ return null; });
+    Promise.all([wind, tide]).then(function(parts){
+      var txt = parts.filter(Boolean).join(' · ');
+      if(txt) el.textContent = txt;
+    });
+  }
+  update();
+  setInterval(update, 600000); // toutes les 10 minutes tant que la page reste ouverte
 })();
 </script>
 </body>
