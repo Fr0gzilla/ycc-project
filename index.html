@@ -151,7 +151,7 @@
   @keyframes gust{0%{transform:translateX(-260px);opacity:0;}12%{opacity:.9;}70%{opacity:.7;}100%{transform:translateX(110vw);opacity:0;}}
 
   /* sailboat */
-  .boat{position:absolute;bottom:20%;left:8%;width:min(30vw,360px);z-index:3;
+  .boat{position:absolute;bottom:14%;left:5%;width:min(27vw,330px);z-index:3;
     animation:sail 6s ease-in-out infinite;transform-origin:bottom center;}
   @keyframes sail{0%,100%{transform:translateY(0) rotate(-2.5deg);}50%{transform:translateY(-14px) rotate(1.5deg);}}
 
@@ -164,9 +164,11 @@
   @keyframes drift{to{transform:translateX(-50%);}}
 
   .hero-in{position:relative;z-index:5;width:100%;padding-top:96px;}
+  .hero-in::before{content:"";position:absolute;left:-6%;top:-6%;width:78%;height:122%;z-index:-1;pointer-events:none;
+    background:radial-gradient(118% 96% at 22% 42%,rgba(5,23,30,.52),rgba(5,23,30,0) 68%);}
   .hero-in .eyebrow{margin-bottom:20px;display:inline-flex;align-items:center;gap:10px;}
   .hero-in .eyebrow::before{content:"";width:26px;height:1px;background:var(--lagoon-soft);}
-  .hero h1{color:#fff;font-size:clamp(2.9rem,7.2vw,6rem);font-weight:300;max-width:16ch;text-shadow:0 2px 30px rgba(0,20,28,.25);}
+  .hero h1{color:#fff;font-size:clamp(2.9rem,7.2vw,6rem);font-weight:300;max-width:16ch;text-shadow:0 1px 2px rgba(4,22,28,.55),0 4px 26px rgba(4,22,28,.5);}
   .hero h1 em{font-style:italic;color:var(--sand);font-weight:400;}
   .hero .lede{color:rgba(255,255,255,.9);font-size:clamp(1.05rem,1.6vw,1.28rem);max-width:46ch;margin:26px 0 34px;line-height:1.6;}
   .hero-cta{display:flex;flex-wrap:wrap;gap:14px;}
@@ -490,7 +492,7 @@
   <div class="coords" aria-hidden="true">
     <div>CARNAC · MORBIHAN</div>
     <div><b>47.577° N &nbsp; 3.076° O</b></div>
-    <div>Vent d'ouest · marée montante</div>
+    <div id="hero-cond">Conditions en direct…</div>
   </div>
 
   <a class="scrollcue" href="#club" aria-label="Faire défiler vers le bas">
@@ -1069,6 +1071,36 @@
     window.location.href = 'mailto:infos@yccarnac.com?subject=' +
       encodeURIComponent(sujet) + '&body=' + encodeURIComponent(corps);
     msg.classList.add('show');
+  });
+})();
+</script>
+<script>
+/* Conditions réelles dans le hero (vent + marée) via Open-Meteo — gratuit, sans clé */
+(function(){
+  var el = document.getElementById('hero-cond');
+  if(!el || !window.fetch) return;
+  var LAT = 47.55, LON = -3.12;
+  function dirFr(deg){
+    var d = ['du nord','du nord-est','d\'est','du sud-est','du sud','du sud-ouest','d\'ouest','du nord-ouest'];
+    return d[Math.round(deg/45) % 8];
+  }
+  var wind = fetch('https://api.open-meteo.com/v1/forecast?latitude='+LAT+'&longitude='+LON+'&current=wind_speed_10m,wind_direction_10m&wind_speed_unit=kn')
+    .then(function(r){ return r.json(); })
+    .then(function(j){ return 'Vent ' + dirFr(j.current.wind_direction_10m) + ' · ' + Math.round(j.current.wind_speed_10m) + ' nds'; })
+    .catch(function(){ return null; });
+  var tide = fetch('https://marine-api.open-meteo.com/v1/marine?latitude='+LAT+'&longitude='+LON+'&hourly=sea_level_height_msl&forecast_days=1&timezone=Europe%2FParis')
+    .then(function(r){ return r.json(); })
+    .then(function(j){
+      var t = j.hourly.time, h = j.hourly.sea_level_height_msl;
+      var hh = new Date().getHours(), i = -1;
+      for(var k=0;k<t.length;k++){ if(parseInt(t[k].slice(11,13),10) === hh){ i = k; break; } }
+      if(i < 0 || i+1 >= h.length) return null;
+      return h[i+1] >= h[i] ? 'marée montante' : 'marée descendante';
+    })
+    .catch(function(){ return null; });
+  Promise.all([wind, tide]).then(function(parts){
+    var txt = parts.filter(Boolean).join(' · ');
+    if(txt) el.textContent = txt;
   });
 })();
 </script>
