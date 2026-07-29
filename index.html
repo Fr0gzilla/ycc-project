@@ -1084,9 +1084,9 @@
     var d = ['du nord','du nord-est','d\'est','du sud-est','du sud','du sud-ouest','d\'ouest','du nord-ouest'];
     return d[Math.round(deg/45) % 8];
   }
-  var wind = fetch('https://api.open-meteo.com/v1/forecast?latitude='+LAT+'&longitude='+LON+'&current=wind_speed_10m,wind_direction_10m&wind_speed_unit=kn')
+  var wind = fetch('https://api.open-meteo.com/v1/forecast?latitude='+LAT+'&longitude='+LON+'&current=wind_direction_10m')
     .then(function(r){ return r.json(); })
-    .then(function(j){ return 'Vent ' + dirFr(j.current.wind_direction_10m) + ' · ' + Math.round(j.current.wind_speed_10m) + ' nds'; })
+    .then(function(j){ return 'Vent ' + dirFr(j.current.wind_direction_10m); })
     .catch(function(){ return null; });
   var tide = fetch('https://marine-api.open-meteo.com/v1/marine?latitude='+LAT+'&longitude='+LON+'&hourly=sea_level_height_msl&forecast_days=1&timezone=Europe%2FParis')
     .then(function(r){ return r.json(); })
