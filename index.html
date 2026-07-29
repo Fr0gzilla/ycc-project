@@ -3,13 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Yacht Club de Carnac — École de voile & club nautique, Baie de Quiberon</title>
-<meta name="description" content="Stages de voile pour enfants et adultes, location de supports, cours particuliers et régates dans la Baie de Quiberon. Réservez votre sortie au Yacht Club de Carnac.">
+<title>Yacht Club de Carnac — École de voile en Baie de Quiberon (Morbihan, Bretagne)</title>
+<meta name="description" content="Stages de voile enfants et adultes, location, cours particuliers et régates dans la Baie de Quiberon, à Carnac (Morbihan, Bretagne). Réservez votre sortie au Yacht Club de Carnac.">
 <meta name="theme-color" content="#0B3A46">
+<link rel="icon" href="logo-yccarnac.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Yacht Club de Carnac — École de voile & club nautique">
 <meta property="og:description" content="Apprenez à naviguer dans la Baie de Quiberon : stages enfants, cours adultes, location et régates.">
 <meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="logo-yccarnac.svg">
+<meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Manrope:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -41,8 +44,9 @@
     --sand-2:#E2D0A7;
     --sun:#F4A15A;       /* coral-amber accent */
     --sun-deep:#E8863A;
+    --sun-text:#B4571A;  /* orange lisible sur blanc (WCAG AA) */
     --ink:#0B272F;       /* text */
-    --muted:#5C7A84;
+    --muted:#4A6670;     /* gris-bleu accessible sur fond clair */
     --white:#ffffff;
     --line:rgba(11,58,70,.12);
 
@@ -208,7 +212,7 @@
   .card:hover .ic{background:var(--sun);color:#3a1e07;}
   .card h3{font-size:1.5rem;font-weight:500;}
   .card p{color:var(--muted);font-size:.98rem;margin:12px 0 18px;}
-  .card .tag{font-family:var(--ff-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sun-deep);}
+  .card .tag{font-family:var(--ff-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sun-text);}
   .card .more{font-weight:600;color:var(--sea);font-size:.95rem;display:inline-flex;align-items:center;gap:.4em;}
   .card .more .arr{transition:transform .3s var(--ease);}
   .card:hover .more .arr{transform:translateX(4px);}
@@ -284,7 +288,7 @@
   form.card-form{background:var(--white);border-radius:calc(var(--r) + 6px);padding:36px;box-shadow:0 40px 80px -50px rgba(11,58,70,.6);}
   .field{margin-bottom:20px;}
   .field label{display:block;font-weight:600;font-size:.9rem;margin-bottom:8px;color:var(--ink);}
-  .field .req{color:var(--sun-deep);}
+  .field .req{color:var(--sun-text);}
   .field input,.field select,.field textarea{
     width:100%;font-family:var(--ff-body);font-size:1rem;color:var(--ink);
     padding:14px 16px;border:1.5px solid var(--line);border-radius:12px;background:var(--foam-2);
@@ -343,6 +347,18 @@
   .sg-link .arr{transition:transform .3s var(--ease);}
   .sg-link:hover .arr{transform:translateX(3px);}
 
+  /* ---- voile à l'année & prestations ---- */
+  .cards.four{grid-template-columns:repeat(4,1fr);}
+  .p-year{font-family:var(--ff-display);font-size:1.7rem;color:var(--sea);margin-top:16px;line-height:1;}
+  .p-year small{display:block;font-family:var(--ff-mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:5px;}
+  .presta{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:12px;}
+  .presta a{display:inline-flex;align-items:center;gap:.5em;background:var(--white);border:1px solid var(--line);border-radius:100px;padding:12px 20px;font-weight:600;color:var(--deep);font-size:.98rem;box-shadow:0 10px 24px -20px rgba(11,58,70,.6);transition:transform .3s var(--ease),border-color .3s;}
+  .presta a::after{content:"→";color:var(--sea);transition:transform .3s var(--ease);}
+  .presta a:hover{transform:translateY(-3px);border-color:var(--sea);}
+  .presta a:hover::after{transform:translateX(3px);}
+  @media(max-width:960px){.cards.four{grid-template-columns:1fr 1fr;}}
+  @media(max-width:560px){.cards.four{grid-template-columns:1fr;}}
+
   /* ---------------- responsive ---------------- */
   @media (max-width:960px){
     .club-grid,.stages-in,.eco-in,.book-in{grid-template-columns:1fr;gap:40px;}
@@ -394,6 +410,7 @@
         <li><a href="#club">Le club</a></li>
         <li><a href="#activites">Activités</a></li>
         <li><a href="#stages">Stages</a></li>
+        <li><a href="#annee">À l'année</a></li>
         <li><a href="#agenda">Régates</a></li>
         <li><a href="#eco">Écoresponsable</a></li>
       </ul>
@@ -567,6 +584,66 @@
 
 <svg class="wavesep" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" style="transform:rotate(180deg)"><path d="M0 40 C 240 10 480 10 720 34 C 960 58 1200 58 1440 30 L1440 70 L0 70 Z" style="fill:var(--deep)"/></svg>
 
+<!-- ================= VOILE À L'ANNÉE ================= -->
+<section class="club sec-pad" id="annee">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Voile à l'année</span>
+      <h2>Naviguer <em>toute la saison</em>, de septembre à juin</h2>
+      <p>Au-delà des vacances, rejoignez l'École de Sport : en loisir ou en compétition, dès 6 ans grâce au Pass'Sport. Adhésion au club et licence FFVoile accompagnent votre inscription.</p>
+    </div>
+    <div class="cards four">
+      <article class="card reveal">
+        <span class="tag">Sept. → juin</span>
+        <h3>Club Sport Loisir</h3>
+        <p>Gagner en autonomie par l'approfondissement des compétences, dans la bonne humeur.</p>
+        <div class="p-year">460 €<small>la saison</small></div>
+      </article>
+      <article class="card reveal d1">
+        <span class="tag">Compétition</span>
+        <h3>Club Compétition</h3>
+        <p>Préparation aux régates et à la performance, encadrée par nos entraîneurs.</p>
+        <div class="p-year">480 €<small>la saison</small></div>
+      </article>
+      <article class="card reveal d2">
+        <span class="tag">À la carte</span>
+        <h3>Club Autonomie</h3>
+        <p>Un carnet nominatif de 10 séances, à utiliser librement selon vos envies et la météo.</p>
+        <div class="p-year">250 €<small>10 séances</small></div>
+      </article>
+      <article class="card reveal d3">
+        <span class="tag">Spécial femmes</span>
+        <h3>Easy Sailing</h3>
+        <p>Un créneau dédié pour naviguer entre femmes, à son rythme et en confiance.</p>
+        <div class="p-year">250 €<small>la saison</small></div>
+      </article>
+    </div>
+    <p class="reveal d1" style="margin-top:30px"><a href="https://yccarnac.ouiresa.fr/" target="_blank" rel="noopener" class="btn btn-line">S'inscrire à l'année <span class="arr" aria-hidden="true">→</span></a></p>
+  </div>
+</section>
+
+<!-- ================= + DE PRESTATIONS ================= -->
+<section class="sec-pad" id="prestations" style="background:linear-gradient(180deg,#DFF1F2 0%,var(--foam) 100%)">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-bottom:38px">
+      <span class="eyebrow">+ de prestations</span>
+      <h2>Le club, c'est <em>bien plus</em> que des stages</h2>
+      <p>Une base nautique complète, ouverte toute l'année, avec une foule de services à découvrir.</p>
+    </div>
+    <ul class="presta reveal d1" role="list">
+      <li><a href="https://www.yccarnac.com/permis-cotier-morbihan-56" target="_blank" rel="noopener">Permis côtier</a></li>
+      <li><a href="https://www.yccarnac.com/monitorat-de-voile-cqp" target="_blank" rel="noopener">Devenir moniteur (CQP)</a></li>
+      <li><a href="https://www.yccarnac.com/pratiquer-aviron-carnac-morbihan" target="_blank" rel="noopener">Aviron</a></li>
+      <li><a href="https://www.yccarnac.com/plongee" target="_blank" rel="noopener">Plongée</a></li>
+      <li><a href="https://www.yccarnac.com/seances-en-groupe-team-building-morbihan" target="_blank" rel="noopener">Groupes &amp; team-building</a></li>
+      <li><a href="https://www.yccarnac.com/location-de-salle-carnac" target="_blank" rel="noopener">Location de salle</a></li>
+      <li><a href="https://www.yccarnac.com/boutique" target="_blank" rel="noopener">Boutique</a></li>
+      <li><a href="https://www.yccarnac.com/carte-cadeau" target="_blank" rel="noopener">Carte cadeau</a></li>
+      <li><a href="https://www.yccarnac.com/licences" target="_blank" rel="noopener">Licences &amp; cotisations</a></li>
+    </ul>
+  </div>
+</section>
+
 <!-- ================= AGENDA ================= -->
 <section class="agenda sec-pad" id="agenda">
   <div class="wrap">
@@ -721,7 +798,7 @@
         <button type="submit" class="btn btn-sun">Envoyer ma demande <span class="arr" aria-hidden="true">→</span></button>
         <span class="form-note">Réponse sous 24 h · sans engagement</span>
       </div>
-      <p class="form-msg" id="formmsg" role="status">Merci ! Votre demande est bien notée — on vous recontacte très vite. 🌊</p>
+      <p class="form-msg" id="formmsg" role="status">Votre logiciel de messagerie s'ouvre avec la demande pré-remplie — envoyez-la et nous vous répondons sous 24 h. 🌊</p>
     </form>
   </div>
 </section>
@@ -734,14 +811,12 @@
     <div class="ft-top">
       <div>
         <a class="brand" href="#" aria-label="Yacht Club de Carnac — accueil">
-          <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".5"/><path d="M20 7 L20 27 M20 9 L31 25 L20 25 Z M20 12 L11 25 L20 25 Z" fill="currentColor" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M9 30 Q20 35 31 30" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-          <span style="display:block"><b>Yacht Club de Carnac</b><span>Baie de Quiberon</span></span>
+          <img class="brand-logo" src="logo-yccarnac.svg" alt="Yacht Club de Carnac" width="93" height="46">
         </a>
         <p class="about">L'école de voile et le club nautique de Carnac, à Port en Dro. On vous apprend la mer, on vous la fait aimer.</p>
         <div class="socials">
-          <a href="#" aria-label="Suivez-nous sur Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3c-2.2 0-4 1.8-4 4v2H7v4h3v6h4v-6h3l1-4h-4V8c0-.6.4-1 1-1Z"/></svg></a>
-          <a href="#" aria-label="Suivez-nous sur Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-          <a href="#" aria-label="Notre chaîne YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 8.2a3 3 0 0 0-2.1-2.1C18 5.5 12 5.5 12 5.5s-6 0-7.9.6A3 3 0 0 0 2 8.2 31 31 0 0 0 2 12a31 31 0 0 0 .1 3.8 3 3 0 0 0 2.1 2.1c1.9.6 7.8.6 7.8.6s6 0 7.9-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 22 12a31 31 0 0 0-.1-3.8ZM10 15V9l5 3-5 3Z"/></svg></a>
+          <a href="https://www.facebook.com/yachtclubcarnac" target="_blank" rel="noopener" aria-label="Suivez-nous sur Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3c-2.2 0-4 1.8-4 4v2H7v4h3v6h4v-6h3l1-4h-4V8c0-.6.4-1 1-1Z"/></svg></a>
+          <a href="https://www.instagram.com/yachtclubcarnac/" target="_blank" rel="noopener" aria-label="Suivez-nous sur Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
         </div>
       </div>
       <nav aria-label="Activités">
@@ -777,9 +852,9 @@
     <div class="ft-bot">
       <div>© 2026 Yacht Club de Carnac · Port en Dro, 56340 Carnac</div>
       <div class="legal">
-        <a href="#">Mentions légales</a>
-        <a href="#">Confidentialité</a>
-        <a href="#">Accessibilité</a>
+        <a href="https://www.yccarnac.com/mentions-legales" target="_blank" rel="noopener">Mentions légales</a>
+        <a href="https://yccarnac.ouiresa.fr/" target="_blank" rel="noopener">Réserver en ligne</a>
+        <a href="#reserver">Nous contacter</a>
       </div>
     </div>
   </div>
@@ -794,17 +869,28 @@
   function onScroll(){ nav.classList.toggle('scrolled', window.scrollY > 40); }
   onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
 
-  // mobile menu
+  // mobile menu (accessible : inert quand fermé sur mobile, fermeture au clavier)
   var burger = document.getElementById('burger');
   var links = document.getElementById('navlinks');
-  burger.addEventListener('click', function(){
-    var open = links.classList.toggle('open');
+  var mq = window.matchMedia('(max-width:720px)');
+  function syncMenu(open){
+    var hidden = mq.matches && !open;
+    if(hidden){ links.setAttribute('inert',''); links.setAttribute('aria-hidden','true'); }
+    else { links.removeAttribute('inert'); links.removeAttribute('aria-hidden'); }
+  }
+  function setMenu(open){
+    links.classList.toggle('open', open);
     burger.setAttribute('aria-expanded', open ? 'true' : 'false');
     burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+    syncMenu(open);
+  }
+  burger.addEventListener('click', function(){ setMenu(!links.classList.contains('open')); });
+  links.addEventListener('click', function(e){ if(e.target.tagName === 'A'){ setMenu(false); } });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && links.classList.contains('open')){ setMenu(false); burger.focus(); }
   });
-  links.addEventListener('click', function(e){
-    if(e.target.tagName === 'A'){ links.classList.remove('open'); burger.setAttribute('aria-expanded','false'); }
-  });
+  mq.addEventListener('change', function(){ syncMenu(links.classList.contains('open')); });
+  syncMenu(false);
 
   // reveal on scroll
   var revs = document.querySelectorAll('.reveal');
@@ -855,14 +941,21 @@
     }, {passive:true});
   }
 
-  // booking form (demo)
+  // formulaire de contact : ouvre le client mail avec la demande pré-remplie
   var form = document.getElementById('bookform');
   var msg = document.getElementById('formmsg');
   form.addEventListener('submit', function(e){
     e.preventDefault();
     if(!form.checkValidity()){ form.reportValidity(); return; }
+    var val = function(n){ var el = form.elements[n]; return el ? el.value : ''; };
+    var sujet = 'Demande — ' + (val('activite') || 'Yacht Club de Carnac');
+    var corps = 'Prénom : ' + val('prenom') + '\nNom : ' + val('nom') +
+                '\nE-mail : ' + val('email') + '\nTéléphone : ' + val('telephone') +
+                '\nActivité : ' + val('activite') + '\nPériode : ' + val('periode') +
+                '\n\nMessage :\n' + val('message');
+    window.location.href = 'mailto:infos@yccarnac.com?subject=' +
+      encodeURIComponent(sujet) + '&body=' + encodeURIComponent(corps);
     msg.classList.add('show');
-    form.querySelector('button[type=submit]').textContent = 'Demande envoyée ✓';
   });
 })();
 </script>
