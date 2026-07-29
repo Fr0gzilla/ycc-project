@@ -1,0 +1,860 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yacht Club de Carnac — École de voile & club nautique, Baie de Quiberon</title>
+<meta name="description" content="Stages de voile pour enfants et adultes, location de supports, cours particuliers et régates dans la Baie de Quiberon. Réservez votre sortie au Yacht Club de Carnac.">
+<meta name="theme-color" content="#0B3A46">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Yacht Club de Carnac — École de voile & club nautique">
+<meta property="og:description" content="Apprenez à naviguer dans la Baie de Quiberon : stages enfants, cours adultes, location et régates.">
+<meta property="og:locale" content="fr_FR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Manrope:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SportsActivityLocation",
+  "name": "Yacht Club de Carnac",
+  "description": "École de voile et club nautique dans la Baie de Quiberon : stages, cours, location et régates.",
+  "sport": "Sailing",
+  "address": { "@type": "PostalAddress", "streetAddress": "Pointe de Légénèse", "addressLocality": "Carnac", "postalCode": "56340", "addressCountry": "FR" },
+  "geo": { "@type": "GeoCoordinates", "latitude": 47.5833, "longitude": -3.0833 },
+  "areaServed": "Baie de Quiberon"
+}
+</script>
+<style>
+  :root{
+    --deep:#0B3A46;      /* ocean depths */
+    --deep-2:#0E4757;
+    --sea:#14708A;       /* mid ocean */
+    --lagoon:#46B8C9;    /* turquoise shallows */
+    --lagoon-soft:#9CDDE6;
+    --foam:#EAF7F8;      /* pale foam / sky */
+    --foam-2:#F4FBFB;
+    --sand:#EFE5CC;      /* warm sand */
+    --sand-2:#E2D0A7;
+    --sun:#F4A15A;       /* coral-amber accent */
+    --sun-deep:#E8863A;
+    --ink:#0B272F;       /* text */
+    --muted:#5C7A84;
+    --white:#ffffff;
+    --line:rgba(11,58,70,.12);
+
+    --ff-display:"Fraunces",Georgia,serif;
+    --ff-body:"Manrope",system-ui,sans-serif;
+    --ff-mono:"DM Mono",ui-monospace,monospace;
+
+    --wrap:1200px;
+    --r:18px;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;background:var(--foam);color:var(--ink);
+    font-family:var(--ff-body);font-size:17px;line-height:1.65;font-weight:400;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 26px;}
+
+  h1,h2,h3{font-family:var(--ff-display);font-weight:400;line-height:1.06;letter-spacing:-.01em;margin:0;}
+  a{color:inherit;text-decoration:none;}
+  img,svg{display:block;max-width:100%;}
+
+  .eyebrow{
+    font-family:var(--ff-mono);font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--sea);font-weight:500;
+  }
+  .eyebrow.on-dark{color:var(--lagoon-soft);}
+
+  /* accessibility: skip link + focus */
+  .skip{position:absolute;left:-999px;top:0;background:var(--sun);color:var(--ink);padding:12px 18px;border-radius:0 0 10px 0;z-index:200;font-weight:600;}
+  .skip:focus{left:0;}
+  a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{
+    outline:3px solid var(--sun);outline-offset:3px;border-radius:6px;
+  }
+
+  /* ---------------- buttons ---------------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:.55em;justify-content:center;
+    font-family:var(--ff-body);font-weight:600;font-size:1rem;
+    padding:15px 26px;border-radius:100px;min-height:52px;border:0;cursor:pointer;
+    transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .3s var(--ease);
+    text-align:center;
+  }
+  .btn-sun{background:var(--sun);color:#3a1e07;box-shadow:0 10px 26px -10px rgba(232,134,58,.7);}
+  .btn-sun:hover{transform:translateY(-3px);box-shadow:0 16px 34px -10px rgba(232,134,58,.85);background:var(--sun-deep);}
+  .btn-ghost{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.5);}
+  .btn-ghost:hover{background:rgba(255,255,255,.12);border-color:#fff;transform:translateY(-3px);}
+  .btn-line{background:transparent;color:var(--deep);border:1.5px solid var(--line);}
+  .btn-line:hover{background:var(--white);border-color:var(--sea);transform:translateY(-3px);}
+  .btn .arr{transition:transform .3s var(--ease);}
+  .btn:hover .arr{transform:translateX(4px);}
+
+  /* ---------------- nav ---------------- */
+  header.nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:background .4s var(--ease),box-shadow .4s var(--ease),padding .4s var(--ease);padding:18px 0;}
+  header.nav.scrolled{background:rgba(234,247,248,.86);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line);padding:11px 0;}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;gap:20px;}
+  .brand{display:flex;align-items:center;gap:12px;color:var(--white);transition:color .4s var(--ease);}
+  header.nav.scrolled .brand{color:var(--deep);}
+  .brand .mark{width:38px;height:38px;flex:none;}
+  .brand b{font-family:var(--ff-display);font-weight:500;font-size:1.12rem;letter-spacing:-.01em;line-height:1;display:block;}
+  .brand span{font-family:var(--ff-mono);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;opacity:.75;}
+  .nav-links{display:flex;align-items:center;gap:6px;list-style:none;margin:0;padding:0;}
+  .nav-links a{
+    color:rgba(255,255,255,.92);font-weight:500;font-size:.96rem;padding:9px 14px;border-radius:100px;
+    transition:background .25s,color .25s;
+  }
+  header.nav.scrolled .nav-links a{color:var(--deep);}
+  .nav-links a:hover{background:rgba(255,255,255,.16);}
+  header.nav.scrolled .nav-links a:hover{background:rgba(11,58,70,.07);}
+  .nav-cta{display:flex;align-items:center;gap:10px;}
+  .burger{display:none;width:48px;height:48px;border:0;background:transparent;cursor:pointer;flex-direction:column;gap:5px;align-items:center;justify-content:center;}
+  .burger span{width:24px;height:2px;background:currentColor;color:#fff;transition:.3s var(--ease);border-radius:2px;}
+  header.nav.scrolled .burger span{background:var(--deep);}
+
+  /* ---------------- hero ---------------- */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;
+    background:linear-gradient(180deg,#0B3A46 0%,#0F5064 34%,#1C7C93 70%,#2F97AC 100%);}
+  /* sun */
+  .sun{position:absolute;top:16%;right:12%;width:150px;height:150px;border-radius:50%;
+    background:radial-gradient(circle at 50% 50%,#FFE7C4 0%,#F7B36B 45%,rgba(244,161,90,0) 72%);
+    filter:blur(1px);animation:sunPulse 7s ease-in-out infinite;}
+  @keyframes sunPulse{50%{transform:scale(1.08);opacity:.92;}}
+
+  /* wind streaks */
+  .wind{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+  .wind i{position:absolute;height:2px;border-radius:2px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);
+    animation:gust linear infinite;opacity:0;}
+  .wind i:nth-child(1){top:26%;width:180px;animation-duration:9s;animation-delay:0s;}
+  .wind i:nth-child(2){top:38%;width:120px;animation-duration:7s;animation-delay:2.5s;}
+  .wind i:nth-child(3){top:52%;width:220px;animation-duration:11s;animation-delay:1s;}
+  .wind i:nth-child(4){top:63%;width:90px;animation-duration:6.5s;animation-delay:4s;}
+  .wind i:nth-child(5){top:20%;width:140px;animation-duration:8s;animation-delay:5.5s;}
+  @keyframes gust{0%{transform:translateX(-260px);opacity:0;}12%{opacity:.9;}70%{opacity:.7;}100%{transform:translateX(110vw);opacity:0;}}
+
+  /* sailboat */
+  .boat{position:absolute;bottom:20%;left:8%;width:min(30vw,360px);z-index:3;
+    animation:sail 6s ease-in-out infinite;transform-origin:bottom center;}
+  @keyframes sail{0%,100%{transform:translateY(0) rotate(-2.5deg);}50%{transform:translateY(-14px) rotate(1.5deg);}}
+
+  /* layered animated sea */
+  .sea{position:absolute;left:0;right:0;bottom:0;height:42%;z-index:2;}
+  .sea .layer{position:absolute;left:0;bottom:0;width:200%;height:100%;background-repeat:repeat-x;background-position:0 bottom;background-size:50% 100%;}
+  .sea .l1{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 140' preserveAspectRatio='none'><path d='M0 46 Q150 12 300 46 T600 46 V140 H0 Z' fill='%232F97AC'/></svg>");animation:drift 13s linear infinite;opacity:.85;}
+  .sea .l2{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 140' preserveAspectRatio='none'><path d='M0 60 Q150 30 300 60 T600 60 V140 H0 Z' fill='%23197A93'/></svg>");animation:drift 9s linear infinite reverse;opacity:.9;height:80%;}
+  .sea .l3{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 140' preserveAspectRatio='none'><path d='M0 74 Q150 50 300 74 T600 74 V140 H0 Z' fill='%230C4353'/></svg>");animation:drift 17s linear infinite;height:60%;}
+  @keyframes drift{to{transform:translateX(-50%);}}
+
+  .hero-in{position:relative;z-index:5;width:100%;padding-top:96px;}
+  .hero-in .eyebrow{margin-bottom:20px;display:inline-flex;align-items:center;gap:10px;}
+  .hero-in .eyebrow::before{content:"";width:26px;height:1px;background:var(--lagoon-soft);}
+  .hero h1{color:#fff;font-size:clamp(2.9rem,7.2vw,6rem);font-weight:300;max-width:16ch;text-shadow:0 2px 30px rgba(0,20,28,.25);}
+  .hero h1 em{font-style:italic;color:var(--sand);font-weight:400;}
+  .hero .lede{color:rgba(255,255,255,.9);font-size:clamp(1.05rem,1.6vw,1.28rem);max-width:46ch;margin:26px 0 34px;line-height:1.6;}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px;}
+  .coords{position:absolute;right:26px;bottom:150px;z-index:5;text-align:right;font-family:var(--ff-mono);color:rgba(255,255,255,.65);font-size:.72rem;letter-spacing:.08em;line-height:1.9;}
+  .coords b{color:var(--sand);font-weight:500;}
+  .scrollcue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:6;color:rgba(255,255,255,.7);font-family:var(--ff-mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px;}
+  .scrollcue .m{width:22px;height:34px;border:1.5px solid rgba(255,255,255,.5);border-radius:14px;position:relative;}
+  .scrollcue .m::after{content:"";position:absolute;left:50%;top:7px;width:3px;height:7px;background:#fff;border-radius:3px;transform:translateX(-50%);animation:cue 1.7s ease-in-out infinite;}
+  @keyframes cue{0%{opacity:0;transform:translate(-50%,0);}40%{opacity:1;}80%{opacity:0;transform:translate(-50%,10px);}}
+
+  /* wave divider (section transitions) */
+  .wavesep{display:block;width:100%;height:70px;}
+  .wavesep path{fill:var(--foam);}
+
+  /* ---------------- generic section ---------------- */
+  section{position:relative;}
+  .sec-pad{padding:clamp(64px,9vw,120px) 0;}
+  .sec-head{max-width:640px;margin-bottom:56px;}
+  .sec-head h2{font-size:clamp(2rem,4.4vw,3.2rem);font-weight:400;margin:16px 0 0;}
+  .sec-head h2 em{font-style:italic;color:var(--sea);}
+  .sec-head p{color:var(--muted);font-size:1.08rem;margin:18px 0 0;}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease);}
+  .reveal.in{opacity:1;transform:none;}
+  .reveal.d1{transition-delay:.08s;}.reveal.d2{transition-delay:.16s;}.reveal.d3{transition-delay:.24s;}.reveal.d4{transition-delay:.32s;}
+
+  /* ---- club / stats band ---- */
+  .club{background:var(--foam);}
+  .club-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;}
+  .club-grid p{color:var(--muted);font-size:1.1rem;}
+  .club-grid p.lead{color:var(--ink);font-size:1.3rem;line-height:1.5;font-family:var(--ff-display);font-weight:400;}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line);border-radius:var(--r);overflow:hidden;}
+  .stat{background:var(--foam-2);padding:30px 26px;}
+  .stat .n{font-family:var(--ff-display);font-size:2.9rem;font-weight:400;color:var(--sea);line-height:1;}
+  .stat .n .u{font-size:1.3rem;color:var(--sun-deep);}
+  .stat .k{font-size:.82rem;color:var(--muted);margin-top:8px;letter-spacing:.02em;}
+
+  /* ---- activities ---- */
+  .activities{background:linear-gradient(180deg,var(--foam) 0%,#DFF1F2 100%);}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .card{background:var(--white);border-radius:var(--r);padding:32px 28px 30px;position:relative;overflow:hidden;
+    box-shadow:0 22px 40px -30px rgba(11,58,70,.4);transition:transform .4s var(--ease),box-shadow .4s var(--ease);}
+  .card:hover{transform:translateY(-8px);box-shadow:0 34px 54px -30px rgba(11,58,70,.5);}
+  .card .ic{width:52px;height:52px;border-radius:14px;background:var(--foam);display:grid;place-items:center;margin-bottom:22px;color:var(--sea);transition:background .4s,color .4s;}
+  .card:hover .ic{background:var(--sun);color:#3a1e07;}
+  .card h3{font-size:1.5rem;font-weight:500;}
+  .card p{color:var(--muted);font-size:.98rem;margin:12px 0 18px;}
+  .card .tag{font-family:var(--ff-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sun-deep);}
+  .card .more{font-weight:600;color:var(--sea);font-size:.95rem;display:inline-flex;align-items:center;gap:.4em;}
+  .card .more .arr{transition:transform .3s var(--ease);}
+  .card:hover .more .arr{transform:translateX(4px);}
+
+  /* ---- stages feature ---- */
+  .stages{background:var(--deep);color:#eaf7f8;overflow:hidden;position:relative;}
+  .stages::before{content:"";position:absolute;inset:0;background:radial-gradient(1000px 500px at 88% -10%,rgba(70,184,201,.22),transparent 60%);}
+  .stages-in{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+  .stages h2{color:#fff;font-size:clamp(2rem,4.2vw,3rem);font-weight:400;}
+  .stages h2 em{font-style:italic;color:var(--lagoon-soft);}
+  .stages .lede{color:rgba(255,255,255,.82);font-size:1.1rem;margin:20px 0 28px;max-width:44ch;}
+  .pills{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px;}
+  .pill{border:1px solid rgba(255,255,255,.24);border-radius:100px;padding:9px 16px;font-size:.9rem;font-weight:500;color:#fff;background:rgba(255,255,255,.05);}
+  .pill b{color:var(--sand);font-weight:600;}
+  .stage-list{display:flex;flex-direction:column;gap:2px;background:rgba(255,255,255,.09);border-radius:var(--r);overflow:hidden;}
+  .stage-row{display:flex;align-items:center;justify-content:space-between;gap:18px;background:rgba(11,58,70,.5);padding:20px 24px;transition:background .3s;}
+  .stage-row:hover{background:rgba(20,112,138,.55);}
+  .stage-row .t{font-family:var(--ff-display);font-size:1.25rem;color:#fff;}
+  .stage-row .d{font-size:.85rem;color:var(--lagoon-soft);margin-top:3px;}
+  .stage-row .p{font-family:var(--ff-mono);font-size:1.05rem;color:var(--sand);white-space:nowrap;}
+  .stage-row .p small{display:block;font-size:.62rem;color:rgba(255,255,255,.5);letter-spacing:.08em;text-transform:uppercase;}
+
+  /* ---- agenda ---- */
+  .agenda{background:var(--foam);}
+  .events{display:flex;flex-direction:column;}
+  .event{display:grid;grid-template-columns:120px 1fr auto;gap:26px;align-items:center;padding:26px 6px;border-top:1px solid var(--line);transition:padding .3s var(--ease),background .3s;}
+  .event:last-child{border-bottom:1px solid var(--line);}
+  .event:hover{padding-left:18px;padding-right:18px;background:var(--foam-2);border-radius:12px;}
+  .event .date{text-align:center;}
+  .event .date .day{font-family:var(--ff-display);font-size:2.4rem;line-height:1;color:var(--sea);}
+  .event .date .mon{font-family:var(--ff-mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:4px;}
+  .event .info h3{font-size:1.4rem;font-weight:500;}
+  .event .info .meta{color:var(--muted);font-size:.92rem;margin-top:5px;display:flex;gap:16px;flex-wrap:wrap;}
+  .event .cat{font-family:var(--ff-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:100px;background:var(--sand);color:#6a4c22;white-space:nowrap;}
+  .event .cat.race{background:#d6eff3;color:var(--sea);}
+
+  /* ---- eco band ---- */
+  .eco{background:linear-gradient(120deg,#EDE7D2 0%,#E7EFDD 100%);position:relative;overflow:hidden;}
+  .eco-in{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center;}
+  .eco .badge{display:inline-flex;align-items:center;gap:10px;background:#fff;border-radius:100px;padding:9px 18px;font-weight:600;font-size:.9rem;color:#3f6b3a;box-shadow:0 10px 26px -16px rgba(63,107,58,.5);}
+  .eco h2{font-size:clamp(2rem,4.2vw,3rem);font-weight:400;margin:22px 0 0;}
+  .eco h2 em{font-style:italic;color:#4b7a43;}
+  .eco p{color:#5b6a4f;font-size:1.08rem;margin:18px 0 0;}
+  .eco-points{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:14px;}
+  .eco-points li{display:flex;gap:14px;align-items:flex-start;font-size:1rem;color:#42513a;}
+  .eco-points .chk{flex:none;width:24px;height:24px;border-radius:50%;background:#4b7a43;color:#fff;display:grid;place-items:center;margin-top:2px;}
+
+  /* ---- testimonials ---- */
+  .testi{background:var(--sea);color:#fff;overflow:hidden;position:relative;}
+  .testi::after{content:"";position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(180deg,transparent,rgba(11,39,47,.25));}
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;position:relative;}
+  .quote{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);border-radius:var(--r);padding:30px 28px;backdrop-filter:blur(4px);}
+  .quote .mk{font-family:var(--ff-display);font-size:3rem;line-height:.6;color:var(--sand);opacity:.7;}
+  .quote p{font-size:1.05rem;line-height:1.55;margin:6px 0 20px;color:rgba(255,255,255,.95);}
+  .quote .who{display:flex;align-items:center;gap:12px;}
+  .quote .av{width:40px;height:40px;border-radius:50%;background:var(--sand);color:var(--deep);display:grid;place-items:center;font-weight:700;font-family:var(--ff-body);}
+  .quote .who b{font-weight:600;font-size:.95rem;}
+  .quote .who span{display:block;font-size:.8rem;color:var(--lagoon-soft);}
+
+  /* ---- booking / contact ---- */
+  .book{background:var(--foam);}
+  .book-in{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:start;}
+  .book aside .eyebrow{margin-bottom:16px;display:block;}
+  .book aside h2{font-size:clamp(2rem,4vw,2.8rem);font-weight:400;}
+  .book aside h2 em{font-style:italic;color:var(--sea);}
+  .contact-list{list-style:none;margin:34px 0 0;padding:0;display:grid;gap:22px;}
+  .contact-list li{display:flex;gap:16px;align-items:flex-start;}
+  .contact-list .ic{flex:none;width:44px;height:44px;border-radius:12px;background:var(--white);display:grid;place-items:center;color:var(--sea);box-shadow:0 10px 24px -18px rgba(11,58,70,.6);}
+  .contact-list .k{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-family:var(--ff-mono);}
+  .contact-list .v{font-weight:600;font-size:1.05rem;margin-top:2px;}
+  .contact-list .v span{display:block;font-weight:400;color:var(--muted);font-size:.92rem;}
+
+  form.card-form{background:var(--white);border-radius:calc(var(--r) + 6px);padding:36px;box-shadow:0 40px 80px -50px rgba(11,58,70,.6);}
+  .field{margin-bottom:20px;}
+  .field label{display:block;font-weight:600;font-size:.9rem;margin-bottom:8px;color:var(--ink);}
+  .field .req{color:var(--sun-deep);}
+  .field input,.field select,.field textarea{
+    width:100%;font-family:var(--ff-body);font-size:1rem;color:var(--ink);
+    padding:14px 16px;border:1.5px solid var(--line);border-radius:12px;background:var(--foam-2);
+    transition:border-color .25s,background .25s;min-height:52px;
+  }
+  .field textarea{min-height:120px;resize:vertical;}
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--sea);background:#fff;outline:none;}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .form-foot{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:6px;}
+  .form-note{font-size:.82rem;color:var(--muted);}
+  .form-msg{margin-top:14px;font-weight:600;color:#2f7d4a;display:none;}
+  .form-msg.show{display:block;}
+
+  /* ---------------- footer ---------------- */
+  footer.ft{background:var(--deep);color:rgba(255,255,255,.75);position:relative;}
+  .ft-wave{display:block;width:100%;height:60px;}
+  .ft-wave path{fill:var(--deep);}
+  .ft-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;padding:64px 0 40px;}
+  .ft h4{font-family:var(--ff-body);font-weight:600;color:#fff;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;margin:0 0 18px;}
+  .ft ul{list-style:none;margin:0;padding:0;display:grid;gap:11px;}
+  .ft a{color:rgba(255,255,255,.72);font-size:.96rem;transition:color .25s;}
+  .ft a:hover{color:var(--sand);}
+  .ft .brand{color:#fff;margin-bottom:16px;}
+  .ft .about{font-size:.95rem;line-height:1.6;max-width:34ch;}
+  .socials{display:flex;gap:10px;margin-top:20px;}
+  .socials a{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.08);display:grid;place-items:center;color:#fff;transition:background .25s,transform .25s;}
+  .socials a:hover{background:var(--sun);color:#3a1e07;transform:translateY(-3px);}
+  .news{display:flex;gap:8px;margin-top:16px;}
+  .news input{flex:1;min-height:48px;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#fff;font-family:var(--ff-body);}
+  .news input::placeholder{color:rgba(255,255,255,.5);}
+  .news button{min-height:48px;padding:0 18px;border-radius:10px;border:0;background:var(--sun);color:#3a1e07;font-weight:700;cursor:pointer;transition:background .25s;}
+  .news button:hover{background:var(--sun-deep);}
+  .ft-bot{border-top:1px solid rgba(255,255,255,.12);padding:22px 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.85rem;color:rgba(255,255,255,.55);}
+  .ft-bot a{color:rgba(255,255,255,.6);}
+  .ft-bot .legal{display:flex;gap:20px;flex-wrap:wrap;}
+
+  /* ---- stages photo gallery ---- */
+  .ph{position:relative;overflow:hidden;border-radius:16px;display:grid;place-items:center;
+    background:linear-gradient(150deg,#166275 0%,#0d4453 58%,#0a3644 100%);}
+  .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .ph-motif{width:42%;max-width:120px;color:#9CDDE6;opacity:.34;position:relative;}
+  .ph-lg{aspect-ratio:5/6;}
+  .ph-card{aspect-ratio:4/3;border-radius:0;}
+  .featured-photo{margin:0;}
+  .featured-photo figcaption{font-family:var(--ff-mono);font-size:.74rem;letter-spacing:.05em;color:var(--lagoon-soft);margin-top:14px;text-align:center;}
+  .stage-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:56px;}
+  .sg-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:18px;overflow:hidden;transition:transform .4s var(--ease),background .4s;}
+  .sg-card:hover{transform:translateY(-6px);background:rgba(255,255,255,.1);}
+  .sg-body{padding:20px 22px 22px;}
+  .sg-age{font-family:var(--ff-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sand);}
+  .sg-body h3{color:#fff;font-size:1.28rem;font-weight:500;margin:8px 0 0;line-height:1.15;}
+  .sg-foot{display:flex;align-items:center;justify-content:space-between;margin-top:16px;gap:12px;}
+  .sg-price{font-family:var(--ff-mono);color:var(--lagoon-soft);font-size:1.02rem;}
+  .sg-link{color:var(--sun);font-weight:600;font-size:.92rem;display:inline-flex;align-items:center;gap:.35em;min-height:44px;}
+  .sg-link:hover{color:#fff;}
+  .sg-link .arr{transition:transform .3s var(--ease);}
+  .sg-link:hover .arr{transform:translateX(3px);}
+
+  /* ---------------- responsive ---------------- */
+  @media (max-width:960px){
+    .club-grid,.stages-in,.eco-in,.book-in{grid-template-columns:1fr;gap:40px;}
+    .cards,.testi-grid{grid-template-columns:1fr 1fr;}
+    .ft-top{grid-template-columns:1fr 1fr;gap:34px;}
+    .boat{bottom:16%;width:44vw;}
+    .coords{display:none;}
+  }
+  @media (max-width:720px){
+    .nav-links{
+      position:fixed;inset:0 0 0 auto;width:min(80vw,320px);background:var(--deep);
+      flex-direction:column;align-items:stretch;gap:4px;padding:96px 22px 30px;
+      transform:translateX(100%);transition:transform .4s var(--ease);box-shadow:-20px 0 60px -30px rgba(0,0,0,.6);
+    }
+    .nav-links.open{transform:none;}
+    .nav-links a{color:#fff!important;font-size:1.1rem;padding:14px 16px;border-radius:12px;}
+    .nav-links a:hover{background:rgba(255,255,255,.1)!important;}
+    .burger{display:flex;color:#fff;}
+    header.nav .nav-cta .btn{display:none;}
+    .cards,.testi-grid{grid-template-columns:1fr;}
+    .ft-top{grid-template-columns:1fr;}
+    .field-row{grid-template-columns:1fr;}
+    .event{grid-template-columns:64px 1fr;gap:16px;}
+    .event .cat{grid-column:2;justify-self:start;}
+    .event .date .day{font-size:1.9rem;}
+    .stage-row{flex-direction:column;align-items:flex-start;gap:8px;}
+    .stage-row .p{text-align:left;}
+    body{font-size:16px;}
+  }
+
+  /* ---------------- reduced motion ---------------- */
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important;}
+    .reveal{opacity:1;transform:none;}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#" aria-label="Yacht Club de Carnac — accueil">
+      <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".5"/><path d="M20 7 L20 27 M20 9 L31 25 L20 25 Z M20 12 L11 25 L20 25 Z" fill="currentColor" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M9 30 Q20 35 31 30" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <span style="display:block"><b>Yacht Club de Carnac</b><span>Baie de Quiberon</span></span>
+    </a>
+    <nav aria-label="Navigation principale">
+      <ul class="nav-links" id="navlinks">
+        <li><a href="#club">Le club</a></li>
+        <li><a href="#activites">Activités</a></li>
+        <li><a href="#stages">Stages</a></li>
+        <li><a href="#agenda">Régates</a></li>
+        <li><a href="#eco">Écoresponsable</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a href="#reserver" class="btn btn-sun">Réserver</a>
+      <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navlinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="contenu">
+
+<!-- ================= HERO ================= -->
+<section class="hero" aria-label="Introduction">
+  <div class="sun" aria-hidden="true"></div>
+  <div class="wind" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+
+  <!-- sailboat -->
+  <svg class="boat" viewBox="0 0 300 320" aria-hidden="true">
+    <path d="M150 20 L150 240" stroke="#F4FBFB" stroke-width="4" stroke-linecap="round"/>
+    <path d="M150 34 C 210 90 236 150 244 214 L150 214 Z" fill="#F4FBFB"/>
+    <path d="M150 34 C 150 34 150 214 150 214 L150 214 Z"/>
+    <path d="M142 60 C 96 110 78 170 74 214 L142 214 Z" fill="#EFE5CC"/>
+    <path d="M150 16 L176 24 L150 34 Z" fill="#F4A15A"/>
+    <path d="M54 246 L246 246 C 240 286 210 300 150 300 C 90 300 60 286 54 246 Z" fill="#0B272F"/>
+    <path d="M64 254 L236 254" stroke="#14708A" stroke-width="3" stroke-linecap="round" opacity=".6"/>
+  </svg>
+
+  <!-- animated sea -->
+  <div class="sea" aria-hidden="true">
+    <div class="layer l1"></div>
+    <div class="layer l3"></div>
+    <div class="layer l2"></div>
+  </div>
+
+  <div class="wrap hero-in">
+    <span class="eyebrow on-dark">École de voile · Club nautique</span>
+    <h1>Larguez les amarres en <em>Baie de Quiberon</em></h1>
+    <p class="lede">Depuis Carnac-Plage, apprenez à naviguer, embarquez pour une sortie ou lancez-vous en régate — face à l'un des plus beaux plans d'eau de Bretagne.</p>
+    <div class="hero-cta">
+      <a href="#stages" class="btn btn-sun">Découvrir les stages <span class="arr" aria-hidden="true">→</span></a>
+      <a href="#reserver" class="btn btn-ghost">Réserver une sortie</a>
+    </div>
+  </div>
+
+  <div class="coords" aria-hidden="true">
+    <div>CARNAC · MORBIHAN</div>
+    <div><b>47.5833° N &nbsp; 3.0833° O</b></div>
+    <div>Vent d'ouest · marée montante</div>
+  </div>
+
+  <a class="scrollcue" href="#club" aria-label="Faire défiler vers le bas">
+    <span class="m" aria-hidden="true"></span>
+    Explorer
+  </a>
+</section>
+
+<svg class="wavesep" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 C 240 10 480 10 720 34 C 960 58 1200 58 1440 30 L1440 70 L0 70 Z"/></svg>
+
+<!-- ================= CLUB ================= -->
+<section class="club sec-pad" id="club">
+  <div class="wrap club-grid">
+    <div class="reveal">
+      <span class="eyebrow">Le club</span>
+      <p class="lead" style="margin-top:16px">Un club à taille humaine, ouvert à tous — du premier bord au perfectionnement en régate.</p>
+      <p>Installé sur la pointe de Légénèse, le Yacht Club de Carnac fait naviguer petits et grands toute l'année dans la Baie de Quiberon. Encadrement diplômé d'État, flotte entretenue et esprit convivial : ici, on prend le large en confiance, quel que soit son niveau.</p>
+      <p style="margin-top:22px"><a href="#activites" class="btn btn-line">Voir nos activités <span class="arr" aria-hidden="true">→</span></a></p>
+    </div>
+    <div class="stats reveal d1" role="list" aria-label="Le club en chiffres">
+      <div class="stat" role="listitem"><div class="n" data-count="45">0</div><div class="k">années au service de la voile</div></div>
+      <div class="stat" role="listitem"><div class="n" data-count="900"><span class="u">+</span></div><div class="k">adhérents chaque saison</div></div>
+      <div class="stat" role="listitem"><div class="n" data-count="80"><span class="u">+</span></div><div class="k">supports dans la flotte</div></div>
+      <div class="stat" role="listitem"><div class="n" data-count="12" data-suffix=" mois">0</div><div class="k">de navigation par an</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ACTIVITÉS ================= -->
+<section class="activities sec-pad" id="activites">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Nos activités</span>
+      <h2>Une envie de large, <em>plusieurs façons</em> d'y répondre</h2>
+      <p>Que vous vouliez apprendre, vous perfectionner ou simplement profiter d'une belle journée en mer, il y a une formule pour vous.</p>
+    </div>
+    <div class="cards">
+      <article class="card reveal">
+        <div class="ic" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v16M12 5c4 3 6 7 6 11H12zM11 8c-3 2.5-4.5 5.5-4.5 8H11z"/><path d="M4 21h16"/></svg></div>
+        <span class="tag">4 à 17 ans</span>
+        <h3>Stages enfants &amp; ados</h3>
+        <p>Une semaine pour apprendre à barrer, régler et prendre le vent, en petits groupes de niveau, du moussaillon au régatier.</p>
+        <a href="#stages" class="more">En savoir plus <span class="arr" aria-hidden="true">→</span></a>
+      </article>
+      <article class="card reveal d1">
+        <div class="ic" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 1 3 3c0 2-3 5-3 5s-3-3-3-5a3 3 0 0 1 3-3Z"/><circle cx="12" cy="5" r="1"/><path d="M4 21c1.5-2 3-2 4 0M8 21c1.5-2 3-2 4 0M12 21c1.5-2 3-2 4 0M16 21c1.5-2 3-2 4 0"/></svg></div>
+        <span class="tag">Dès 16 ans</span>
+        <h3>Cours particuliers</h3>
+        <p>Un moniteur rien que pour vous ou votre équipage, pour progresser vite sur le support de votre choix.</p>
+        <a href="#reserver" class="more">Prendre rendez-vous <span class="arr" aria-hidden="true">→</span></a>
+      </article>
+      <article class="card reveal d2">
+        <div class="ic" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15c3 2 6 2 9 0s6-2 9 0"/><path d="M3 19c3 2 6 2 9 0s6-2 9 0"/><path d="M13 3l3 8H6l4-3"/><path d="M13 3v8"/></svg></div>
+        <span class="tag">Sans réservation compliquée</span>
+        <h3>Location de supports</h3>
+        <p>Catamaran, planche, kayak ou stand-up paddle : embarquez à l'heure ou à la journée, dès que la météo s'y prête.</p>
+        <a href="#reserver" class="more">Vérifier les dispos <span class="arr" aria-hidden="true">→</span></a>
+      </article>
+      <article class="card reveal">
+        <div class="ic" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V5a2 2 0 0 1 2-2h6l-1 3 1 3H7"/><path d="M5 21h6"/><circle cx="17" cy="16" r="4"/><path d="M17 14v2l1.5 1"/></svg></div>
+        <span class="tag">Toute l'année</span>
+        <h3>Sorties découverte</h3>
+        <p>Deux heures pour goûter à la voile sans engagement, encadré et en toute sécurité, seul, en famille ou entre amis.</p>
+        <a href="#reserver" class="more">Réserver une sortie <span class="arr" aria-hidden="true">→</span></a>
+      </article>
+      <article class="card reveal d1">
+        <div class="ic" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0Z"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><path d="M12 12l4-2"/></svg></div>
+        <span class="tag">Licenciés &amp; visiteurs</span>
+        <h3>Régates &amp; compétition</h3>
+        <p>Un calendrier animé toute la saison, des régates du mercredi aux grands rendez-vous de la baie.</p>
+        <a href="#agenda" class="more">Voir le calendrier <span class="arr" aria-hidden="true">→</span></a>
+      </article>
+      <article class="card reveal d2">
+        <div class="ic" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"/><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8V5M9 5h6M9.5 5c0-1.5.8-2.5 2.5-2.5"/></svg></div>
+        <span class="tag">Idée cadeau</span>
+        <h3>Carte cadeau</h3>
+        <p>Offrez une journée au grand air : une carte à utiliser librement sur les stages, cours et sorties.</p>
+        <a href="#reserver" class="more">Offrir la voile <span class="arr" aria-hidden="true">→</span></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STAGES ================= -->
+<section class="stages sec-pad" id="stages">
+  <div class="wrap stages-in">
+    <div class="reveal">
+      <span class="eyebrow on-dark">Stages de voile</span>
+      <h2>Une semaine, et la mer devient <em>un terrain de jeu</em></h2>
+      <p class="lede">Cinq matinées ou après-midis pour gagner en autonomie, dans une ambiance où l'on apprend vraiment en s'amusant. Groupes de niveau, matériel adapté à chaque âge, et toujours un moniteur diplômé à bord.</p>
+      <div class="pills" role="list" aria-label="Tranches d'âge">
+        <span class="pill" role="listitem">Jardin des mers · <b>4-6 ans</b></span>
+        <span class="pill" role="listitem">Moussaillons · <b>7-10 ans</b></span>
+        <span class="pill" role="listitem">Optimist &amp; cata · <b>11-14 ans</b></span>
+        <span class="pill" role="listitem">Perfectionnement · <b>15-17 ans</b></span>
+      </div>
+      <a href="#reserver" class="btn btn-sun">Inscrire un enfant <span class="arr" aria-hidden="true">→</span></a>
+    </div>
+    <div class="stage-list reveal d1" role="list" aria-label="Exemples de stages">
+      <div class="stage-row" role="listitem">
+        <div><div class="t">Jardin des mers</div><div class="d">4-6 ans · optimist &amp; découverte à flot</div></div>
+        <div class="p">dès 95 €<small>la semaine</small></div>
+      </div>
+      <div class="stage-row" role="listitem">
+        <div><div class="t">Moussaillons</div><div class="d">7-10 ans · optimist, initiation au réglage</div></div>
+        <div class="p">dès 145 €<small>la semaine</small></div>
+      </div>
+      <div class="stage-row" role="listitem">
+        <div><div class="t">Cap sur le catamaran</div><div class="d">11-14 ans · catamaran &amp; planche</div></div>
+        <div class="p">dès 185 €<small>la semaine</small></div>
+      </div>
+      <div class="stage-row" role="listitem">
+        <div><div class="t">Perfectionnement ado</div><div class="d">15-17 ans · vitesse, régate, autonomie</div></div>
+        <div class="p">dès 195 €<small>la semaine</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="wavesep" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" style="transform:rotate(180deg)"><path d="M0 40 C 240 10 480 10 720 34 C 960 58 1200 58 1440 30 L1440 70 L0 70 Z" style="fill:var(--deep)"/></svg>
+
+<!-- ================= AGENDA ================= -->
+<section class="agenda sec-pad" id="agenda">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Régates &amp; événements</span>
+      <h2>Les prochains <em>rendez-vous</em> de la baie</h2>
+      <p>Le calendrier de la saison, mis à jour au fil de l'eau. Ouvert aux licenciés comme aux curieux venus encourager depuis la plage.</p>
+    </div>
+    <div class="events reveal d1">
+      <div class="event">
+        <div class="date"><div class="day">14</div><div class="mon">Juin</div></div>
+        <div class="info"><h3>Régate du mercredi — 1re manche</h3><div class="meta"><span>18 h 30 · plan d'eau de Légénèse</span><span>Habitables &amp; dériveurs</span></div></div>
+        <span class="cat race">Régate</span>
+      </div>
+      <div class="event">
+        <div class="date"><div class="day">28</div><div class="mon">Juin</div></div>
+        <div class="info"><h3>Fête de la voile &amp; portes ouvertes</h3><div class="meta"><span>Toute la journée · gratuit</span><span>Essais &amp; démonstrations</span></div></div>
+        <span class="cat">Événement</span>
+      </div>
+      <div class="event">
+        <div class="date"><div class="day">12</div><div class="mon">Juil</div></div>
+        <div class="info"><h3>Les 2 Heures de Carnac</h3><div class="meta"><span>14 h · départ de la grande plage</span><span>Catamarans</span></div></div>
+        <span class="cat race">Régate</span>
+      </div>
+      <div class="event">
+        <div class="date"><div class="day">23</div><div class="mon">Août</div></div>
+        <div class="info"><h3>Trophée de la Baie de Quiberon</h3><div class="meta"><span>Week-end · 2 jours de course</span><span>Toutes séries</span></div></div>
+        <span class="cat race">Régate</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ECO ================= -->
+<section class="eco sec-pad" id="eco">
+  <div class="wrap eco-in">
+    <div class="reveal">
+      <span class="badge"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9 6c4-2 8-2 10 0 1 5-1 12-8 14Z"/><path d="M9 20c0-4 2-8 6-10"/></svg> Voile écoresponsable</span>
+      <h2>Naviguer <em>propre</em>, ça commence à terre</h2>
+      <p>La mer est notre terrain : on en prend soin. Du choix du matériel aux gestes du quotidien, le club s'engage pour une pratique douce avec la baie et son littoral.</p>
+    </div>
+    <div class="reveal d1">
+      <ul class="eco-points">
+        <li><span class="chk" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l6 6L20 6"/></svg></span> Régates « propres » : zéro déchet à bord et récupération des mouillages.</li>
+        <li><span class="chk" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l6 6L20 6"/></svg></span> Sensibilisation à la faune et aux herbiers de la Baie de Quiberon pendant les stages.</li>
+        <li><span class="chk" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l6 6L20 6"/></svg></span> Entretien du matériel privilégié à l'achat neuf, produits d'hivernage éco-labellisés.</li>
+        <li><span class="chk" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l6 6L20 6"/></svg></span> Un site web léger et sobre — parce que le numérique aussi a une empreinte.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="testi sec-pad">
+  <div class="wrap">
+    <div class="sec-head reveal" style="max-width:660px">
+      <span class="eyebrow on-dark">Ils naviguent avec nous</span>
+      <h2 style="color:#fff">Des souvenirs plein <em style="color:var(--sand)">les voiles</em></h2>
+    </div>
+    <div class="testi-grid">
+      <figure class="quote reveal">
+        <div class="mk" aria-hidden="true">“</div>
+        <p>Ma fille est rentrée de son stage avec des étoiles plein les yeux — et elle sait désormais border sa voile toute seule. Moniteurs au top, groupe bienveillant.</p>
+        <figcaption class="who"><span class="av" aria-hidden="true">CL</span><span><b>Camille L.</b><span>Stage Moussaillons · juillet</span></span></figcaption>
+      </figure>
+      <figure class="quote reveal d1">
+        <div class="mk" aria-hidden="true">“</div>
+        <p>Débutant complet, j'ai pris trois cours particuliers avant l'été. Résultat : j'ai loué un catamaran seul en août. Pédagogie claire et rassurante.</p>
+        <figcaption class="who"><span class="av" aria-hidden="true">TR</span><span><b>Thomas R.</b><span>Cours particuliers · printemps</span></span></figcaption>
+      </figure>
+      <figure class="quote reveal d2">
+        <div class="mk" aria-hidden="true">“</div>
+        <p>On vient en famille depuis trois ans pour la sortie découverte. La baie est magnifique et l'accueil toujours aussi chaleureux. On reviendra !</p>
+        <figcaption class="who"><span class="av" aria-hidden="true">NA</span><span><b>Nadia A.</b><span>Sortie découverte · août</span></span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BOOKING / CONTACT ================= -->
+<section class="book sec-pad" id="reserver">
+  <div class="wrap book-in">
+    <aside class="reveal">
+      <span class="eyebrow">Réserver &amp; nous trouver</span>
+      <h2>Prêt à prendre <em>le large</em> ?</h2>
+      <p style="color:var(--muted);margin-top:16px;font-size:1.08rem">Dites-nous ce qui vous ferait plaisir : on vous rappelle pour caler la date et le support. Réponse sous 24 h en saison.</p>
+      <ul class="contact-list">
+        <li>
+          <span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+          <div><div class="k">Base nautique</div><div class="v">Pointe de Légénèse<span>56340 Carnac-Plage</span></div></div>
+        </li>
+        <li>
+          <span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L20 13l2 5v2a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg></span>
+          <div><div class="k">Téléphone</div><div class="v">02 97 52 10 98<span>Lun-sam · 9 h-18 h</span></div></div>
+        </li>
+        <li>
+          <span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+          <div><div class="k">E-mail</div><div class="v">contact@yccarnac.com</div></div>
+        </li>
+      </ul>
+    </aside>
+
+    <form class="card-form reveal d1" id="bookform" novalidate>
+      <div class="field-row">
+        <div class="field">
+          <label for="fn">Prénom <span class="req" aria-hidden="true">*</span></label>
+          <input id="fn" name="prenom" type="text" autocomplete="given-name" required>
+        </div>
+        <div class="field">
+          <label for="ln">Nom <span class="req" aria-hidden="true">*</span></label>
+          <input id="ln" name="nom" type="text" autocomplete="family-name" required>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="em">E-mail <span class="req" aria-hidden="true">*</span></label>
+          <input id="em" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="ph">Téléphone</label>
+          <input id="ph" name="telephone" type="tel" autocomplete="tel">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="act">Ce qui vous intéresse <span class="req" aria-hidden="true">*</span></label>
+          <select id="act" name="activite" required>
+            <option value="" selected disabled>Choisir une activité…</option>
+            <option>Stage enfant / ado</option>
+            <option>Cours particulier</option>
+            <option>Location de support</option>
+            <option>Sortie découverte</option>
+            <option>Régate / compétition</option>
+            <option>Carte cadeau</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="per">Période souhaitée</label>
+          <input id="per" name="periode" type="text" placeholder="ex. semaine du 14 juillet">
+        </div>
+      </div>
+      <div class="field">
+        <label for="msg">Votre message</label>
+        <textarea id="msg" name="message" placeholder="Niveau, nombre de personnes, âge des enfants…"></textarea>
+      </div>
+      <div class="form-foot">
+        <button type="submit" class="btn btn-sun">Envoyer ma demande <span class="arr" aria-hidden="true">→</span></button>
+        <span class="form-note">Réponse sous 24 h · sans engagement</span>
+      </div>
+      <p class="form-msg" id="formmsg" role="status">Merci ! Votre demande est bien notée — on vous recontacte très vite. 🌊</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="ft">
+  <svg class="ft-wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30 C 240 55 480 55 720 32 C 960 9 1200 9 1440 34 L1440 60 L0 60 Z"/></svg>
+  <div class="wrap">
+    <div class="ft-top">
+      <div>
+        <a class="brand" href="#" aria-label="Yacht Club de Carnac — accueil">
+          <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".5"/><path d="M20 7 L20 27 M20 9 L31 25 L20 25 Z M20 12 L11 25 L20 25 Z" fill="currentColor" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M9 30 Q20 35 31 30" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <span style="display:block"><b>Yacht Club de Carnac</b><span>Baie de Quiberon</span></span>
+        </a>
+        <p class="about">L'école de voile et le club nautique de Carnac-Plage. On vous apprend la mer, on vous la fait aimer.</p>
+        <div class="socials">
+          <a href="#" aria-label="Suivez-nous sur Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3c-2.2 0-4 1.8-4 4v2H7v4h3v6h4v-6h3l1-4h-4V8c0-.6.4-1 1-1Z"/></svg></a>
+          <a href="#" aria-label="Suivez-nous sur Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="Notre chaîne YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 8.2a3 3 0 0 0-2.1-2.1C18 5.5 12 5.5 12 5.5s-6 0-7.9.6A3 3 0 0 0 2 8.2 31 31 0 0 0 2 12a31 31 0 0 0 .1 3.8 3 3 0 0 0 2.1 2.1c1.9.6 7.8.6 7.8.6s6 0 7.9-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 22 12a31 31 0 0 0-.1-3.8ZM10 15V9l5 3-5 3Z"/></svg></a>
+        </div>
+      </div>
+      <nav aria-label="Activités">
+        <h4>Naviguer</h4>
+        <ul>
+          <li><a href="#stages">Stages enfants &amp; ados</a></li>
+          <li><a href="#activites">Cours particuliers</a></li>
+          <li><a href="#activites">Location de supports</a></li>
+          <li><a href="#activites">Sorties découverte</a></li>
+          <li><a href="#agenda">Régates</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Le club">
+        <h4>Le club</h4>
+        <ul>
+          <li><a href="#club">Qui sommes-nous</a></li>
+          <li><a href="#eco">Voile écoresponsable</a></li>
+          <li><a href="#agenda">Agenda de la saison</a></li>
+          <li><a href="#reserver">Carte cadeau</a></li>
+          <li><a href="#reserver">Nous contacter</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h4>La lettre de la baie</h4>
+        <p class="about" style="margin-bottom:0">Programmes, météo des stages et dates de régates, une fois par mois.</p>
+        <form class="news" aria-label="Inscription à la newsletter" onsubmit="return false">
+          <label for="nl" class="skip">Votre e-mail</label>
+          <input id="nl" type="email" placeholder="votre@email.fr" autocomplete="email">
+          <button type="submit">OK</button>
+        </form>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <div>© 2026 Yacht Club de Carnac · Pointe de Légénèse, Carnac-Plage</div>
+      <div class="legal">
+        <a href="#">Mentions légales</a>
+        <a href="#">Confidentialité</a>
+        <a href="#">Accessibilité</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // nav solidify on scroll
+  var nav = document.getElementById('nav');
+  function onScroll(){ nav.classList.toggle('scrolled', window.scrollY > 40); }
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  // mobile menu
+  var burger = document.getElementById('burger');
+  var links = document.getElementById('navlinks');
+  burger.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+  });
+  links.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){ links.classList.remove('open'); burger.setAttribute('aria-expanded','false'); }
+  });
+
+  // reveal on scroll
+  var revs = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window && !reduce){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+    }, {threshold:.14, rootMargin:'0px 0px -8% 0px'});
+    revs.forEach(function(r){ io.observe(r); });
+  } else {
+    revs.forEach(function(r){ r.classList.add('in'); });
+  }
+
+  // count-up stats
+  function countUp(el){
+    var target = parseFloat(el.getAttribute('data-count'));
+    var suffix = el.getAttribute('data-suffix') || '';
+    var uNode = el.querySelector('.u');
+    var uHTML = uNode ? uNode.outerHTML : '';
+    if(reduce){ el.innerHTML = target + suffix + uHTML; return; }
+    var start = null, dur = 1400;
+    function step(ts){
+      if(!start) start = ts;
+      var p = Math.min((ts-start)/dur, 1);
+      var eased = 1 - Math.pow(1-p, 3);
+      var val = Math.round(target * eased);
+      el.innerHTML = val + suffix + uHTML;
+      if(p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var statNodes = document.querySelectorAll('[data-count]');
+  if('IntersectionObserver' in window){
+    var io2 = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ countUp(en.target); io2.unobserve(en.target);} });
+    }, {threshold:.6});
+    statNodes.forEach(function(n){ io2.observe(n); });
+  } else { statNodes.forEach(countUp); }
+
+  // subtle hero parallax
+  if(!reduce){
+    var boat = document.querySelector('.boat');
+    var sun = document.querySelector('.sun');
+    window.addEventListener('pointermove', function(e){
+      var x = (e.clientX / window.innerWidth - .5);
+      var y = (e.clientY / window.innerHeight - .5);
+      if(boat) boat.style.marginLeft = (x*18) + 'px';
+      if(sun) sun.style.transform = 'translate('+(x*-22)+'px,'+(y*-12)+'px)';
+    }, {passive:true});
+  }
+
+  // booking form (demo)
+  var form = document.getElementById('bookform');
+  var msg = document.getElementById('formmsg');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!form.checkValidity()){ form.reportValidity(); return; }
+    msg.classList.add('show');
+    form.querySelector('button[type=submit]').textContent = 'Demande envoyée ✓';
+  });
+})();
+</script>
+</body>
+</html>
