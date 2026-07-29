@@ -212,6 +212,16 @@
   .award{display:inline-flex;align-items:center;gap:10px;background:var(--white);border:1px solid var(--line);border-radius:100px;padding:11px 20px;font-weight:600;font-size:.92rem;color:var(--deep);box-shadow:0 12px 28px -20px rgba(11,58,70,.55);}
   .award svg{color:var(--sun-deep);flex:none;}
   .award b{color:var(--sea);font-weight:700;}
+  /* affiliations (logos) + photo du club */
+  .club-labels{display:flex;align-items:center;gap:14px;margin:26px 0 0;flex-wrap:wrap;}
+  .club-labels .lbl{font-family:var(--ff-mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);}
+  .club-labels img{height:30px;width:auto;}
+  .club-labels .efv{font-weight:600;color:var(--sea);font-size:.92rem;}
+  .club-photo{position:relative;margin:56px 0 0;border-radius:var(--r);overflow:hidden;box-shadow:0 30px 60px -40px rgba(11,58,70,.6);}
+  .club-photo img{display:block;width:100%;height:clamp(230px,36vw,420px);object-fit:cover;object-position:center 46%;}
+  .club-photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 24px 15px;color:#fff;
+    font-family:var(--ff-mono);font-size:.72rem;letter-spacing:.04em;
+    background:linear-gradient(0deg,rgba(6,24,31,.78),rgba(6,24,31,0));}
 
   /* ---- activities ---- */
   .activities{background:linear-gradient(180deg,var(--foam) 0%,#DFF1F2 100%);}
@@ -518,6 +528,11 @@
       <span class="eyebrow">Le club</span>
       <p class="lead" style="margin-top:16px">Depuis Port en Dro, <em>60 ans de passion</em> de la voile, partagée avec petits et grands.</p>
       <p>Le Yacht Club de Carnac fait naviguer tout le monde, toute l'année, sur l'une des plus belles bases nautiques d'Europe. Encadrement diplômé d'État, flotte entretenue et esprit convivial : ici, on prend le large en confiance — dès 4 ans et quel que soit son niveau.</p>
+      <div class="club-labels reveal">
+        <span class="lbl">Club affilié</span>
+        <img src="img/logo-ffvoile.png" alt="Fédération Française de Voile" width="72" height="30">
+        <span class="efv">· École Française de Voile</span>
+      </div>
       <p style="margin-top:24px"><a href="#activites" class="btn btn-line">Voir nos activités <span class="arr" aria-hidden="true">→</span></a></p>
     </div>
     <div class="stats reveal d1" role="list" aria-label="Le club en chiffres">
@@ -526,6 +541,12 @@
       <div class="stat" role="listitem"><div class="n" data-count="12" data-suffix=" mois">0</div><div class="k">de navigation par an</div></div>
       <div class="stat" role="listitem"><div class="n" data-count="2">0</div><div class="k">fois élue meilleure école de France</div></div>
     </div>
+  </div>
+  <div class="wrap">
+    <figure class="club-photo reveal d1">
+      <img src="img/club.jpg" alt="La flotte d'optimists du Yacht Club de Carnac devant Carnac, en Baie de Quiberon" loading="lazy" width="1500" height="705">
+      <figcaption>La flotte du club devant Carnac — Baie de Quiberon · © YCC / P. Maheo</figcaption>
+    </figure>
   </div>
 </section>
 
