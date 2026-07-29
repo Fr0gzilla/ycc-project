@@ -20,8 +20,11 @@
   "name": "Yacht Club de Carnac",
   "description": "École de voile et club nautique dans la Baie de Quiberon : stages, cours, location et régates.",
   "sport": "Sailing",
-  "address": { "@type": "PostalAddress", "streetAddress": "Pointe de Légénèse", "addressLocality": "Carnac", "postalCode": "56340", "addressCountry": "FR" },
-  "geo": { "@type": "GeoCoordinates", "latitude": 47.5833, "longitude": -3.0833 },
+  "address": { "@type": "PostalAddress", "streetAddress": "Port en Dro", "addressLocality": "Carnac", "postalCode": "56340", "addressCountry": "FR" },
+  "geo": { "@type": "GeoCoordinates", "latitude": 47.577, "longitude": -3.076 },
+  "telephone": "+33297521098",
+  "email": "infos@yccarnac.com",
+  "url": "https://www.yccarnac.com/",
   "areaServed": "Baie de Quiberon"
 }
 </script>
@@ -102,6 +105,9 @@
   .brand{display:flex;align-items:center;gap:12px;color:var(--white);transition:color .4s var(--ease);}
   header.nav.scrolled .brand{color:var(--deep);}
   .brand .mark{width:38px;height:38px;flex:none;}
+  .brand-logo{height:46px;width:auto;flex:none;filter:brightness(0) invert(1);transition:filter .4s var(--ease);}
+  header.nav.scrolled .brand-logo{filter:none;}
+  header.nav.scrolled .brand{color:var(--deep);}
   .brand b{font-family:var(--ff-display);font-weight:500;font-size:1.12rem;letter-spacing:-.01em;line-height:1;display:block;}
   .brand span{font-family:var(--ff-mono);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;opacity:.75;}
   .nav-links{display:flex;align-items:center;gap:6px;list-style:none;margin:0;padding:0;}
@@ -381,8 +387,7 @@
 <header class="nav" id="nav">
   <div class="wrap nav-in">
     <a class="brand" href="#" aria-label="Yacht Club de Carnac — accueil">
-      <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".5"/><path d="M20 7 L20 27 M20 9 L31 25 L20 25 Z M20 12 L11 25 L20 25 Z" fill="currentColor" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M9 30 Q20 35 31 30" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-      <span style="display:block"><b>Yacht Club de Carnac</b><span>Baie de Quiberon</span></span>
+      <img class="brand-logo" src="logo-yccarnac.svg" alt="Yacht Club de Carnac" width="93" height="46">
     </a>
     <nav aria-label="Navigation principale">
       <ul class="nav-links" id="navlinks">
@@ -394,7 +399,7 @@
       </ul>
     </nav>
     <div class="nav-cta">
-      <a href="#reserver" class="btn btn-sun">Réserver</a>
+      <a href="https://yccarnac.ouiresa.fr/" target="_blank" rel="noopener" class="btn btn-sun">Réserver</a>
       <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navlinks">
         <span></span><span></span><span></span>
       </button>
@@ -430,16 +435,16 @@
   <div class="wrap hero-in">
     <span class="eyebrow on-dark">École de voile · Club nautique</span>
     <h1>Larguez les amarres en <em>Baie de Quiberon</em></h1>
-    <p class="lede">Depuis Carnac-Plage, apprenez à naviguer, embarquez pour une sortie ou lancez-vous en régate — face à l'un des plus beaux plans d'eau de Bretagne.</p>
+    <p class="lede">Depuis Port en Dro à Carnac, apprenez à naviguer, embarquez pour une sortie ou lancez-vous en régate — face à l'un des plus beaux plans d'eau de Bretagne.</p>
     <div class="hero-cta">
       <a href="#stages" class="btn btn-sun">Découvrir les stages <span class="arr" aria-hidden="true">→</span></a>
-      <a href="#reserver" class="btn btn-ghost">Réserver une sortie</a>
+      <a href="https://yccarnac.ouiresa.fr/" target="_blank" rel="noopener" class="btn btn-ghost">Réserver une sortie</a>
     </div>
   </div>
 
   <div class="coords" aria-hidden="true">
     <div>CARNAC · MORBIHAN</div>
-    <div><b>47.5833° N &nbsp; 3.0833° O</b></div>
+    <div><b>47.577° N &nbsp; 3.076° O</b></div>
     <div>Vent d'ouest · marée montante</div>
   </div>
 
@@ -457,13 +462,13 @@
     <div class="reveal">
       <span class="eyebrow">Le club</span>
       <p class="lead" style="margin-top:16px">Un club à taille humaine, ouvert à tous — du premier bord au perfectionnement en régate.</p>
-      <p>Installé sur la pointe de Légénèse, le Yacht Club de Carnac fait naviguer petits et grands toute l'année dans la Baie de Quiberon. Encadrement diplômé d'État, flotte entretenue et esprit convivial : ici, on prend le large en confiance, quel que soit son niveau.</p>
+      <p>Installé à Port en Dro, le Yacht Club de Carnac fait naviguer petits et grands toute l'année dans la Baie de Quiberon. Encadrement diplômé d'État, flotte entretenue et esprit convivial : ici, on prend le large en confiance, quel que soit son niveau.</p>
       <p style="margin-top:22px"><a href="#activites" class="btn btn-line">Voir nos activités <span class="arr" aria-hidden="true">→</span></a></p>
     </div>
     <div class="stats reveal d1" role="list" aria-label="Le club en chiffres">
-      <div class="stat" role="listitem"><div class="n" data-count="45">0</div><div class="k">années au service de la voile</div></div>
-      <div class="stat" role="listitem"><div class="n" data-count="900"><span class="u">+</span></div><div class="k">adhérents chaque saison</div></div>
-      <div class="stat" role="listitem"><div class="n" data-count="80"><span class="u">+</span></div><div class="k">supports dans la flotte</div></div>
+      <div class="stat" role="listitem"><div class="n" data-count="60">0</div><div class="k">années au service de la voile</div></div>
+      <div class="stat" role="listitem"><div class="n" data-count="2">0</div><div class="k">fois « Meilleure école française de voile »</div></div>
+      <div class="stat" role="listitem"><div class="n" data-count="3" data-suffix="ᵉ">0</div><div class="k">école française de voile</div></div>
       <div class="stat" role="listitem"><div class="n" data-count="12" data-suffix=" mois">0</div><div class="k">de navigation par an</div></div>
     </div>
   </div>
@@ -490,21 +495,21 @@
         <span class="tag">Dès 16 ans</span>
         <h3>Cours particuliers</h3>
         <p>Un moniteur rien que pour vous ou votre équipage, pour progresser vite sur le support de votre choix.</p>
-        <a href="#reserver" class="more">Prendre rendez-vous <span class="arr" aria-hidden="true">→</span></a>
+        <a href="tel:+33297521098" class="more">Prendre rendez-vous <span class="arr" aria-hidden="true">→</span></a>
       </article>
       <article class="card reveal d2">
         <div class="ic" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15c3 2 6 2 9 0s6-2 9 0"/><path d="M3 19c3 2 6 2 9 0s6-2 9 0"/><path d="M13 3l3 8H6l4-3"/><path d="M13 3v8"/></svg></div>
         <span class="tag">Sans réservation compliquée</span>
         <h3>Location de supports</h3>
         <p>Catamaran, planche, kayak ou stand-up paddle : embarquez à l'heure ou à la journée, dès que la météo s'y prête.</p>
-        <a href="#reserver" class="more">Vérifier les dispos <span class="arr" aria-hidden="true">→</span></a>
+        <a href="https://yccarnac.ouiresa.fr/" target="_blank" rel="noopener" class="more">Vérifier les dispos <span class="arr" aria-hidden="true">→</span></a>
       </article>
       <article class="card reveal">
         <div class="ic" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V5a2 2 0 0 1 2-2h6l-1 3 1 3H7"/><path d="M5 21h6"/><circle cx="17" cy="16" r="4"/><path d="M17 14v2l1.5 1"/></svg></div>
         <span class="tag">Toute l'année</span>
         <h3>Sorties découverte</h3>
         <p>Deux heures pour goûter à la voile sans engagement, encadré et en toute sécurité, seul, en famille ou entre amis.</p>
-        <a href="#reserver" class="more">Réserver une sortie <span class="arr" aria-hidden="true">→</span></a>
+        <a href="https://yccarnac.ouiresa.fr/" target="_blank" rel="noopener" class="more">Réserver une sortie <span class="arr" aria-hidden="true">→</span></a>
       </article>
       <article class="card reveal d1">
         <div class="ic" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0Z"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><path d="M12 12l4-2"/></svg></div>
@@ -518,7 +523,7 @@
         <span class="tag">Idée cadeau</span>
         <h3>Carte cadeau</h3>
         <p>Offrez une journée au grand air : une carte à utiliser librement sur les stages, cours et sorties.</p>
-        <a href="#reserver" class="more">Offrir la voile <span class="arr" aria-hidden="true">→</span></a>
+        <a href="https://www.yccarnac.com/carte-cadeau" target="_blank" rel="noopener" class="more">Offrir la voile <span class="arr" aria-hidden="true">→</span></a>
       </article>
     </div>
   </div>
@@ -532,29 +537,29 @@
       <h2>Une semaine, et la mer devient <em>un terrain de jeu</em></h2>
       <p class="lede">Cinq matinées ou après-midis pour gagner en autonomie, dans une ambiance où l'on apprend vraiment en s'amusant. Groupes de niveau, matériel adapté à chaque âge, et toujours un moniteur diplômé à bord.</p>
       <div class="pills" role="list" aria-label="Tranches d'âge">
-        <span class="pill" role="listitem">Jardin des mers · <b>4-6 ans</b></span>
-        <span class="pill" role="listitem">Moussaillons · <b>7-10 ans</b></span>
-        <span class="pill" role="listitem">Optimist &amp; cata · <b>11-14 ans</b></span>
-        <span class="pill" role="listitem">Perfectionnement · <b>15-17 ans</b></span>
+        <span class="pill" role="listitem">Club des Mouettons · <b>4-8 ans</b></span>
+        <span class="pill" role="listitem">Enfants &amp; juniors · <b>10-13 ans</b></span>
+        <span class="pill" role="listitem">Ados · <b>14-17 ans</b></span>
+        <span class="pill" role="listitem">Adultes · <b>18 ans &amp; +</b></span>
       </div>
-      <a href="#reserver" class="btn btn-sun">Inscrire un enfant <span class="arr" aria-hidden="true">→</span></a>
+      <a href="https://yccarnac.ouiresa.fr/" target="_blank" rel="noopener" class="btn btn-sun">Inscrire un enfant <span class="arr" aria-hidden="true">→</span></a>
     </div>
     <div class="stage-list reveal d1" role="list" aria-label="Exemples de stages">
       <div class="stage-row" role="listitem">
-        <div><div class="t">Jardin des mers</div><div class="d">4-6 ans · optimist &amp; découverte à flot</div></div>
-        <div class="p">dès 95 €<small>la semaine</small></div>
+        <div><div class="t">Club des Mouettons</div><div class="d">4-8 ans · optimist &amp; découverte à flot (l'été)</div></div>
+        <div class="p">sur inscription<small>la semaine</small></div>
       </div>
       <div class="stage-row" role="listitem">
-        <div><div class="t">Moussaillons</div><div class="d">7-10 ans · optimist, initiation au réglage</div></div>
-        <div class="p">dès 145 €<small>la semaine</small></div>
+        <div><div class="t">Optimist &amp; Open Bic</div><div class="d">8-12 ans · dériveur, initiation au réglage</div></div>
+        <div class="p">sur inscription<small>la semaine</small></div>
       </div>
       <div class="stage-row" role="listitem">
-        <div><div class="t">Cap sur le catamaran</div><div class="d">11-14 ans · catamaran &amp; planche</div></div>
-        <div class="p">dès 185 €<small>la semaine</small></div>
+        <div><div class="t">Cap sur le catamaran</div><div class="d">11-14 ans · catamaran &amp; planche à voile</div></div>
+        <div class="p">sur inscription<small>la semaine</small></div>
       </div>
       <div class="stage-row" role="listitem">
-        <div><div class="t">Perfectionnement ado</div><div class="d">15-17 ans · vitesse, régate, autonomie</div></div>
-        <div class="p">dès 195 €<small>la semaine</small></div>
+        <div><div class="t">Perfectionnement &amp; régate</div><div class="d">14-17 ans · vitesse, régate, autonomie</div></div>
+        <div class="p">sur inscription<small>la semaine</small></div>
       </div>
     </div>
   </div>
@@ -572,23 +577,28 @@
     </div>
     <div class="events reveal d1">
       <div class="event">
-        <div class="date"><div class="day">14</div><div class="mon">Juin</div></div>
-        <div class="info"><h3>Régate du mercredi — 1re manche</h3><div class="meta"><span>18 h 30 · plan d'eau de Légénèse</span><span>Habitables &amp; dériveurs</span></div></div>
+        <div class="date"><div class="day">27</div><div class="mon">Mars</div></div>
+        <div class="info"><h3>Techno Windfoil Challenge U15</h3><div class="meta"><span>27-29 mars · Baie de Quiberon</span><span>Planche &amp; windfoil</span></div></div>
         <span class="cat race">Régate</span>
       </div>
       <div class="event">
-        <div class="date"><div class="day">28</div><div class="mon">Juin</div></div>
-        <div class="info"><h3>Fête de la voile &amp; portes ouvertes</h3><div class="meta"><span>Toute la journée · gratuit</span><span>Essais &amp; démonstrations</span></div></div>
-        <span class="cat">Événement</span>
-      </div>
-      <div class="event">
-        <div class="date"><div class="day">12</div><div class="mon">Juil</div></div>
-        <div class="info"><h3>Les 2 Heures de Carnac</h3><div class="meta"><span>14 h · départ de la grande plage</span><span>Catamarans</span></div></div>
+        <div class="date"><div class="day">1</div><div class="mon">Mai</div></div>
+        <div class="info"><h3>Eurocat — 38ᵉ édition</h3><div class="meta"><span>1-3 mai · Village Sport &amp; Environnement</span><span>Catamarans</span></div></div>
         <span class="cat race">Régate</span>
       </div>
       <div class="event">
-        <div class="date"><div class="day">23</div><div class="mon">Août</div></div>
-        <div class="info"><h3>Trophée de la Baie de Quiberon</h3><div class="meta"><span>Week-end · 2 jours de course</span><span>Toutes séries</span></div></div>
+        <div class="date"><div class="day">6</div><div class="mon">Juin</div></div>
+        <div class="info"><h3>Championnat du Monde Musto Skiff</h3><div class="meta"><span>6-12 juin · plan d'eau de Carnac</span><span>Dériveurs</span></div></div>
+        <span class="cat race">Régate</span>
+      </div>
+      <div class="event">
+        <div class="date"><div class="day">3</div><div class="mon">Juil</div></div>
+        <div class="info"><h3>Championnat du Monde Dart 18</h3><div class="meta"><span>3-10 juillet · ~140 bateaux</span><span>Catamarans</span></div></div>
+        <span class="cat race">Régate</span>
+      </div>
+      <div class="event">
+        <div class="date"><div class="day">27</div><div class="mon">Sept</div></div>
+        <div class="info"><h3>Raid des Mégalithes</h3><div class="meta"><span>27 septembre · Baie de Quiberon</span><span>Toutes séries</span></div></div>
         <span class="cat race">Régate</span>
       </div>
     </div>
@@ -651,15 +661,15 @@
       <ul class="contact-list">
         <li>
           <span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
-          <div><div class="k">Base nautique</div><div class="v">Pointe de Légénèse<span>56340 Carnac-Plage</span></div></div>
+          <div><div class="k">Base nautique</div><div class="v">Port en Dro<span>56340 Carnac</span></div></div>
         </li>
         <li>
           <span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L20 13l2 5v2a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg></span>
-          <div><div class="k">Téléphone</div><div class="v">02 97 52 10 98<span>Lun-sam · 9 h-18 h</span></div></div>
+          <div><div class="k">Téléphone</div><div class="v"><a href="tel:+33297521098" style="color:inherit">02 97 52 10 98</a><span>Lun-ven · matin &amp; après-midi</span></div></div>
         </li>
         <li>
           <span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
-          <div><div class="k">E-mail</div><div class="v">contact@yccarnac.com</div></div>
+          <div><div class="k">E-mail</div><div class="v"><a href="mailto:infos@yccarnac.com" style="color:inherit">infos@yccarnac.com</a></div></div>
         </li>
       </ul>
     </aside>
@@ -727,7 +737,7 @@
           <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".5"/><path d="M20 7 L20 27 M20 9 L31 25 L20 25 Z M20 12 L11 25 L20 25 Z" fill="currentColor" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M9 30 Q20 35 31 30" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
           <span style="display:block"><b>Yacht Club de Carnac</b><span>Baie de Quiberon</span></span>
         </a>
-        <p class="about">L'école de voile et le club nautique de Carnac-Plage. On vous apprend la mer, on vous la fait aimer.</p>
+        <p class="about">L'école de voile et le club nautique de Carnac, à Port en Dro. On vous apprend la mer, on vous la fait aimer.</p>
         <div class="socials">
           <a href="#" aria-label="Suivez-nous sur Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3c-2.2 0-4 1.8-4 4v2H7v4h3v6h4v-6h3l1-4h-4V8c0-.6.4-1 1-1Z"/></svg></a>
           <a href="#" aria-label="Suivez-nous sur Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
@@ -765,7 +775,7 @@
       </div>
     </div>
     <div class="ft-bot">
-      <div>© 2026 Yacht Club de Carnac · Pointe de Légénèse, Carnac-Plage</div>
+      <div>© 2026 Yacht Club de Carnac · Port en Dro, 56340 Carnac</div>
       <div class="legal">
         <a href="#">Mentions légales</a>
         <a href="#">Confidentialité</a>
