@@ -444,6 +444,16 @@
   .doc-links a .ext{font-family:var(--ff-mono);font-size:.64rem;letter-spacing:.12em;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:3px 7px;}
   .ph-bg{position:absolute;inset:0;z-index:0;background:#0B3A46 center/cover no-repeat;}
   .ph-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(150deg,rgba(11,58,70,.85) 0%,rgba(14,71,87,.72) 50%,rgba(20,112,138,.6) 100%);}
+
+  /* --- FAQ accordéon --- */
+  .faq{max-width:840px;margin:36px auto 0;display:grid;gap:12px;}
+  .faq details{background:var(--white);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:border-color .3s,box-shadow .3s;}
+  .faq details[open]{border-color:var(--sea);box-shadow:0 20px 44px -32px rgba(11,58,70,.55);}
+  .faq summary{list-style:none;cursor:pointer;padding:18px 22px;font-weight:600;font-size:1.05rem;color:var(--deep);display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"+";font-family:var(--ff-display);font-size:1.5rem;color:var(--sea);transition:transform .3s var(--ease);line-height:1;}
+  .faq details[open] summary::after{transform:rotate(45deg);}
+  .faq .a{padding:0 22px 20px;color:var(--muted);font-size:1rem;line-height:1.6;}
 </style>
 </head>
 <body>
@@ -587,6 +597,42 @@
         <li><a href="https://www.yccarnac.com/sites/yccarnac.com/files/2025-09/R%C3%A9glement%20Int%C3%A9rieur.pdf" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v5h5"/><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M12 12v5M9.5 14.5 12 17l2.5-2.5"/></svg><span class="t">Règlement intérieur</span><span class="ext">PDF</span></a></li>
         <li><a href="https://www.yccarnac.com/sites/yccarnac.com/files/2025-09/maif-notice-individuelle-dommages-corporels-licencies-2025-2026.pdf" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v5h5"/><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M12 12v5M9.5 14.5 12 17l2.5-2.5"/></svg><span class="t">Notice d'assurance MAIF — licenciés 2025-2026</span><span class="ext">PDF</span></a></li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="sec-pad" style="background:var(--foam)">
+  <div class="wrap">
+    <div class="sec-head reveal" style="max-width:620px;margin-left:auto;margin-right:auto;text-align:center">
+      <span class="eyebrow">Questions fréquentes</span>
+      <h2>Tout ce qu'il faut <em>savoir</em></h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>Faut-il déjà savoir ramer pour commencer ?</summary>
+        <div class="a">Non. Des sorties débutants ont lieu le samedi matin (rendez-vous à 10 h, fin de séance vers 12 h après le rangement du matériel). On progresse ensuite au club avec le passage des niveaux « pelle bronze » puis « pelle argent ».</div>
+      </details>
+      <details>
+        <summary>Quels sont les créneaux de sortie ?</summary>
+        <div class="a">Pour les rameurs « pelle argent » : samedi et lundi matin (RDV 9 h 30 en hiver, 9 h 00 en été), avec en plus le mardi et le jeudi soir à 18 h 30 d'avril à octobre. Les débutants sortent le samedi matin à 10 h. L'AVYCC organise aussi des randonnées, des entraînements et des stages compétition.</div>
+      </details>
+      <details>
+        <summary>Quel équipement faut-il prévoir ?</summary>
+        <div class="a">Des vêtements techniques près du corps (lycra, polaire fine, coupe-vent, gilet sans manche), des chaussons de voile ou de vieilles baskets — jamais pieds nus —, une bouteille d'eau et des vêtements de rechange. Pas de combinaison néoprène. Possibilité de se doucher après la séance.</div>
+      </details>
+      <details>
+        <summary>Comment sont annoncées les sorties ?</summary>
+        <div class="a">Tout passe par WhatsApp : les sorties y sont annoncées, vous répondez seulement si vous venez. En cas de météo défavorable (forte pluie, vent fort, grosse houle, brouillard ou température négative), une sortie peut être annulée — vous êtes prévenus par WhatsApp.</div>
+      </details>
+      <details>
+        <summary>La licence couvre quelle période, et comment s'inscrire ?</summary>
+        <div class="a">La licence aviron est valable du 1ᵉʳ septembre au 31 août. À l'inscription à l'accueil du club, vous signez le règlement AVYCC (annexe du règlement intérieur du YCC) et en recevez une copie. La réservation se fait aussi en ligne, ou par téléphone au 02 97 52 10 98.</div>
+      </details>
+      <details>
+        <summary>À partir de quel âge peut-on pratiquer ?</summary>
+        <div class="a">L'aviron de mer se pratique en deux catégories, − 23 ans et + 23 ans, à l'année, au trimestre, au mois ou à la journée (dès 27,90 € la séance). Le détail des tarifs est indiqué plus haut sur la page.</div>
+      </details>
     </div>
   </div>
 </section>
