@@ -477,20 +477,26 @@
   .stop.is-next .stop-date::after{content:" · prochaine";font-size:.72em;}
   /* --- avis / mosaïque --- */
   .rate-stars{color:var(--sun);letter-spacing:2px;}
-  .reviews-vp{margin-top:28px;position:relative;overflow:hidden;padding:8px 0;
-    -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
-            mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);}
-  .reviews{display:flex;gap:20px;width:max-content;animation:reviewsScroll 60s linear infinite;will-change:transform;}
-  .reviews-vp:hover .reviews{animation-play-state:paused;}
-  .review{flex:0 0 340px;box-sizing:border-box;margin:0;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:24px 24px 22px;transition:transform .3s var(--ease),background .3s;display:flex;flex-direction:column;}
+  .reviews-vp{margin-top:28px;position:relative;}
+  .reviews{display:flex;gap:20px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;scroll-behavior:smooth;padding:8px 0;cursor:grab;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);
+            mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);
+    scrollbar-width:none;-ms-overflow-style:none;}
+  .reviews::-webkit-scrollbar{display:none;}
+  .reviews.dragging{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto;}
+  .review{flex:0 0 340px;scroll-snap-align:start;box-sizing:border-box;margin:0;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:24px 24px 22px;transition:transform .3s var(--ease),background .3s;display:flex;flex-direction:column;user-select:none;}
   .review:hover{transform:translateY(-4px);background:rgba(255,255,255,.11);}
   .review .stars{color:var(--sun);font-size:1rem;letter-spacing:2px;margin-bottom:12px;}
   .review .stars .off{color:rgba(255,255,255,.28);}
   .review p{color:rgba(255,255,255,.95);font-size:1.02rem;line-height:1.55;margin:0 0 16px;flex:1;}
   .review figcaption{display:flex;align-items:center;gap:11px;font-weight:600;font-size:.95rem;color:#fff;margin-top:auto;}
   .review figcaption .av{width:36px;height:36px;border-radius:50%;background:var(--sand);color:var(--deep);display:grid;place-items:center;font-weight:700;font-size:.78rem;flex:none;}
-  @keyframes reviewsScroll{from{transform:translateX(0)}to{transform:translateX(-2880px)}}
-  @media(prefers-reduced-motion:reduce){.reviews{animation:none;}}
+  .rev-nav{position:absolute;top:46%;transform:translateY(-50%);z-index:3;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(11,58,70,.72);backdrop-filter:blur(6px);color:#fff;font-size:1.4rem;line-height:1;cursor:pointer;display:grid;place-items:center;transition:background .25s,opacity .25s;}
+  .rev-nav:hover{background:var(--sea);}
+  .rev-nav.prev{left:-6px;}
+  .rev-nav.next{right:-6px;}
+  .rev-nav[disabled]{opacity:.25;cursor:default;pointer-events:none;}
+  @media(max-width:560px){.rev-nav{display:none;}}
 </style>
 </head>
 <body>
@@ -659,7 +665,8 @@
       <p style="color:rgba(255,255,255,.82);margin-top:16px"><span class="rate-stars" aria-hidden="true">★★★★★</span> <b style="color:#fff">4,8 / 5</b> — d'après les avis de nos candidats au permis côtier.</p>
     </div>
     <div class="reviews-vp reveal">
-      <div class="reviews">
+      <button class="rev-nav prev" type="button" aria-label="Avis précédents" disabled>‹</button>
+      <div class="reviews" id="reviewsTrack">
         <figure class="review"><div class="stars" aria-hidden="true">★★★★★</div><p>Très bon accompagnement théorique et pratique !</p><figcaption><span class="av" aria-hidden="true">TC</span>Titouan C.</figcaption></figure>
         <figure class="review"><div class="stars" aria-hidden="true">★★★★★</div><p>Excellente préparation au permis, aussi bien la partie théorique que la partie pratique.</p><figcaption><span class="av" aria-hidden="true">FG</span>François G.</figcaption></figure>
         <figure class="review"><div class="stars" aria-hidden="true">★★★★★</div><p>La formation s'est très bien déroulée. La pédagogie des formateurs est au top pour passer son permis. Je recommande.</p><figcaption><span class="av" aria-hidden="true">OL</span>Olivier LG.</figcaption></figure>
@@ -668,15 +675,8 @@
         <figure class="review"><div class="stars" aria-hidden="true">★★★★★</div><p>Une formation très agréable !! Une très bonne pédagogie de la part de Jean-Claude et un très bon accueil de Martine !! Un grand merci.</p><figcaption><span class="av" aria-hidden="true">CA</span>Charles-Antoine S.</figcaption></figure>
         <figure class="review"><div class="stars" aria-hidden="true">★★★★★</div><p>Excellents accueil et formation. Professionnalisme et détente dans une ambiance très sympathique !</p><figcaption><span class="av" aria-hidden="true">AF</span>Anne F.</figcaption></figure>
         <figure class="review"><div class="stars" aria-hidden="true">★★★★<span class="off">★</span></div><p>Stage excellent.</p><figcaption><span class="av" aria-hidden="true">LF</span>Luc F.</figcaption></figure>
-        <figure class="review" aria-hidden="true"><div class="stars">★★★★★</div><p>Très bon accompagnement théorique et pratique !</p><figcaption><span class="av">TC</span>Titouan C.</figcaption></figure>
-        <figure class="review" aria-hidden="true"><div class="stars">★★★★★</div><p>Excellente préparation au permis, aussi bien la partie théorique que la partie pratique.</p><figcaption><span class="av">FG</span>François G.</figcaption></figure>
-        <figure class="review" aria-hidden="true"><div class="stars">★★★★★</div><p>La formation s'est très bien déroulée. La pédagogie des formateurs est au top pour passer son permis. Je recommande.</p><figcaption><span class="av">OL</span>Olivier LG.</figcaption></figure>
-        <figure class="review" aria-hidden="true"><div class="stars">★★★★<span class="off">★</span></div><p>Super ambiance ! Les enseignants ont une grande expérience et font tout pour que nous puissions réussir !</p><figcaption><span class="av">BG</span>Bruno G.</figcaption></figure>
-        <figure class="review" aria-hidden="true"><div class="stars">★★★★★</div><p>Très bonne formation, organisée et équilibrée ! Merci à toute l'équipe !</p><figcaption><span class="av">EM</span>Emmanuel M.</figcaption></figure>
-        <figure class="review" aria-hidden="true"><div class="stars">★★★★★</div><p>Une formation très agréable !! Une très bonne pédagogie de la part de Jean-Claude et un très bon accueil de Martine !! Un grand merci.</p><figcaption><span class="av">CA</span>Charles-Antoine S.</figcaption></figure>
-        <figure class="review" aria-hidden="true"><div class="stars">★★★★★</div><p>Excellents accueil et formation. Professionnalisme et détente dans une ambiance très sympathique !</p><figcaption><span class="av">AF</span>Anne F.</figcaption></figure>
-        <figure class="review" aria-hidden="true"><div class="stars">★★★★<span class="off">★</span></div><p>Stage excellent.</p><figcaption><span class="av">LF</span>Luc F.</figcaption></figure>
       </div>
+      <button class="rev-nav next" type="button" aria-label="Avis suivants">›</button>
     </div>
   </div>
 </section>
@@ -821,6 +821,40 @@
   for(var i=0;i<SESSIONS.length;i++){ if(new Date(SESSIONS[i]+'T00:00:00') >= today){ var c = document.querySelector('.stop[data-s="' + SESSIONS[i] + '"]'); if(c) c.classList.add('is-next'); yy = SESSIONS[i].slice(0,4); break; } }
   var yEl = document.getElementById('sessions-year');
   if(yEl && SESSIONS.length){ yEl.textContent = yy || SESSIONS[SESSIONS.length-1].slice(0,4); }
+
+  // avis : defilement horizontal manuel (glisser, molette, fleches)
+  var rt = document.getElementById('reviewsTrack');
+  if(rt){
+    var prev = document.querySelector('.rev-nav.prev'), next = document.querySelector('.rev-nav.next');
+    var step = function(){ var card = rt.querySelector('.review'); return (card ? card.getBoundingClientRect().width : 340) + 20; };
+    var updateNav = function(){
+      var max = rt.scrollWidth - rt.clientWidth - 1;
+      if(prev) prev.disabled = rt.scrollLeft <= 1;
+      if(next) next.disabled = rt.scrollLeft >= max;
+    };
+    if(prev) prev.addEventListener('click', function(){ rt.scrollBy({left:-step()*1.5, behavior:'smooth'}); });
+    if(next) next.addEventListener('click', function(){ rt.scrollBy({left: step()*1.5, behavior:'smooth'}); });
+    rt.addEventListener('scroll', updateNav, {passive:true});
+    updateNav(); addEventListener('resize', updateNav);
+
+    // glisser a la souris
+    var down=false, sx=0, sl=0, moved=0;
+    rt.addEventListener('pointerdown', function(e){ if(e.button && e.button!==0) return; down=true; moved=0; sx=e.clientX; sl=rt.scrollLeft; rt.classList.add('dragging'); try{ rt.setPointerCapture(e.pointerId); }catch(_){} });
+    rt.addEventListener('pointermove', function(e){ if(!down) return; var dx=e.clientX-sx; if(Math.abs(dx)>moved) moved=Math.abs(dx); rt.scrollLeft = sl - dx; });
+    var end = function(e){ if(!down) return; down=false; rt.classList.remove('dragging'); try{ rt.releasePointerCapture(e.pointerId); }catch(_){} };
+    rt.addEventListener('pointerup', end);
+    rt.addEventListener('pointercancel', end);
+    // annule le clic fantome apres un glissement
+    rt.addEventListener('click', function(e){ if(moved>6){ e.preventDefault(); e.stopPropagation(); } }, true);
+
+    // molette verticale -> defilement horizontal (libere la page aux extremites)
+    rt.addEventListener('wheel', function(e){
+      if(Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+      var max = rt.scrollWidth - rt.clientWidth;
+      if((rt.scrollLeft<=0 && e.deltaY<0) || (rt.scrollLeft>=max && e.deltaY>0)) return;
+      rt.scrollLeft += e.deltaY; e.preventDefault();
+    }, {passive:false});
+  }
 })();
 </script>
 </body>
