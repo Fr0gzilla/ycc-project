@@ -468,10 +468,15 @@
   .faq summary::after{content:"+";font-family:var(--ff-display);font-size:1.5rem;color:var(--sea);transition:transform .3s var(--ease);line-height:1;}
   .faq details[open] summary::after{transform:rotate(45deg);}
   .faq .a{padding:0 22px 20px;color:var(--muted);font-size:1rem;line-height:1.6;}
-  /* --- CTA collant --- */
-  .sticky-cta{position:fixed;right:22px;bottom:22px;z-index:90;opacity:0;transform:translateY(16px);pointer-events:none;transition:opacity .35s var(--ease),transform .35s var(--ease);box-shadow:0 18px 40px -12px rgba(232,134,58,.6);}
-  .sticky-cta.show{opacity:1;transform:none;pointer-events:auto;}
-  @media(max-width:560px){.sticky-cta{right:14px;bottom:14px;}}
+  /* --- grille des sessions --- */
+  .ses-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:12px;margin-top:6px;}
+  .ses{position:relative;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:16px 18px;transition:background .3s,transform .3s var(--ease),border-color .3s;}
+  .ses:hover{background:rgba(255,255,255,.12);transform:translateY(-3px);}
+  .ses .ses-p{display:block;font-family:var(--ff-mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lagoon-soft);}
+  .ses .ses-d{display:block;font-family:var(--ff-display);font-size:1.7rem;color:#fff;line-height:1.1;margin-top:6px;}
+  .ses .ses-m{display:block;font-size:.85rem;color:rgba(255,255,255,.7);text-transform:capitalize;}
+  .ses.ses-next{border-color:var(--sun);background:rgba(244,161,90,.16);}
+  .ses.ses-next::after{content:"Prochaine";position:absolute;top:9px;right:9px;font-family:var(--ff-mono);font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;color:#3a1e07;background:var(--sun);padding:3px 7px;border-radius:6px;}
 </style>
 </head>
 <body>
@@ -579,11 +584,18 @@
       </div>
       <a href="https://yccarnac.ouiresa.fr/boutique/19" target="_blank" rel="noopener" class="btn btn-sun">Réserver ma place <span class="arr" aria-hidden="true">→</span></a>
     </div>
-    <div class="pills" role="list" aria-label="Dates des sessions 2026">
-      <span class="pill" role="listitem">Printemps · <b>13-15 &amp; 20-22 avril</b></span>
-      <span class="pill" role="listitem">Juillet · <b>6-8 · 13-16 · 20-22 · 27-29</b></span>
-      <span class="pill" role="listitem">Août · <b>3-5 · 10-12 · 17-19 · 24-26</b></span>
-      <span class="pill" role="listitem">Toussaint · <b>19-21 octobre</b></span>
+    <div class="ses-grid reveal" role="list" aria-label="Sessions 2026">
+      <article class="ses" role="listitem" data-s="2026-04-13"><span class="ses-p">Printemps</span><span class="ses-d">13-15</span><span class="ses-m">avril</span></article>
+      <article class="ses" role="listitem" data-s="2026-04-20"><span class="ses-p">Printemps</span><span class="ses-d">20-22</span><span class="ses-m">avril</span></article>
+      <article class="ses" role="listitem" data-s="2026-07-06"><span class="ses-p">Été</span><span class="ses-d">6-8</span><span class="ses-m">juillet</span></article>
+      <article class="ses" role="listitem" data-s="2026-07-13"><span class="ses-p">Été</span><span class="ses-d">13-16</span><span class="ses-m">juillet</span></article>
+      <article class="ses" role="listitem" data-s="2026-07-20"><span class="ses-p">Été</span><span class="ses-d">20-22</span><span class="ses-m">juillet</span></article>
+      <article class="ses" role="listitem" data-s="2026-07-27"><span class="ses-p">Été</span><span class="ses-d">27-29</span><span class="ses-m">juillet</span></article>
+      <article class="ses" role="listitem" data-s="2026-08-03"><span class="ses-p">Été</span><span class="ses-d">3-5</span><span class="ses-m">août</span></article>
+      <article class="ses" role="listitem" data-s="2026-08-10"><span class="ses-p">Été</span><span class="ses-d">10-12</span><span class="ses-m">août</span></article>
+      <article class="ses" role="listitem" data-s="2026-08-17"><span class="ses-p">Été</span><span class="ses-d">17-19</span><span class="ses-m">août</span></article>
+      <article class="ses" role="listitem" data-s="2026-08-24"><span class="ses-p">Été</span><span class="ses-d">24-26</span><span class="ses-m">août</span></article>
+      <article class="ses" role="listitem" data-s="2026-10-19"><span class="ses-p">Toussaint</span><span class="ses-d">19-21</span><span class="ses-m">octobre</span></article>
     </div>
     <p style="margin-top:30px"><a href="https://yccarnac.ouiresa.fr/boutique/19" target="_blank" rel="noopener" class="btn btn-sun">Voir les places disponibles <span class="arr" aria-hidden="true">→</span></a></p>
   </div>
@@ -693,7 +705,6 @@
   </div>
 </section>
 </main>
-<a class="sticky-cta btn btn-sun" href="https://yccarnac.ouiresa.fr/boutique/19" target="_blank" rel="noopener">S'inscrire au permis <span class="arr" aria-hidden="true">→</span></a>
 
 <!-- ================= FOOTER ================= -->
 <footer class="ft">
@@ -794,17 +805,13 @@
   // prochaine session (calculée à partir d'aujourd'hui)
   var SESSIONS = [{s:'2026-04-13',l:'13-15 avril'},{s:'2026-04-20',l:'20-22 avril'},{s:'2026-07-06',l:'6-8 juillet'},{s:'2026-07-13',l:'13-16 juillet'},{s:'2026-07-20',l:'20-22 juillet'},{s:'2026-07-27',l:'27-29 juillet'},{s:'2026-08-03',l:'3-5 août'},{s:'2026-08-10',l:'10-12 août'},{s:'2026-08-17',l:'17-19 août'},{s:'2026-08-24',l:'24-26 août'},{s:'2026-10-19',l:'19-21 octobre'}];
   var nsEl = document.getElementById('next-session-v');
-  if(nsEl){
-    var today = new Date(); today.setHours(0,0,0,0);
-    var next = null;
-    for(var i=0;i<SESSIONS.length;i++){ var d = new Date(SESSIONS[i].s+'T00:00:00'); if(d >= today){ next = {d:d, l:SESSIONS[i].l}; break; } }
-    if(next){ var days = Math.round((next.d - today)/86400000); var when = days===0 ? "aujourd'hui" : (days===1 ? "demain" : "dans " + days + " jours"); nsEl.innerHTML = '<b>' + next.l + '</b> · ' + when; }
-    else { nsEl.textContent = 'Sessions 2027 bientôt en ligne'; }
-  }
-
-  // CTA collant : apparaît après le hero
-  var sticky = document.querySelector('.sticky-cta');
-  if(sticky){ var onScr = function(){ sticky.classList.toggle('show', window.scrollY > 620); }; onScr(); addEventListener('scroll', onScr, {passive:true}); }
+  var today = new Date(); today.setHours(0,0,0,0);
+  var next = null;
+  for(var i=0;i<SESSIONS.length;i++){ var d = new Date(SESSIONS[i].s+'T00:00:00'); if(d >= today){ next = {d:d, l:SESSIONS[i].l, s:SESSIONS[i].s}; break; } }
+  if(next){
+    if(nsEl){ var days = Math.round((next.d - today)/86400000); var when = days===0 ? "aujourd'hui" : (days===1 ? "demain" : "dans " + days + " jours"); nsEl.innerHTML = '<b>' + next.l + '</b> · ' + when; }
+    var card = document.querySelector('.ses[data-s="' + next.s + '"]'); if(card) card.classList.add('ses-next');
+  } else if(nsEl){ nsEl.textContent = 'Sessions 2027 bientôt en ligne'; }
 })();
 </script>
 </body>
