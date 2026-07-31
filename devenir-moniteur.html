@@ -426,6 +426,8 @@
   .page-hero::after{content:"";position:absolute;right:-6%;top:-30%;width:420px;height:420px;border-radius:50%;
     background:radial-gradient(circle at 50% 50%,rgba(244,161,90,.28),rgba(244,161,90,0) 70%);pointer-events:none;animation:phGlow 9s ease-in-out infinite;}
   @keyframes phGlow{0%,100%{transform:translateY(0) scale(1);opacity:1;}50%{transform:translateY(10px) scale(1.09);opacity:.82;}}
+  .ph-bg{position:absolute;inset:0;z-index:0;background:#0B3A46 center/cover no-repeat;}
+  .ph-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(150deg,rgba(11,58,70,.82) 0%,rgba(14,71,87,.7) 50%,rgba(20,112,138,.58) 100%);}
   .page-hero .wrap{position:relative;z-index:2;}
   .page-hero .eyebrow{color:var(--lagoon-soft);display:inline-flex;align-items:center;gap:10px;}
   .page-hero .eyebrow::before{content:"";width:26px;height:1px;background:var(--lagoon-soft);}
@@ -489,7 +491,7 @@
 <main id="contenu">
 
 <!-- ================= HERO DE PAGE ================= -->
-<section class="page-hero">
+<section class="page-hero"><div class="ph-bg" style="background-image:url('img/moniteur.jpg')" aria-hidden="true"></div>
   <div class="wrap reveal">
     <p class="crumb"><a href="index.html">Accueil</a> · Devenir moniteur</p>
     <span class="eyebrow">Formation &amp; emploi</span>
