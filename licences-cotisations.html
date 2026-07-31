@@ -444,6 +444,16 @@
   .doc-links a .ext{font-family:var(--ff-mono);font-size:.64rem;letter-spacing:.12em;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:3px 7px;}
   .ph-bg{position:absolute;inset:0;z-index:0;background:#0B3A46 center/cover no-repeat;}
   .ph-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(150deg,rgba(11,58,70,.85) 0%,rgba(14,71,87,.72) 50%,rgba(20,112,138,.6) 100%);}
+
+  /* --- FAQ accordéon --- */
+  .faq{max-width:840px;margin:36px auto 0;display:grid;gap:12px;}
+  .faq details{background:var(--white);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:border-color .3s,box-shadow .3s;}
+  .faq details[open]{border-color:var(--sea);box-shadow:0 20px 44px -32px rgba(11,58,70,.55);}
+  .faq summary{list-style:none;cursor:pointer;padding:18px 22px;font-weight:600;font-size:1.05rem;color:var(--deep);display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"+";font-family:var(--ff-display);font-size:1.5rem;color:var(--sea);transition:transform .3s var(--ease);line-height:1;}
+  .faq details[open] summary::after{transform:rotate(45deg);}
+  .faq .a{padding:0 22px 20px;color:var(--muted);font-size:1rem;line-height:1.6;}
 </style>
 </head>
 <body>
@@ -565,6 +575,34 @@
       <ul class="doc-links">
         <li><a href="https://www.yccarnac.com/sites/yccarnac.com/files/2025-01/assurance-licences.pdf" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v5h5"/><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M12 12v5M9.5 14.5 12 17l2.5-2.5"/></svg><span class="t">Assurance des licences FFVoile</span><span class="ext">PDF</span></a></li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="sec-pad" style="background:var(--foam)">
+  <div class="wrap">
+    <div class="sec-head reveal" style="max-width:620px;margin-left:auto;margin-right:auto;text-align:center">
+      <span class="eyebrow">Questions fréquentes</span>
+      <h2>Tout ce qu'il faut <em>savoir</em></h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>Que couvre l'assurance de la licence ?</summary>
+        <div class="a">Chaque licence inclut une couverture : Responsabilité Civile, Individuelle Accident, Assistance Rapatriement et Protection Juridique des victimes de violences.</div>
+      </details>
+      <details>
+        <summary>Peut-on renoncer à une partie de l'assurance ?</summary>
+        <div class="a">Oui : la garantie Individuelle Accident peut faire l'objet d'un refus, par courrier postal. Les autres garanties restent acquises.</div>
+      </details>
+      <details>
+        <summary>Le Pass FFVoile donne-t-il accès à la compétition ?</summary>
+        <div class="a">Non. Le Pass FFVoile (8 €) s'adresse aux pratiquants occasionnels en location : il ouvre le loisir encadré et la location, mais pas les compétitions.</div>
+      </details>
+      <details>
+        <summary>Passeport Voile ou Licence Club ?</summary>
+        <div class="a">Le Passeport Voile (14,50 €) accompagne les stagiaires en cours collectifs ou particuliers. La Licence Club (72 € adulte, 33 € jeune) est faite pour les membres qui naviguent à l'année.</div>
+      </details>
     </div>
   </div>
 </section>

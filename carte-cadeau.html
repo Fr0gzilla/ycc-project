@@ -444,6 +444,16 @@
   .doc-links a .ext{font-family:var(--ff-mono);font-size:.64rem;letter-spacing:.12em;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:3px 7px;}
   .ph-bg{position:absolute;inset:0;z-index:0;background:#0B3A46 center/cover no-repeat;}
   .ph-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(150deg,rgba(11,58,70,.85) 0%,rgba(14,71,87,.72) 50%,rgba(20,112,138,.6) 100%);}
+
+  /* --- FAQ accordéon --- */
+  .faq{max-width:840px;margin:36px auto 0;display:grid;gap:12px;}
+  .faq details{background:var(--white);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:border-color .3s,box-shadow .3s;}
+  .faq details[open]{border-color:var(--sea);box-shadow:0 20px 44px -32px rgba(11,58,70,.55);}
+  .faq summary{list-style:none;cursor:pointer;padding:18px 22px;font-weight:600;font-size:1.05rem;color:var(--deep);display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"+";font-family:var(--ff-display);font-size:1.5rem;color:var(--sea);transition:transform .3s var(--ease);line-height:1;}
+  .faq details[open] summary::after{transform:rotate(45deg);}
+  .faq .a{padding:0 22px 20px;color:var(--muted);font-size:1rem;line-height:1.6;}
 </style>
 </head>
 <body>
@@ -555,6 +565,34 @@
           <div><div class="k">Le club</div><div class="v">Port en Dro, 56340 Carnac<span>Baie de Quiberon</span></div></div>
         </li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="sec-pad" style="background:var(--foam)">
+  <div class="wrap">
+    <div class="sec-head reveal" style="max-width:620px;margin-left:auto;margin-right:auto;text-align:center">
+      <span class="eyebrow">Questions fréquentes</span>
+      <h2>Tout ce qu'il faut <em>savoir</em></h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>Qu'est-ce que la carte cadeau du club ?</summary>
+        <div class="a">Une carte cadeau nautique pour offrir des sensations en Baie de Quiberon. Elle donne accès aux activités du club : catamaran, planche à voile, dériveur, foil, kayak, paddle et autres supports.</div>
+      </details>
+      <details>
+        <summary>Combien de temps est-elle valable ?</summary>
+        <div class="a">La carte cadeau est valable 1 an. Le bénéficiaire choisit ensuite son support et sa date.</div>
+      </details>
+      <details>
+        <summary>Comment l'acheter et l'offrir ?</summary>
+        <div class="a">En ligne via la plateforme de réservation du club, en quelques clics, ou en contactant l'équipe pour choisir la bonne activité.</div>
+      </details>
+      <details>
+        <summary>Une question avant d'offrir ?</summary>
+        <div class="a">L'équipe vous conseille au 02 97 52 10 98 ou par e-mail. Le club se trouve à Port en Dro, 56340 Carnac.</div>
+      </details>
     </div>
   </div>
 </section>
