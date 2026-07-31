@@ -452,13 +452,6 @@
   .figrow{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--line);border-radius:var(--r);overflow:hidden;}
   .figrow .stat{background:var(--foam-2);padding:30px 20px;text-align:center;}
   @media(max-width:720px){.figrow{grid-template-columns:1fr 1fr;}}
-  /* --- prochaine session --- */
-  .next-session{display:flex;flex-wrap:wrap;align-items:center;gap:16px 22px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);border-radius:16px;padding:20px 24px;margin:24px 0 6px;}
-  .next-session .ns-ico{width:46px;height:46px;border-radius:12px;background:var(--sun);color:#3a1e07;display:grid;place-items:center;flex:none;}
-  .next-session .ns-txt{flex:1;min-width:210px;}
-  .next-session .ns-k{font-family:var(--ff-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lagoon-soft);}
-  .next-session .ns-v{font-family:var(--ff-display);font-size:1.5rem;color:#fff;line-height:1.15;margin-top:3px;}
-  .next-session .ns-v b{color:var(--sand);}
   /* --- FAQ accordéon --- */
   .faq{max-width:840px;margin:36px auto 0;display:grid;gap:12px;}
   .faq details{background:var(--white);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:border-color .3s,box-shadow .3s;}
@@ -468,15 +461,19 @@
   .faq summary::after{content:"+";font-family:var(--ff-display);font-size:1.5rem;color:var(--sea);transition:transform .3s var(--ease);line-height:1;}
   .faq details[open] summary::after{transform:rotate(45deg);}
   .faq .a{padding:0 22px 20px;color:var(--muted);font-size:1rem;line-height:1.6;}
-  /* --- grille des sessions --- */
-  .ses-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:12px;margin-top:6px;}
-  .ses{position:relative;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:16px 18px;transition:background .3s,transform .3s var(--ease),border-color .3s;}
-  .ses:hover{background:rgba(255,255,255,.12);transform:translateY(-3px);}
-  .ses .ses-p{display:block;font-family:var(--ff-mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lagoon-soft);}
-  .ses .ses-d{display:block;font-family:var(--ff-display);font-size:1.7rem;color:#fff;line-height:1.1;margin-top:6px;}
-  .ses .ses-m{display:block;font-size:.85rem;color:rgba(255,255,255,.7);text-transform:capitalize;}
-  .ses.ses-next{border-color:var(--sun);background:rgba(244,161,90,.16);}
-  .ses.ses-next::after{content:"Prochaine";position:absolute;top:9px;right:9px;font-family:var(--ff-mono);font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;color:#3a1e07;background:var(--sun);padding:3px 7px;border-radius:6px;}
+  /* --- calendrier des sessions --- */
+  .cal{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(255,255,255,.14);border-radius:var(--r);overflow:hidden;margin-top:10px;}
+  .cal-col{background:rgba(11,58,70,.5);padding:24px 20px;}
+  .cal-mon{font-family:var(--ff-display);font-size:1.4rem;color:var(--sand);margin-bottom:16px;}
+  .cal-dates{display:flex;flex-direction:column;gap:8px;}
+  .cal-date{display:flex;align-items:center;gap:9px;font-family:var(--ff-mono);font-size:.98rem;color:#fff;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:9px;padding:9px 13px;transition:background .3s,border-color .3s,transform .3s var(--ease);}
+  .cal-date::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--lagoon-soft);flex:none;}
+  .cal-date:hover{background:rgba(255,255,255,.12);transform:translateX(2px);}
+  .cal-date.is-next{border-color:var(--sun);background:rgba(244,161,90,.18);}
+  .cal-date.is-next::before{background:var(--sun);}
+  .cal-date.is-next::after{content:"prochaine";font-family:var(--ff-mono);font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;color:var(--sand);margin-left:auto;}
+  @media(max-width:720px){.cal{grid-template-columns:1fr 1fr;}}
+  @media(max-width:460px){.cal{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -576,26 +573,38 @@
     <span class="eyebrow on-dark">Sessions 2026</span>
     <h2>Les prochaines <em>sessions</em></h2>
     <p class="lede">Aux vacances scolaires de printemps, tout l'été et à la Toussaint. Formations en petits groupes — <b style="color:var(--sand)">minimum 4 candidats</b> par session.</p>
-    <div class="next-session reveal">
-      <span class="ns-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg></span>
-      <div class="ns-txt">
-        <div class="ns-k">Prochaine session</div>
-        <div class="ns-v" id="next-session-v">Chargement…</div>
+    <div class="cal reveal" role="list" aria-label="Calendrier des sessions 2026">
+      <div class="cal-col" role="listitem">
+        <div class="cal-mon">Avril</div>
+        <div class="cal-dates">
+          <span class="cal-date" data-s="2026-04-13">13-15</span>
+          <span class="cal-date" data-s="2026-04-20">20-22</span>
+        </div>
       </div>
-      <a href="https://yccarnac.ouiresa.fr/boutique/19" target="_blank" rel="noopener" class="btn btn-sun">Réserver ma place <span class="arr" aria-hidden="true">→</span></a>
-    </div>
-    <div class="ses-grid reveal" role="list" aria-label="Sessions 2026">
-      <article class="ses" role="listitem" data-s="2026-04-13"><span class="ses-p">Printemps</span><span class="ses-d">13-15</span><span class="ses-m">avril</span></article>
-      <article class="ses" role="listitem" data-s="2026-04-20"><span class="ses-p">Printemps</span><span class="ses-d">20-22</span><span class="ses-m">avril</span></article>
-      <article class="ses" role="listitem" data-s="2026-07-06"><span class="ses-p">Été</span><span class="ses-d">6-8</span><span class="ses-m">juillet</span></article>
-      <article class="ses" role="listitem" data-s="2026-07-13"><span class="ses-p">Été</span><span class="ses-d">13-16</span><span class="ses-m">juillet</span></article>
-      <article class="ses" role="listitem" data-s="2026-07-20"><span class="ses-p">Été</span><span class="ses-d">20-22</span><span class="ses-m">juillet</span></article>
-      <article class="ses" role="listitem" data-s="2026-07-27"><span class="ses-p">Été</span><span class="ses-d">27-29</span><span class="ses-m">juillet</span></article>
-      <article class="ses" role="listitem" data-s="2026-08-03"><span class="ses-p">Été</span><span class="ses-d">3-5</span><span class="ses-m">août</span></article>
-      <article class="ses" role="listitem" data-s="2026-08-10"><span class="ses-p">Été</span><span class="ses-d">10-12</span><span class="ses-m">août</span></article>
-      <article class="ses" role="listitem" data-s="2026-08-17"><span class="ses-p">Été</span><span class="ses-d">17-19</span><span class="ses-m">août</span></article>
-      <article class="ses" role="listitem" data-s="2026-08-24"><span class="ses-p">Été</span><span class="ses-d">24-26</span><span class="ses-m">août</span></article>
-      <article class="ses" role="listitem" data-s="2026-10-19"><span class="ses-p">Toussaint</span><span class="ses-d">19-21</span><span class="ses-m">octobre</span></article>
+      <div class="cal-col" role="listitem">
+        <div class="cal-mon">Juillet</div>
+        <div class="cal-dates">
+          <span class="cal-date" data-s="2026-07-06">6-8</span>
+          <span class="cal-date" data-s="2026-07-13">13-16</span>
+          <span class="cal-date" data-s="2026-07-20">20-22</span>
+          <span class="cal-date" data-s="2026-07-27">27-29</span>
+        </div>
+      </div>
+      <div class="cal-col" role="listitem">
+        <div class="cal-mon">Août</div>
+        <div class="cal-dates">
+          <span class="cal-date" data-s="2026-08-03">3-5</span>
+          <span class="cal-date" data-s="2026-08-10">10-12</span>
+          <span class="cal-date" data-s="2026-08-17">17-19</span>
+          <span class="cal-date" data-s="2026-08-24">24-26</span>
+        </div>
+      </div>
+      <div class="cal-col" role="listitem">
+        <div class="cal-mon">Octobre</div>
+        <div class="cal-dates">
+          <span class="cal-date" data-s="2026-10-19">19-21</span>
+        </div>
+      </div>
     </div>
     <p style="margin-top:30px"><a href="https://yccarnac.ouiresa.fr/boutique/19" target="_blank" rel="noopener" class="btn btn-sun">Voir les places disponibles <span class="arr" aria-hidden="true">→</span></a></p>
   </div>
@@ -802,16 +811,10 @@
     statNodes.forEach(function(n){ io2.observe(n); });
   } else { statNodes.forEach(countUp); }
 
-  // prochaine session (calculée à partir d'aujourd'hui)
-  var SESSIONS = [{s:'2026-04-13',l:'13-15 avril'},{s:'2026-04-20',l:'20-22 avril'},{s:'2026-07-06',l:'6-8 juillet'},{s:'2026-07-13',l:'13-16 juillet'},{s:'2026-07-20',l:'20-22 juillet'},{s:'2026-07-27',l:'27-29 juillet'},{s:'2026-08-03',l:'3-5 août'},{s:'2026-08-10',l:'10-12 août'},{s:'2026-08-17',l:'17-19 août'},{s:'2026-08-24',l:'24-26 août'},{s:'2026-10-19',l:'19-21 octobre'}];
-  var nsEl = document.getElementById('next-session-v');
+  // surligne la prochaine session dans le calendrier
+  var SESSIONS = ['2026-04-13','2026-04-20','2026-07-06','2026-07-13','2026-07-20','2026-07-27','2026-08-03','2026-08-10','2026-08-17','2026-08-24','2026-10-19'];
   var today = new Date(); today.setHours(0,0,0,0);
-  var next = null;
-  for(var i=0;i<SESSIONS.length;i++){ var d = new Date(SESSIONS[i].s+'T00:00:00'); if(d >= today){ next = {d:d, l:SESSIONS[i].l, s:SESSIONS[i].s}; break; } }
-  if(next){
-    if(nsEl){ var days = Math.round((next.d - today)/86400000); var when = days===0 ? "aujourd'hui" : (days===1 ? "demain" : "dans " + days + " jours"); nsEl.innerHTML = '<b>' + next.l + '</b> · ' + when; }
-    var card = document.querySelector('.ses[data-s="' + next.s + '"]'); if(card) card.classList.add('ses-next');
-  } else if(nsEl){ nsEl.textContent = 'Sessions 2027 bientôt en ligne'; }
+  for(var i=0;i<SESSIONS.length;i++){ if(new Date(SESSIONS[i]+'T00:00:00') >= today){ var c = document.querySelector('.cal-date[data-s="' + SESSIONS[i] + '"]'); if(c) c.classList.add('is-next'); break; } }
 })();
 </script>
 </body>
