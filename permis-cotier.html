@@ -475,6 +475,18 @@
   @keyframes frisePulse{0%,100%{box-shadow:0 0 0 4px var(--deep),0 0 0 7px rgba(244,161,90,.45);}50%{box-shadow:0 0 0 4px var(--deep),0 0 0 14px rgba(244,161,90,0);}}
   .stop.is-next .stop-date{color:var(--sand);font-weight:600;}
   .stop.is-next .stop-date::after{content:" · prochaine";font-size:.72em;}
+  /* --- avis / mosaïque --- */
+  .rate-stars{color:var(--sun);letter-spacing:2px;}
+  .reviews{columns:3;column-gap:20px;margin-top:16px;}
+  .review{break-inside:avoid;margin:0 0 20px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:24px 24px 22px;transition:transform .3s var(--ease),background .3s;}
+  .review:hover{transform:translateY(-4px);background:rgba(255,255,255,.11);}
+  .review .stars{color:var(--sun);font-size:1rem;letter-spacing:2px;margin-bottom:12px;}
+  .review .stars .off{color:rgba(255,255,255,.28);}
+  .review p{color:rgba(255,255,255,.95);font-size:1.02rem;line-height:1.55;margin:0 0 16px;}
+  .review figcaption{display:flex;align-items:center;gap:11px;font-weight:600;font-size:.95rem;color:#fff;}
+  .review figcaption .av{width:36px;height:36px;border-radius:50%;background:var(--sand);color:var(--deep);display:grid;place-items:center;font-weight:700;font-size:.78rem;flex:none;}
+  @media(max-width:900px){.reviews{columns:2;}}
+  @media(max-width:560px){.reviews{columns:1;}}
 </style>
 </head>
 <body>
@@ -637,26 +649,20 @@
 <!-- ================= TÉMOIGNAGES ================= -->
 <section class="testi sec-pad">
   <div class="wrap">
-    <div class="sec-head reveal" style="max-width:660px">
-      <span class="eyebrow on-dark">Ils l'ont passé ici</span>
-      <h2 style="color:#fff">Le permis, <em style="color:var(--sand)">et la baie en prime</em></h2>
+    <div class="sec-head reveal" style="max-width:680px">
+      <span class="eyebrow on-dark">Avis des candidats</span>
+      <h2 style="color:#fff">Ils ont passé leur <em style="color:var(--sand)">permis ici</em></h2>
+      <p style="color:rgba(255,255,255,.82);margin-top:16px"><span class="rate-stars" aria-hidden="true">★★★★★</span> <b style="color:#fff">4,8 / 5</b> — d'après les avis de nos candidats au permis côtier.</p>
     </div>
-    <div class="testi-grid">
-      <figure class="quote reveal">
-        <div class="mk" aria-hidden="true">“</div>
-        <p>Formateur super pédagogue : on révise le code sans voir le temps passer, et la navigation dans la baie était un vrai plaisir. Permis en poche du premier coup !</p>
-        <figcaption class="who"><span class="av" aria-hidden="true">JP</span><span><b>Julien P.</b><span>Permis · juillet</span></span></figcaption>
-      </figure>
-      <figure class="quote reveal d1">
-        <div class="mk" aria-hidden="true">“</div>
-        <p>Trois jours au top, en petit groupe et dans une ambiance détendue. On se sent vite à l'aise à la barre du bateau école.</p>
-        <figcaption class="who"><span class="av" aria-hidden="true">SM</span><span><b>Sophie M.</b><span>Permis · printemps</span></span></figcaption>
-      </figure>
-      <figure class="quote reveal d2">
-        <div class="mk" aria-hidden="true">“</div>
-        <p>Moniteurs à l'écoute, explications claires, et le cadre de Carnac en prime. Je recommande les yeux fermés à qui veut passer son permis.</p>
-        <figcaption class="who"><span class="av" aria-hidden="true">KB</span><span><b>Karim B.</b><span>Permis · août</span></span></figcaption>
-      </figure>
+    <div class="reviews reveal">
+      <figure class="review"><div class="stars" aria-hidden="true">★★★★★</div><p>Très bon accompagnement théorique et pratique !</p><figcaption><span class="av" aria-hidden="true">TC</span>Titouan C.</figcaption></figure>
+      <figure class="review"><div class="stars" aria-hidden="true">★★★★★</div><p>Excellente préparation au permis, aussi bien la partie théorique que la partie pratique.</p><figcaption><span class="av" aria-hidden="true">FG</span>François G.</figcaption></figure>
+      <figure class="review"><div class="stars" aria-hidden="true">★★★★★</div><p>La formation s'est très bien déroulée. La pédagogie des formateurs est au top pour passer son permis. Je recommande.</p><figcaption><span class="av" aria-hidden="true">OL</span>Olivier LG.</figcaption></figure>
+      <figure class="review"><div class="stars" aria-hidden="true">★★★★<span class="off">★</span></div><p>Super ambiance ! Les enseignants ont une grande expérience et font tout pour que nous puissions réussir !</p><figcaption><span class="av" aria-hidden="true">BG</span>Bruno G.</figcaption></figure>
+      <figure class="review"><div class="stars" aria-hidden="true">★★★★★</div><p>Très bonne formation, organisée et équilibrée ! Merci à toute l'équipe !</p><figcaption><span class="av" aria-hidden="true">EM</span>Emmanuel M.</figcaption></figure>
+      <figure class="review"><div class="stars" aria-hidden="true">★★★★★</div><p>Une formation très agréable !! Une très bonne pédagogie de la part de Jean-Claude et un très bon accueil de Martine !! Un grand merci.</p><figcaption><span class="av" aria-hidden="true">CA</span>Charles-Antoine S.</figcaption></figure>
+      <figure class="review"><div class="stars" aria-hidden="true">★★★★★</div><p>Excellents accueil et formation. Professionnalisme et détente dans une ambiance très sympathique !</p><figcaption><span class="av" aria-hidden="true">AF</span>Anne F.</figcaption></figure>
+      <figure class="review"><div class="stars" aria-hidden="true">★★★★<span class="off">★</span></div><p>Stage excellent.</p><figcaption><span class="av" aria-hidden="true">LF</span>Luc F.</figcaption></figure>
     </div>
   </div>
 </section>
