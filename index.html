@@ -240,7 +240,7 @@
 
   /* ---- stages feature ---- */
   .stages{background:var(--deep);color:#eaf7f8;overflow:hidden;position:relative;}
-  .stages::before{content:"";position:absolute;inset:0;background:radial-gradient(1000px 500px at 88% -10%,rgba(70,184,201,.22),transparent 60%);}
+  .stages::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(1000px 500px at 88% -10%,rgba(70,184,201,.22),transparent 60%);}
   .stages-in{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
   .stages h2{color:#fff;font-size:clamp(2rem,4.2vw,3rem);font-weight:400;}
   .stages h2 em{font-style:italic;color:var(--lagoon-soft);}
@@ -608,9 +608,9 @@
       <p class="lede">Cinq matinées ou après-midis pour gagner en autonomie, dans une ambiance où l'on apprend vraiment en s'amusant. Groupes de niveau, matériel adapté à chaque âge, et toujours un moniteur diplômé à bord.</p>
       <div class="pills" role="list" aria-label="Tranches d'âge">
         <span class="pill" role="listitem">Club des Mouettons · <b>4-8 ans</b></span>
-        <span class="pill" role="listitem">Enfants &amp; juniors · <b>10-13 ans</b></span>
-        <span class="pill" role="listitem">Ados · <b>14-17 ans</b></span>
-        <span class="pill" role="listitem">Adultes · <b>18 ans &amp; +</b></span>
+        <span class="pill" role="listitem">Enfants · <b>6-11 ans</b></span>
+        <span class="pill" role="listitem">Ados · <b>11-16 ans</b></span>
+        <span class="pill" role="listitem">Adultes · <b>15 ans &amp; +</b></span>
       </div>
       <a href="https://yccarnac.ouiresa.fr/" target="_blank" rel="noopener" class="btn btn-sun">Inscrire un enfant <span class="arr" aria-hidden="true">→</span></a>
     </div>
@@ -620,15 +620,15 @@
         <div class="p">sur inscription<small>la semaine</small></div>
       </div>
       <div class="stage-row" role="listitem">
-        <div><div class="t">Optimist &amp; Open Bic</div><div class="d">8-12 ans · dériveur, initiation au réglage</div></div>
+        <div><div class="t">Optimist</div><div class="d">6-11 ans · dériveur, initiation au réglage</div></div>
         <div class="p">sur inscription<small>la semaine</small></div>
       </div>
       <div class="stage-row" role="listitem">
-        <div><div class="t">Cap sur le catamaran</div><div class="d">11-14 ans · catamaran &amp; planche à voile</div></div>
+        <div><div class="t">Catamaran &amp; planche</div><div class="d">8-13 ans · CATSY, Topaz &amp; miniglisse</div></div>
         <div class="p">sur inscription<small>la semaine</small></div>
       </div>
       <div class="stage-row" role="listitem">
-        <div><div class="t">Perfectionnement &amp; régate</div><div class="d">14-17 ans · vitesse, régate, autonomie</div></div>
+        <div><div class="t">Perfectionnement &amp; régate</div><div class="d">13 ans &amp; + · Topaz, RS Cat &amp; autonomie</div></div>
         <div class="p">sur inscription<small>la semaine</small></div>
       </div>
     </div>
@@ -654,7 +654,7 @@
       <article class="sg-card" role="listitem">
         <div class="ph ph-card"><img src="img/stage1.jpg" alt="Jeune régatier sur son catamaran dans la Baie de Quiberon" loading="lazy" width="1920" height="728"></div>
         <div class="sg-body">
-          <span class="sg-age">14-17 ans</span>
+          <span class="sg-age">Dès 13 ans</span>
           <h3>Perfectionnement &amp; régate</h3>
           <div class="sg-foot"><span class="sg-price">Semaine</span><a href="https://yccarnac.ouiresa.fr/" target="_blank" rel="noopener" class="sg-link">Réserver <span class="arr" aria-hidden="true">→</span></a></div>
         </div>
