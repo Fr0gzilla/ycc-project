@@ -442,6 +442,8 @@
   .doc-links a svg{color:var(--sea);flex:none;}
   .doc-links a .t{flex:1;font-weight:600;font-size:.98rem;}
   .doc-links a .ext{font-family:var(--ff-mono);font-size:.64rem;letter-spacing:.12em;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:3px 7px;}
+  .ph-bg{position:absolute;inset:0;z-index:0;background:#0B3A46 center/cover no-repeat;}
+  .ph-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(150deg,rgba(11,58,70,.85) 0%,rgba(14,71,87,.72) 50%,rgba(20,112,138,.6) 100%);}
 </style>
 </head>
 <body>
@@ -472,7 +474,7 @@
 <main id="contenu">
 
 <!-- ================= HERO DE PAGE ================= -->
-<section class="page-hero">
+<section class="page-hero"><div class="ph-bg" style="background-image:url('img/groupes.jpg');background-position:center 40%" aria-hidden="true"></div>
   <div class="wrap reveal">
     <p class="crumb"><a href="index.html">Accueil</a> · Groupes &amp; team-building</p>
     <span class="eyebrow">Groupes &amp; entreprises</span>
