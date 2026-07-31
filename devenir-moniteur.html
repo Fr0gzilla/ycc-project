@@ -446,6 +446,16 @@
   .doc-links a svg{color:var(--sea);flex:none;}
   .doc-links a .t{flex:1;font-weight:600;font-size:.98rem;}
   .doc-links a .ext{font-family:var(--ff-mono);font-size:.64rem;letter-spacing:.12em;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:3px 7px;}
+
+  /* --- FAQ accordéon --- */
+  .faq{max-width:840px;margin:36px auto 0;display:grid;gap:12px;}
+  .faq details{background:var(--white);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:border-color .3s,box-shadow .3s;}
+  .faq details[open]{border-color:var(--sea);box-shadow:0 20px 44px -32px rgba(11,58,70,.55);}
+  .faq summary{list-style:none;cursor:pointer;padding:18px 22px;font-weight:600;font-size:1.05rem;color:var(--deep);display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"+";font-family:var(--ff-display);font-size:1.5rem;color:var(--sea);transition:transform .3s var(--ease);line-height:1;}
+  .faq details[open] summary::after{transform:rotate(45deg);}
+  .faq .a{padding:0 22px 20px;color:var(--muted);font-size:1rem;line-height:1.6;}
 </style>
 </head>
 <body>
@@ -517,16 +527,6 @@
   </div>
 </section>
 
-<!-- ================= PHOTO ================= -->
-<section style="background:linear-gradient(180deg,#DFF1F2 0%,var(--foam) 100%);padding:0 0 clamp(64px,9vw,120px)">
-  <div class="wrap">
-    <figure class="club-photo reveal">
-      <img src="img/stage1.jpg" alt="Jeunes régatiers du Yacht Club de Carnac, la relève des moniteurs" loading="lazy" width="1920" height="728" style="object-position:center 42%">
-      <figcaption>La relève du club : d'abord régatiers, puis moniteurs · © YCC / P. Maheo</figcaption>
-    </figure>
-  </div>
-</section>
-
 <!-- ================= LE DIPLÔME ================= -->
 <section class="stages sec-pad">
   <div class="wrap">
@@ -583,6 +583,42 @@
         <li><a href="docs/moniteur-certificat-natation-25m.pdf" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v5h5"/><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M12 12v5M9.5 14.5 12 17l2.5-2.5"/></svg><span class="t">Attestation de natation 25 m</span><span class="ext">PDF</span></a></li>
         <li><a href="docs/moniteur-fiche-entree-salarie.pdf" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v5h5"/><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M12 12v5M9.5 14.5 12 17l2.5-2.5"/></svg><span class="t">Fiche d'entrée salarié</span><span class="ext">PDF</span></a></li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="sec-pad" style="background:var(--foam)">
+  <div class="wrap">
+    <div class="sec-head reveal" style="max-width:620px;margin-left:auto;margin-right:auto;text-align:center">
+      <span class="eyebrow">Questions fréquentes</span>
+      <h2>Tout ce qu'il faut <em>savoir</em></h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>À partir de quel âge peut-on se lancer ?</summary>
+        <div class="a">Dès 14 ans comme aide-moniteur, 15 ans pour le Niveau 4 EFV, et 16 ans pour les stages pédagogiques du CQPIV. On avance étape par étape, à son rythme.</div>
+      </details>
+      <details>
+        <summary>Quels sont les prérequis ?</summary>
+        <div class="a">Un certificat médical CQPIV et une attestation de natation de 25 m. Les formulaires sont à télécharger un peu plus haut sur cette page.</div>
+      </details>
+      <details>
+        <summary>Qu'est-ce que le CQPIV, concrètement ?</summary>
+        <div class="a">Le Certificat de Qualification Professionnelle d'Initiateur Voile. Il valide 6 unités de compétences capitalisables — sécurité, animation et enseignement — et permet d'encadrer la voile contre rémunération.</div>
+      </details>
+      <details>
+        <summary>Comment se déroule la formation ?</summary>
+        <div class="a">En alternance : on se forme en encadrant sur l'eau, aux côtés d'un tuteur du club, jusqu'à valider les 6 unités de compétences. On apprend en enseignant.</div>
+      </details>
+      <details>
+        <summary>Est-ce un plus pour Parcoursup ?</summary>
+        <div class="a">Oui. L'engagement et les responsabilités d'encadrement sont valorisables dans le dossier Parcoursup — pensez à la date limite des vœux, début avril.</div>
+      </details>
+      <details>
+        <summary>Comment candidater ?</summary>
+        <div class="a">En ligne via notre plateforme de réservation, par téléphone au 02 97 52 10 98, ou directement à l'accueil du club, à Port en Dro.</div>
+      </details>
     </div>
   </div>
 </section>
