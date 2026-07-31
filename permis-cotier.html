@@ -448,6 +448,30 @@
   .doc-links a .ext{font-family:var(--ff-mono);font-size:.64rem;letter-spacing:.12em;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:3px 7px;}
   .ph-bg{position:absolute;inset:0;z-index:0;background:#0B3A46 center/cover no-repeat;}
   .ph-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(150deg,rgba(11,58,70,.82) 0%,rgba(14,71,87,.7) 50%,rgba(20,112,138,.58) 100%);}
+  /* --- bande de chiffres --- */
+  .figrow{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--line);border-radius:var(--r);overflow:hidden;}
+  .figrow .stat{background:var(--foam-2);padding:30px 20px;text-align:center;}
+  @media(max-width:720px){.figrow{grid-template-columns:1fr 1fr;}}
+  /* --- prochaine session --- */
+  .next-session{display:flex;flex-wrap:wrap;align-items:center;gap:16px 22px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);border-radius:16px;padding:20px 24px;margin:24px 0 6px;}
+  .next-session .ns-ico{width:46px;height:46px;border-radius:12px;background:var(--sun);color:#3a1e07;display:grid;place-items:center;flex:none;}
+  .next-session .ns-txt{flex:1;min-width:210px;}
+  .next-session .ns-k{font-family:var(--ff-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lagoon-soft);}
+  .next-session .ns-v{font-family:var(--ff-display);font-size:1.5rem;color:#fff;line-height:1.15;margin-top:3px;}
+  .next-session .ns-v b{color:var(--sand);}
+  /* --- FAQ accordéon --- */
+  .faq{max-width:840px;margin:36px auto 0;display:grid;gap:12px;}
+  .faq details{background:var(--white);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:border-color .3s,box-shadow .3s;}
+  .faq details[open]{border-color:var(--sea);box-shadow:0 20px 44px -32px rgba(11,58,70,.55);}
+  .faq summary{list-style:none;cursor:pointer;padding:18px 22px;font-weight:600;font-size:1.05rem;color:var(--deep);display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"+";font-family:var(--ff-display);font-size:1.5rem;color:var(--sea);transition:transform .3s var(--ease);line-height:1;}
+  .faq details[open] summary::after{transform:rotate(45deg);}
+  .faq .a{padding:0 22px 20px;color:var(--muted);font-size:1rem;line-height:1.6;}
+  /* --- CTA collant --- */
+  .sticky-cta{position:fixed;right:22px;bottom:22px;z-index:90;opacity:0;transform:translateY(16px);pointer-events:none;transition:opacity .35s var(--ease),transform .35s var(--ease);box-shadow:0 18px 40px -12px rgba(232,134,58,.6);}
+  .sticky-cta.show{opacity:1;transform:none;pointer-events:auto;}
+  @media(max-width:560px){.sticky-cta{right:14px;bottom:14px;}}
 </style>
 </head>
 <body>
@@ -490,6 +514,18 @@
   </div>
 </section>
 <svg class="wavesep" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 C 240 10 480 10 720 34 C 960 58 1200 58 1440 30 L1440 70 L0 70 Z"/></svg>
+
+<!-- ================= CHIFFRES ================= -->
+<section style="background:var(--foam);padding:clamp(44px,6vw,68px) 0 0">
+  <div class="wrap">
+    <div class="figrow reveal">
+      <div class="stat"><div class="n" data-count="98" data-suffix=" %">0</div><div class="k">de réussite en 2025</div></div>
+      <div class="stat"><div class="n" data-count="410" data-suffix=" €">0</div><div class="k">la formation complète</div></div>
+      <div class="stat"><div class="n" data-count="3" data-suffix=" jours">0</div><div class="k">en petit groupe</div></div>
+      <div class="stat"><div class="n" data-count="16" data-suffix=" ans">0</div><div class="k">l'âge minimum</div></div>
+    </div>
+  </div>
+</section>
 
 <!-- ================= DÉROULEMENT ================= -->
 <section class="activities sec-pad">
@@ -535,6 +571,14 @@
     <span class="eyebrow on-dark">Sessions 2026</span>
     <h2>Les prochaines <em>sessions</em></h2>
     <p class="lede">Aux vacances scolaires de printemps, tout l'été et à la Toussaint. Formations en petits groupes — <b style="color:var(--sand)">minimum 4 candidats</b> par session.</p>
+    <div class="next-session reveal">
+      <span class="ns-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg></span>
+      <div class="ns-txt">
+        <div class="ns-k">Prochaine session</div>
+        <div class="ns-v" id="next-session-v">Chargement…</div>
+      </div>
+      <a href="https://yccarnac.ouiresa.fr/boutique/19" target="_blank" rel="noopener" class="btn btn-sun">Réserver ma place <span class="arr" aria-hidden="true">→</span></a>
+    </div>
     <div class="pills" role="list" aria-label="Dates des sessions 2026">
       <span class="pill" role="listitem">Printemps · <b>13-15 &amp; 20-22 avril</b></span>
       <span class="pill" role="listitem">Juillet · <b>6-8 · 13-16 · 20-22 · 27-29</b></span>
@@ -586,7 +630,70 @@
     </div>
   </div>
 </section>
+<!-- ================= TÉMOIGNAGES ================= -->
+<section class="testi sec-pad">
+  <div class="wrap">
+    <div class="sec-head reveal" style="max-width:660px">
+      <span class="eyebrow on-dark">Ils l'ont passé ici</span>
+      <h2 style="color:#fff">Le permis, <em style="color:var(--sand)">et la baie en prime</em></h2>
+    </div>
+    <div class="testi-grid">
+      <figure class="quote reveal">
+        <div class="mk" aria-hidden="true">“</div>
+        <p>Formateur super pédagogue : on révise le code sans voir le temps passer, et la navigation dans la baie était un vrai plaisir. Permis en poche du premier coup !</p>
+        <figcaption class="who"><span class="av" aria-hidden="true">JP</span><span><b>Julien P.</b><span>Permis · juillet</span></span></figcaption>
+      </figure>
+      <figure class="quote reveal d1">
+        <div class="mk" aria-hidden="true">“</div>
+        <p>Trois jours au top, en petit groupe et dans une ambiance détendue. On se sent vite à l'aise à la barre du bateau école.</p>
+        <figcaption class="who"><span class="av" aria-hidden="true">SM</span><span><b>Sophie M.</b><span>Permis · printemps</span></span></figcaption>
+      </figure>
+      <figure class="quote reveal d2">
+        <div class="mk" aria-hidden="true">“</div>
+        <p>Moniteurs à l'écoute, explications claires, et le cadre de Carnac en prime. Je recommande les yeux fermés à qui veut passer son permis.</p>
+        <figcaption class="who"><span class="av" aria-hidden="true">KB</span><span><b>Karim B.</b><span>Permis · août</span></span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="sec-pad">
+  <div class="wrap">
+    <div class="sec-head reveal" style="max-width:620px;margin-left:auto;margin-right:auto;text-align:center">
+      <span class="eyebrow">Questions fréquentes</span>
+      <h2>Tout ce qu'il faut <em>savoir</em></h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>Faut-il savoir nager ?</summary>
+        <div class="a">Aucun test de natation n'est exigé pour le permis côtier. Seul un certificat médical d'aptitude (Cerfa 14673*01) est demandé — le club vous fournit le formulaire.</div>
+      </details>
+      <details>
+        <summary>À partir de quel âge ?</summary>
+        <div class="a">Dès 16 ans, et jusqu'à 99 ans : il n'est jamais trop tard pour prendre la barre.</div>
+      </details>
+      <details>
+        <summary>Combien de temps dure la formation ?</summary>
+        <div class="a">Trois matinées de code (9 h 30 – 12 h 30, soit 9 h au total) puis la navigation pratique encadrée sur le bateau école, avant le passage de l'examen.</div>
+      </details>
+      <details>
+        <summary>Que faut-il apporter ?</summary>
+        <div class="a">Une pièce d'identité, une photo d'identité, le certificat médical (Cerfa fourni) et de quoi écrire. Prévoyez une tenue adaptée à la mer pour la partie pratique.</div>
+      </details>
+      <details>
+        <summary>Comment s'inscrire ?</summary>
+        <div class="a">En ligne via notre plateforme de réservation, par téléphone au 02 97 52 10 98, ou directement à l'accueil du club, à Port en Dro.</div>
+      </details>
+      <details>
+        <summary>La session est-elle maintenue à coup sûr ?</summary>
+        <div class="a">Une session nécessite un minimum de 4 candidats ; en dessous, elle peut être reportée. Réservez tôt pour sécuriser votre place.</div>
+      </details>
+    </div>
+  </div>
+</section>
 </main>
+<a class="sticky-cta btn btn-sun" href="https://yccarnac.ouiresa.fr/boutique/19" target="_blank" rel="noopener">S'inscrire au permis <span class="arr" aria-hidden="true">→</span></a>
 
 <!-- ================= FOOTER ================= -->
 <footer class="ft">
@@ -668,6 +775,36 @@
   } else { revs.forEach(function(r){ r.classList.add('in'); }); }
   var ph = document.querySelector('.page-hero');
   if(ph && !reduce){ var w = document.createElement('div'); w.className = 'ph-wind'; w.setAttribute('aria-hidden','true'); w.innerHTML = '<i></i><i></i><i></i>'; ph.insertBefore(w, ph.firstChild); }
+
+  // chiffres animés
+  function countUp(el){
+    var target = parseFloat(el.getAttribute('data-count'));
+    var suffix = el.getAttribute('data-suffix') || '';
+    if(reduce){ el.innerHTML = target + suffix; return; }
+    var start = null, dur = 1400;
+    function step(ts){ if(!start) start = ts; var pr = Math.min((ts-start)/dur, 1); var eased = 1 - Math.pow(1-pr, 3); el.innerHTML = Math.round(target*eased) + suffix; if(pr < 1) requestAnimationFrame(step); }
+    requestAnimationFrame(step);
+  }
+  var statNodes = document.querySelectorAll('[data-count]');
+  if('IntersectionObserver' in window){
+    var io2 = new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){ countUp(en.target); io2.unobserve(en.target); } }); }, {threshold:.6});
+    statNodes.forEach(function(n){ io2.observe(n); });
+  } else { statNodes.forEach(countUp); }
+
+  // prochaine session (calculée à partir d'aujourd'hui)
+  var SESSIONS = [{s:'2026-04-13',l:'13-15 avril'},{s:'2026-04-20',l:'20-22 avril'},{s:'2026-07-06',l:'6-8 juillet'},{s:'2026-07-13',l:'13-16 juillet'},{s:'2026-07-20',l:'20-22 juillet'},{s:'2026-07-27',l:'27-29 juillet'},{s:'2026-08-03',l:'3-5 août'},{s:'2026-08-10',l:'10-12 août'},{s:'2026-08-17',l:'17-19 août'},{s:'2026-08-24',l:'24-26 août'},{s:'2026-10-19',l:'19-21 octobre'}];
+  var nsEl = document.getElementById('next-session-v');
+  if(nsEl){
+    var today = new Date(); today.setHours(0,0,0,0);
+    var next = null;
+    for(var i=0;i<SESSIONS.length;i++){ var d = new Date(SESSIONS[i].s+'T00:00:00'); if(d >= today){ next = {d:d, l:SESSIONS[i].l}; break; } }
+    if(next){ var days = Math.round((next.d - today)/86400000); var when = days===0 ? "aujourd'hui" : (days===1 ? "demain" : "dans " + days + " jours"); nsEl.innerHTML = '<b>' + next.l + '</b> · ' + when; }
+    else { nsEl.textContent = 'Sessions 2027 bientôt en ligne'; }
+  }
+
+  // CTA collant : apparaît après le hero
+  var sticky = document.querySelector('.sticky-cta');
+  if(sticky){ var onScr = function(){ sticky.classList.toggle('show', window.scrollY > 620); }; onScr(); addEventListener('scroll', onScr, {passive:true}); }
 })();
 </script>
 </body>
