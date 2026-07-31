@@ -571,7 +571,7 @@
 <!-- ================= SESSIONS ================= -->
 <section class="stages sec-pad">
   <div class="wrap">
-    <span class="eyebrow on-dark">Sessions 2026</span>
+    <span class="eyebrow on-dark">Sessions <span id="sessions-year">2026</span></span>
     <h2>Les prochaines <em>sessions</em></h2>
     <p class="lede">Aux vacances scolaires de printemps, tout l'été et à la Toussaint. Formations en petits groupes — <b style="color:var(--sand)">minimum 4 candidats</b> par session.</p>
     <div class="frise reveal">
@@ -797,7 +797,10 @@
   // surligne la prochaine session dans le calendrier
   var SESSIONS = ['2026-04-13','2026-04-20','2026-07-06','2026-07-13','2026-07-20','2026-07-27','2026-08-03','2026-08-10','2026-08-17','2026-08-24','2026-10-19'];
   var today = new Date(); today.setHours(0,0,0,0);
-  for(var i=0;i<SESSIONS.length;i++){ if(new Date(SESSIONS[i]+'T00:00:00') >= today){ var c = document.querySelector('.stop[data-s="' + SESSIONS[i] + '"]'); if(c) c.classList.add('is-next'); break; } }
+  var yy = null;
+  for(var i=0;i<SESSIONS.length;i++){ if(new Date(SESSIONS[i]+'T00:00:00') >= today){ var c = document.querySelector('.stop[data-s="' + SESSIONS[i] + '"]'); if(c) c.classList.add('is-next'); yy = SESSIONS[i].slice(0,4); break; } }
+  var yEl = document.getElementById('sessions-year');
+  if(yEl && SESSIONS.length){ yEl.textContent = yy || SESSIONS[SESSIONS.length-1].slice(0,4); }
 })();
 </script>
 </body>
