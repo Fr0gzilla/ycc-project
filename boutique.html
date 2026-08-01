@@ -523,7 +523,7 @@
 <section style="background:linear-gradient(180deg,#DFF1F2 0%,var(--foam) 100%);padding:0 0 clamp(64px,9vw,120px)">
   <div class="wrap">
     <figure class="club-photo reveal">
-      <img src="img/location.jpg" alt="Le kiosque d'accueil du Point Location à Port en Dro, avec son matériel et sa boutique" loading="lazy" style="object-position:center 45%">
+      <img src="img/location.jpg" alt="Le point d'accueil et la boutique du Yacht Club de Carnac à Port en Dro" loading="lazy" style="object-position:center 45%">
       <figcaption>La boutique du club, sur place à Port en Dro · © YCC / P. Maheo</figcaption>
     </figure>
   </div>
@@ -642,7 +642,7 @@
       <div>
         <h4>La lettre de la baie</h4>
         <p class="about" style="margin-bottom:0">Programmes, météo des stages et dates de régates, une fois par mois.</p>
-        <form class="news" aria-label="Inscription à la newsletter" onsubmit="return false">
+        <form class="news" aria-label="Inscription à la newsletter" onsubmit="var i=this.querySelector('input'); if(i&&i.value){location.href='mailto:infos@yccarnac.com?subject='+encodeURIComponent('Inscription a la lettre de la baie')+'&body='+encodeURIComponent('Bonjour, je souhaite recevoir la lettre de la baie a cette adresse : '+i.value);} return false;">
           <label for="nl" class="skip">Votre e-mail</label>
           <input id="nl" type="email" placeholder="votre@email.fr" autocomplete="email">
           <button type="submit">OK</button>

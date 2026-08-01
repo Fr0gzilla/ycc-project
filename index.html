@@ -731,8 +731,8 @@
 <section class="agenda sec-pad" id="agenda">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">Régates &amp; événements</span>
-      <h2>Les prochains <em>rendez-vous</em> de la baie</h2>
+      <span class="eyebrow">Régates &amp; événements · Saison 2026</span>
+      <h2>Les grands <em>rendez-vous</em> de la baie</h2>
       <p>Le calendrier de la saison, mis à jour au fil de l'eau. Ouvert aux licenciés comme aux curieux venus encourager depuis la plage.</p>
     </div>
     <div class="events reveal d1">
@@ -968,14 +968,14 @@
           <li><a href="#club">Qui sommes-nous</a></li>
           <li><a href="#eco">Voile écoresponsable</a></li>
           <li><a href="#agenda">Agenda de la saison</a></li>
-          <li><a href="#reserver">Carte cadeau</a></li>
+          <li><a href="carte-cadeau.html">Carte cadeau</a></li>
           <li><a href="#reserver">Nous contacter</a></li>
         </ul>
       </nav>
       <div>
         <h4>La lettre de la baie</h4>
         <p class="about" style="margin-bottom:0">Programmes, météo des stages et dates de régates, une fois par mois.</p>
-        <form class="news" aria-label="Inscription à la newsletter" onsubmit="return false">
+        <form class="news" aria-label="Inscription à la newsletter" onsubmit="var i=this.querySelector('input'); if(i&&i.value){location.href='mailto:infos@yccarnac.com?subject='+encodeURIComponent('Inscription a la lettre de la baie')+'&body='+encodeURIComponent('Bonjour, je souhaite recevoir la lettre de la baie a cette adresse : '+i.value);} return false;">
           <label for="nl" class="skip">Votre e-mail</label>
           <input id="nl" type="email" placeholder="votre@email.fr" autocomplete="email">
           <button type="submit">OK</button>

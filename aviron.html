@@ -630,7 +630,7 @@
         <div class="a">La licence aviron est valable du 1ᵉʳ septembre au 31 août. À l'inscription à l'accueil du club, vous signez le règlement AVYCC (annexe du règlement intérieur du YCC) et en recevez une copie. La réservation se fait aussi en ligne, ou par téléphone au 02 97 52 10 98.</div>
       </details>
       <details>
-        <summary>À partir de quel âge peut-on pratiquer ?</summary>
+        <summary>Pour qui, et à quel rythme peut-on pratiquer ?</summary>
         <div class="a">L'aviron de mer se pratique en deux catégories, − 23 ans et + 23 ans, à l'année, au trimestre, au mois ou à la journée (dès 27,90 € la séance). Le détail des tarifs est indiqué plus haut sur la page.</div>
       </details>
     </div>
@@ -677,7 +677,7 @@
       <div>
         <h4>La lettre de la baie</h4>
         <p class="about" style="margin-bottom:0">Programmes, météo des stages et dates de régates, une fois par mois.</p>
-        <form class="news" aria-label="Inscription à la newsletter" onsubmit="return false">
+        <form class="news" aria-label="Inscription à la newsletter" onsubmit="var i=this.querySelector('input'); if(i&&i.value){location.href='mailto:infos@yccarnac.com?subject='+encodeURIComponent('Inscription a la lettre de la baie')+'&body='+encodeURIComponent('Bonjour, je souhaite recevoir la lettre de la baie a cette adresse : '+i.value);} return false;">
           <label for="nl" class="skip">Votre e-mail</label>
           <input id="nl" type="email" placeholder="votre@email.fr" autocomplete="email">
           <button type="submit">OK</button>

@@ -539,7 +539,7 @@
       <div class="reveal">
         <p>Le Yacht Club de Carnac vous accueille à Port en Dro pour construire ensemble votre projet : mariage, réception privée, anniversaire, séminaire d'entreprise ou team building. Consultez les conditions générales de location, puis prenez contact pour réserver la date.</p>
         <div class="hero-cta">
-          <a class="btn btn-sun" href="mailto:contact@yccarnac.com">Nous écrire<span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn-sun" href="mailto:infos@yccarnac.com">Nous écrire<span class="arr" aria-hidden="true">→</span></a>
           <a class="btn btn-line" href="tel:+33297521098">02 97 52 10 98</a>
         </div>
         <div class="docs reveal">
@@ -550,7 +550,7 @@
         </div>
       </div>
       <ul class="contact-list reveal d1">
-        <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4Z"/><path d="m4 6 8 6 8-6"/></svg></span><div><div class="k">E-MAIL</div><div class="v">contact@yccarnac.com<span>Devis &amp; disponibilités</span></div></div></li>
+        <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4Z"/><path d="m4 6 8 6 8-6"/></svg></span><div><div class="k">E-MAIL</div><div class="v">infos@yccarnac.com<span>Devis &amp; disponibilités</span></div></div></li>
         <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-3 2a11 11 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg></span><div><div class="k">TÉLÉPHONE</div><div class="v">02 97 52 10 98<span>Du lundi au vendredi</span></div></div></li>
         <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><div class="k">ADRESSE</div><div class="v">Port en Dro<span>56340 Carnac</span></div></div></li>
       </ul>
@@ -634,7 +634,7 @@
       <div>
         <h4>La lettre de la baie</h4>
         <p class="about" style="margin-bottom:0">Programmes, météo des stages et dates de régates, une fois par mois.</p>
-        <form class="news" aria-label="Inscription à la newsletter" onsubmit="return false">
+        <form class="news" aria-label="Inscription à la newsletter" onsubmit="var i=this.querySelector('input'); if(i&&i.value){location.href='mailto:infos@yccarnac.com?subject='+encodeURIComponent('Inscription a la lettre de la baie')+'&body='+encodeURIComponent('Bonjour, je souhaite recevoir la lettre de la baie a cette adresse : '+i.value);} return false;">
           <label for="nl" class="skip">Votre e-mail</label>
           <input id="nl" type="email" placeholder="votre@email.fr" autocomplete="email">
           <button type="submit">OK</button>

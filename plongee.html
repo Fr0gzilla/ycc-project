@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Plongée sous-marine à Carnac | Yacht Club de Carnac</title>
-<meta name="description" content="Découvrez la plongée sous-marine dans la Baie de Quiberon avec le Yacht Club de Carnac.">
+<meta name="description" content="La plongée sous-marine à Carnac est assurée par le Carnac Plongée Dive Center, centre indépendant installé au Yacht Club de Carnac, en Baie de Quiberon.">
 <meta name="theme-color" content="#0B3A46">
 <link rel="icon" href="logo-yccarnac.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
@@ -637,7 +637,7 @@
       <div>
         <h4>La lettre de la baie</h4>
         <p class="about" style="margin-bottom:0">Programmes, météo des stages et dates de régates, une fois par mois.</p>
-        <form class="news" aria-label="Inscription à la newsletter" onsubmit="return false">
+        <form class="news" aria-label="Inscription à la newsletter" onsubmit="var i=this.querySelector('input'); if(i&&i.value){location.href='mailto:infos@yccarnac.com?subject='+encodeURIComponent('Inscription a la lettre de la baie')+'&body='+encodeURIComponent('Bonjour, je souhaite recevoir la lettre de la baie a cette adresse : '+i.value);} return false;">
           <label for="nl" class="skip">Votre e-mail</label>
           <input id="nl" type="email" placeholder="votre@email.fr" autocomplete="email">
           <button type="submit">OK</button>
