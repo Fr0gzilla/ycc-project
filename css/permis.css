@@ -1,7 +1,7 @@
 /* Page permis côtier */
   /* écarts de la page permis par rapport à pages.css */
   .doc-links{max-width:640px;}
-  .ph-bg::after{background:linear-gradient(150deg,rgba(11,58,70,.82) 0%,rgba(14,71,87,.7) 50%,rgba(20,112,138,.58) 100%);}
+  .ph-bg::after{background:linear-gradient(150deg,rgba(11,58,70,.9) 0%,rgba(14,71,87,.8) 50%,rgba(20,112,138,.66) 100%);}
   /* --- bande de chiffres --- */
   .figrow{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--line);border-radius:var(--r);overflow:hidden;}
   .figrow .stat{background:var(--foam-2);padding:30px 20px;text-align:center;}

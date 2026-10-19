@@ -318,8 +318,9 @@
   @keyframes gust{0%{transform:translateX(-260px);opacity:0;}12%{opacity:.9;}70%{opacity:.7;}100%{transform:translateX(110vw);opacity:0;}}
 
   /* sailboat */
-  .boat{position:absolute;bottom:8%;right:6%;width:min(24vw,300px);z-index:3;
+  .boat{position:absolute;bottom:7%;right:calc(26px + 280px);width:min(20vw,250px);z-index:3;
     animation:sail 6s ease-in-out infinite;transform-origin:bottom center;}
+  @media(min-width:961px) and (max-width:1180px){.boat{width:160px;right:calc(26px + 260px);}}
   @keyframes sail{0%,100%{transform:translateY(0) rotate(-2.5deg);}50%{transform:translateY(-14px) rotate(1.5deg);}}
 
   /* layered animated sea */
