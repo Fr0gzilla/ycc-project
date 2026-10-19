@@ -17,8 +17,8 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="css/style.css?v=2">
-<link rel="stylesheet" href="css/pages.css?v=2">
+<link rel="stylesheet" href="css/style.css?v=3">
+<link rel="stylesheet" href="css/pages.css?v=3">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -104,7 +104,7 @@
 
 <main id="contenu">
 
-<section class="page-hero"><div class="ph-bg" style="background-image:url('img/salle.webp')" aria-hidden="true"></div><div class="wrap reveal"><p class="crumb"><a href="index.html">Accueil</a> · Location de salle</p><span class="eyebrow">Événements &amp; réceptions</span><h1>Une salle <em>avec vue sur la baie</em></h1><p>Le Yacht Club de Carnac privatise ses salles face à la Baie de Quiberon pour vos mariages, réceptions, anniversaires, séminaires et team building. Un cadre lumineux, les pieds dans l'eau, à Port en Dro.</p></div></section>
+<section class="page-hero"><div class="ph-bg" style="background-image:url('img/salle.webp')" aria-hidden="true"></div><div class="wrap"><p class="crumb"><a href="index.html">Accueil</a> · Location de salle</p><span class="eyebrow">Événements &amp; réceptions</span><h1>Une salle <em>avec vue sur la baie</em></h1><p>Le Yacht Club de Carnac privatise ses salles face à la Baie de Quiberon pour vos mariages, réceptions, anniversaires, séminaires et team building. Un cadre lumineux, les pieds dans l'eau, à Port en Dro.</p></div></section>
 <svg class="wavesep" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 C 240 10 480 10 720 34 C 960 58 1200 58 1440 30 L1440 70 L0 70 Z"/></svg>
 
 <section class="sec-pad">
@@ -281,7 +281,7 @@
   if(nav){ var s = function(){ nav.classList.toggle('scrolled', window.scrollY > 40); }; s(); addEventListener('scroll', s, {passive:true}); }
   var b = document.getElementById('burger'), l = document.getElementById('navlinks');
   if(b && l){
-    var mq = matchMedia('(max-width:720px)');
+    var mq = matchMedia('(max-width:1000px)');
     function sync(o){ var h = mq.matches && !o; if(h){ l.setAttribute('inert',''); l.setAttribute('aria-hidden','true'); } else { l.removeAttribute('inert'); l.removeAttribute('aria-hidden'); } }
     function set(o){ l.classList.toggle('open', o); b.setAttribute('aria-expanded', o?'true':'false'); b.setAttribute('aria-label', o?'Fermer le menu':'Ouvrir le menu'); sync(o); }
     b.addEventListener('click', function(){ set(!l.classList.contains('open')); });
@@ -300,7 +300,7 @@
   if(ph && !reduce){ var w = document.createElement('div'); w.className = 'ph-wind'; w.setAttribute('aria-hidden','true'); w.innerHTML = '<i></i><i></i><i></i>'; ph.insertBefore(w, ph.firstChild); }
 })();
 </script>
-<script src="js/site.js?v=2" defer></script>
-<script src="js/formulaires.js?v=2" defer></script>
+<script src="js/site.js?v=3" defer></script>
+<script src="js/formulaires.js?v=3" defer></script>
 </body>
 </html>

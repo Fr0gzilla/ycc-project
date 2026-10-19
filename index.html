@@ -35,7 +35,7 @@
 </script>
 <link rel="preload" as="image" href="img/hero.webp" media="(min-width:961px)">
 <link rel="preload" as="image" href="img/hero-960.webp" media="(max-width:960px)">
-<link rel="stylesheet" href="css/style.css?v=2">
+<link rel="stylesheet" href="css/style.css?v=3">
 </head>
 <body>
 <a class="skip" href="#contenu">Aller au contenu</a>
@@ -596,7 +596,7 @@
   // mobile menu (accessible : inert quand fermé sur mobile, fermeture au clavier)
   var burger = document.getElementById('burger');
   var links = document.getElementById('navlinks');
-  var mq = window.matchMedia('(max-width:720px)');
+  var mq = window.matchMedia('(max-width:1000px)');
   function syncMenu(open){
     var hidden = mq.matches && !open;
     if(hidden){ links.setAttribute('inert',''); links.setAttribute('aria-hidden','true'); }
@@ -701,8 +701,8 @@
   setInterval(update, 600000); // toutes les 10 minutes tant que la page reste ouverte
 })();
 </script>
-<script src="js/site.js?v=2" defer></script>
-<script src="js/formulaires.js?v=2" defer></script>
-<script src="js/consentement.js?v=2" defer></script>
+<script src="js/site.js?v=3" defer></script>
+<script src="js/formulaires.js?v=3" defer></script>
+<script src="js/consentement.js?v=3" defer></script>
 </body>
 </html>

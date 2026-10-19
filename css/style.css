@@ -281,7 +281,7 @@
   .brand span{font-family:var(--ff-mono);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;opacity:.75;}
   .nav-links{display:flex;align-items:center;gap:6px;list-style:none;margin:0;padding:0;}
   .nav-links a{
-    color:rgba(255,255,255,.92);font-weight:500;font-size:.96rem;padding:9px 14px;border-radius:100px;
+    color:rgba(255,255,255,.92);font-weight:500;font-size:.96rem;padding:9px 14px;border-radius:100px;white-space:nowrap;
     transition:background .25s,color .25s;
   }
   header.nav.scrolled .nav-links a{color:var(--deep);}
@@ -575,7 +575,8 @@
     .sun{width:96px;height:96px;top:9%;right:5%;opacity:.6;}
     .coords{display:none;}
   }
-  @media (max-width:720px){
+  /* menu en panneau (burger) dès la tablette */
+  @media (max-width:1000px){
     .nav-links{
       position:fixed;inset:0 0 0 auto;width:min(80vw,320px);background:var(--deep);
       flex-direction:column;align-items:stretch;gap:4px;padding:96px 22px 30px;
@@ -593,6 +594,8 @@
     .nav-links .nav-resa{display:block;margin-top:14px;}
     .nav-links .nav-resa a{background:var(--sun);color:#3a1e07!important;text-align:center;font-weight:700;}
     .nav-links .nav-resa a:hover{background:var(--sun-deep)!important;}
+  }
+  @media (max-width:720px){
     header.nav .nav-cta .btn{display:none;}
     .cards,.testi-grid{grid-template-columns:1fr;}
     .ft-top{grid-template-columns:1fr;}
