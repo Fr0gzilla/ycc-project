@@ -3,7 +3,7 @@
    Une fois le formulaire créé sur formspree.io, coller ici son identifiant (la fin de https://formspree.io/f/XXXXXXX). */
 (function(){
   var FORMSPREE_ID = '';
-  var MAIL = 'infos@yccarnac.com';
+  var MAIL = 'info@yccarnac.com';
 
   function mailto(sujet, corps){
     window.location.href = 'mailto:' + MAIL + '?subject=' + encodeURIComponent(sujet) + '&body=' + encodeURIComponent(corps);
