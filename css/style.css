@@ -333,7 +333,7 @@
 
   .hero-in{position:relative;z-index:5;width:100%;padding-top:96px;}
   .hero-in::before{content:"";position:absolute;left:-6%;top:-6%;width:78%;height:122%;z-index:-1;pointer-events:none;
-    background:radial-gradient(118% 96% at 22% 42%,rgba(5,23,30,.52),rgba(5,23,30,0) 68%);}
+    background:radial-gradient(closest-side,rgba(5,23,30,.52),rgba(5,23,30,0));}
   .hero-in .eyebrow{margin-bottom:20px;display:inline-flex;align-items:center;gap:10px;}
   .hero-in .eyebrow::before{content:"";width:26px;height:1px;background:var(--lagoon-soft);}
   .hero h1{color:#fff;font-size:clamp(2.9rem,7.2vw,6rem);font-weight:300;max-width:16ch;text-shadow:0 1px 2px rgba(4,22,28,.55),0 4px 26px rgba(4,22,28,.5);}
