@@ -288,6 +288,7 @@
   .nav-links a:hover{background:rgba(255,255,255,.16);}
   header.nav.scrolled .nav-links a:hover{background:rgba(11,58,70,.07);}
   .nav-cta{display:flex;align-items:center;gap:10px;}
+  .nav-resa{display:none;}
   .burger{display:none;width:48px;height:48px;border:0;background:transparent;cursor:pointer;flex-direction:column;gap:5px;align-items:center;justify-content:center;}
   .burger span{width:24px;height:2px;background:currentColor;color:#fff;transition:.3s var(--ease);border-radius:2px;}
   header.nav.scrolled .burger span{background:var(--deep);}
@@ -317,7 +318,7 @@
   @keyframes gust{0%{transform:translateX(-260px);opacity:0;}12%{opacity:.9;}70%{opacity:.7;}100%{transform:translateX(110vw);opacity:0;}}
 
   /* sailboat */
-  .boat{position:absolute;bottom:14%;left:5%;width:min(27vw,330px);z-index:3;
+  .boat{position:absolute;bottom:8%;right:6%;width:min(24vw,300px);z-index:3;
     animation:sail 6s ease-in-out infinite;transform-origin:bottom center;}
   @keyframes sail{0%,100%{transform:translateY(0) rotate(-2.5deg);}50%{transform:translateY(-14px) rotate(1.5deg);}}
 
@@ -569,7 +570,8 @@
     .club-grid,.stages-in,.eco-in,.book-in{grid-template-columns:1fr;gap:40px;}
     .cards,.testi-grid{grid-template-columns:1fr 1fr;}
     .ft-top{grid-template-columns:1fr 1fr;gap:34px;}
-    .boat{bottom:16%;width:44vw;}
+    .boat{bottom:5%;right:4%;width:34vw;opacity:.75;}
+    .sun{width:96px;height:96px;top:9%;right:5%;opacity:.6;}
     .coords{display:none;}
   }
   @media (max-width:720px){
@@ -581,7 +583,15 @@
     .nav-links.open{transform:none;}
     .nav-links a{color:#fff!important;font-size:1.1rem;padding:14px 16px;border-radius:12px;}
     .nav-links a:hover{background:rgba(255,255,255,.1)!important;}
-    .burger{display:flex;color:#fff;}
+    .burger{display:flex;color:#fff;position:relative;z-index:2;}
+    .nav-links{z-index:1;}
+    header.nav .burger[aria-expanded="true"] span{background:#fff;}
+    .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .burger[aria-expanded="true"] span:nth-child(2){opacity:0;}
+    .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    .nav-links .nav-resa{display:block;margin-top:14px;}
+    .nav-links .nav-resa a{background:var(--sun);color:#3a1e07!important;text-align:center;font-weight:700;}
+    .nav-links .nav-resa a:hover{background:var(--sun-deep)!important;}
     header.nav .nav-cta .btn{display:none;}
     .cards,.testi-grid{grid-template-columns:1fr;}
     .ft-top{grid-template-columns:1fr;}

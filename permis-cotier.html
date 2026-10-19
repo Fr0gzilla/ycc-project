@@ -94,6 +94,7 @@
         <li><a href="index.html#annee">À l'année</a></li>
         <li><a href="index.html#agenda">Régates</a></li>
         <li><a href="index.html#eco">Écoresponsable</a></li>
+        <li class="nav-resa"><a href="https://yccarnac.ouiresa.fr/" target="_blank" rel="noopener">Réserver en ligne</a></li>
       </ul>
     </nav>
     <div class="nav-cta">
@@ -149,23 +150,12 @@
 <!-- ================= SESSIONS ================= -->
 <section class="stages sec-pad">
   <div class="wrap">
-    <span class="eyebrow on-dark">Sessions <span id="sessions-year">2026</span></span>
+    <span class="eyebrow on-dark">Sessions <span id="sessions-year">2027</span></span>
     <h2>Les prochaines <em>sessions</em></h2>
     <p class="lede">Aux vacances scolaires de printemps, tout l'été et à la Toussaint. Formations en petits groupes — <b style="color:var(--sand)">minimum 4 candidats</b> par session.</p>
     <div class="frise reveal">
-      <div class="frise-stops" role="list" aria-label="Frise des sessions 2026">
-        <div class="stop" role="listitem" data-s="2026-04-13"><span class="stop-mon">Avril</span><span class="stop-dot"></span><span class="stop-date">13-15</span></div>
-        <div class="stop" role="listitem" data-s="2026-04-20"><span class="stop-mon"></span><span class="stop-dot"></span><span class="stop-date">20-22</span></div>
-        <div class="stop" role="listitem" data-s="2026-07-06"><span class="stop-mon">Juillet</span><span class="stop-dot"></span><span class="stop-date">6-8</span></div>
-        <div class="stop" role="listitem" data-s="2026-07-13"><span class="stop-mon"></span><span class="stop-dot"></span><span class="stop-date">13-16</span></div>
-        <div class="stop" role="listitem" data-s="2026-07-20"><span class="stop-mon"></span><span class="stop-dot"></span><span class="stop-date">20-22</span></div>
-        <div class="stop" role="listitem" data-s="2026-07-27"><span class="stop-mon"></span><span class="stop-dot"></span><span class="stop-date">27-29</span></div>
-        <div class="stop" role="listitem" data-s="2026-08-03"><span class="stop-mon">Août</span><span class="stop-dot"></span><span class="stop-date">3-5</span></div>
-        <div class="stop" role="listitem" data-s="2026-08-10"><span class="stop-mon"></span><span class="stop-dot"></span><span class="stop-date">10-12</span></div>
-        <div class="stop" role="listitem" data-s="2026-08-17"><span class="stop-mon"></span><span class="stop-dot"></span><span class="stop-date">17-19</span></div>
-        <div class="stop" role="listitem" data-s="2026-08-24"><span class="stop-mon"></span><span class="stop-dot"></span><span class="stop-date">24-26</span></div>
-        <div class="stop" role="listitem" data-s="2026-10-19"><span class="stop-mon">Octobre</span><span class="stop-dot"></span><span class="stop-date">19-21</span></div>
-      </div>
+      <!-- Saison 2027 : remettre la frise (un .stop par session, attribut data-s="AAAA-MM-JJ") et les mêmes dates dans SESSIONS plus bas. -->
+      <p class="frise-soon">Calendrier 2027 bientôt disponible</p>
     </div>
     <p style="margin-top:30px"><a href="https://yccarnac.ouiresa.fr/boutique/19?type=20648" target="_blank" rel="noopener" class="btn btn-sun">Voir les places disponibles <span class="arr" aria-hidden="true">→</span></a></p>
   </div>
@@ -318,7 +308,7 @@
           <input id="nl" type="email" placeholder="votre@email.fr" autocomplete="email">
           <button type="submit">OK</button>
         </form>
-        <p class="news-note">Un e-mail par mois, désinscription en un clic. Votre adresse ne sert qu\'à cet envoi. <a href="confidentialite.html#lettre">Confidentialité</a></p>
+        <p class="news-note">Un e-mail par mois, désinscription en un clic. Votre adresse ne sert qu’à cet envoi. <a href="confidentialite.html#lettre">Confidentialité</a></p>
       </div>
     </div>
     <div class="ft-bot">
@@ -373,14 +363,14 @@
   } else { statNodes.forEach(countUp); }
 
   // surligne la prochaine session dans le calendrier
-  var SESSIONS = ['2026-04-13','2026-04-20','2026-07-06','2026-07-13','2026-07-20','2026-07-27','2026-08-03','2026-08-10','2026-08-17','2026-08-24','2026-10-19'];
+  var SESSIONS = []; // dates de début des sessions, ex. '2027-04-12'
   var today = new Date(); today.setHours(0,0,0,0);
   var yy = null;
   for(var i=0;i<SESSIONS.length;i++){ if(new Date(SESSIONS[i]+'T00:00:00') >= today){ var c = document.querySelector('.stop[data-s="' + SESSIONS[i] + '"]'); if(c) c.classList.add('is-next'); yy = SESSIONS[i].slice(0,4); break; } }
   var yEl = document.getElementById('sessions-year');
   if(yEl && SESSIONS.length){ yEl.textContent = yy || SESSIONS[SESSIONS.length-1].slice(0,4); }
   // toutes les sessions sont passées : on annonce l'année suivante plutôt que d'afficher des dates périmées
-  if(!yy){
+  if(!yy && SESSIONS.length){
     var nextYear = String(today.getFullYear() + (SESSIONS.length && SESSIONS[SESSIONS.length-1].slice(0,4) >= String(today.getFullYear()) ? 1 : 0));
     if(yEl) yEl.textContent = nextYear;
     var fr = document.querySelector('.frise');
