@@ -1,0 +1,45 @@
+/* Page permis côtier */
+  /* écarts de la page permis par rapport à pages.css */
+  .doc-links{max-width:640px;}
+  .ph-bg::after{background:linear-gradient(150deg,rgba(11,58,70,.82) 0%,rgba(14,71,87,.7) 50%,rgba(20,112,138,.58) 100%);}
+  /* --- bande de chiffres --- */
+  .figrow{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--line);border-radius:var(--r);overflow:hidden;}
+  .figrow .stat{background:var(--foam-2);padding:30px 20px;text-align:center;}
+  @media(max-width:720px){.figrow{grid-template-columns:1fr 1fr;}}
+  /* --- frise / timeline des sessions --- */
+  .frise{margin-top:16px;overflow-x:auto;padding:4px 0 8px;}
+  .frise-stops{display:flex;justify-content:space-between;align-items:flex-start;position:relative;min-width:720px;}
+  .frise-stops::before{content:"";position:absolute;left:32px;right:32px;top:32px;height:2px;border-radius:2px;background:linear-gradient(90deg,rgba(156,221,230,.5),rgba(244,161,90,.75),rgba(156,221,230,.5));}
+  .stop{display:flex;flex-direction:column;align-items:center;position:relative;z-index:1;flex:1;}
+  .stop-mon{height:26px;font-family:var(--ff-display);font-size:1.1rem;color:var(--sand);white-space:nowrap;}
+  .stop-dot{width:15px;height:15px;border-radius:50%;background:var(--lagoon-soft);box-shadow:0 0 0 4px var(--deep),0 0 0 6px rgba(255,255,255,.12);transition:transform .3s var(--ease),background .3s;}
+  .stop:hover .stop-dot{transform:scale(1.4);background:#fff;}
+  .stop-date{margin-top:15px;font-family:var(--ff-mono);font-size:.86rem;color:rgba(255,255,255,.82);white-space:nowrap;transition:color .3s;}
+  .stop:hover .stop-date{color:#fff;}
+  .stop.is-next .stop-dot{background:var(--sun);animation:frisePulse 1.9s ease-in-out infinite;}
+  @keyframes frisePulse{0%,100%{box-shadow:0 0 0 4px var(--deep),0 0 0 7px rgba(244,161,90,.45);}50%{box-shadow:0 0 0 4px var(--deep),0 0 0 14px rgba(244,161,90,0);}}
+  .stop.is-next .stop-date{color:var(--sand);font-weight:600;}
+  .stop.is-next .stop-date::after{content:" · prochaine";font-size:.72em;}
+  /* --- avis / mosaïque --- */
+  .rate-stars{color:var(--sun);letter-spacing:2px;}
+  .reviews-vp{margin-top:28px;position:relative;}
+  .reviews{display:flex;gap:20px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;scroll-behavior:smooth;padding:8px 0;cursor:grab;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);
+            mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);
+    scrollbar-width:none;-ms-overflow-style:none;}
+  .reviews::-webkit-scrollbar{display:none;}
+  .reviews.dragging{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto;}
+  .review{flex:0 0 340px;scroll-snap-align:start;box-sizing:border-box;margin:0;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:24px 24px 22px;transition:transform .3s var(--ease),background .3s;display:flex;flex-direction:column;user-select:none;}
+  .review:hover{transform:translateY(-4px);background:rgba(255,255,255,.11);}
+  .review .stars{color:var(--sun);font-size:1rem;letter-spacing:2px;margin-bottom:12px;}
+  .review .stars .off{color:rgba(255,255,255,.28);}
+  .review p{color:rgba(255,255,255,.95);font-size:1.02rem;line-height:1.55;margin:0 0 16px;flex:1;}
+  .review figcaption{display:flex;align-items:center;gap:11px;font-weight:600;font-size:.95rem;color:#fff;margin-top:auto;}
+  .review figcaption .av{width:36px;height:36px;border-radius:50%;background:var(--sand);color:var(--deep);display:grid;place-items:center;font-weight:700;font-size:.78rem;flex:none;}
+  .rev-nav{position:absolute;top:46%;transform:translateY(-50%);z-index:3;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(11,58,70,.72);backdrop-filter:blur(6px);color:#fff;font-size:1.4rem;line-height:1;cursor:pointer;display:grid;place-items:center;transition:background .25s,opacity .25s;}
+  .rev-nav:hover{background:var(--sea);}
+  .rev-nav.prev{left:-6px;}
+  .rev-nav.next{right:-6px;}
+  .rev-nav[disabled]{opacity:.25;cursor:default;pointer-events:none;}
+  @media(max-width:560px){.rev-nav{display:none;}}
+  .frise-soon{font-family:var(--ff-display);font-size:clamp(1.3rem,2.4vw,1.7rem);color:var(--sand);margin:0;padding:22px 26px;border:1px dashed rgba(244,161,90,.5);border-radius:var(--r);display:inline-block;}
