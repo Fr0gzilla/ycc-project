@@ -354,7 +354,11 @@
       <p>Avant de larguer les amarres, un œil sur le vent et la mer au large de Carnac — Baie de Quiberon.</p>
     </div>
     <div class="meteo-embed reveal d1">
-      <iframe title="Prévisions de vent en direct — Baie de Quiberon" loading="lazy" src="https://embed.windy.com/embed2.html?lat=47.55&lon=-3.12&detailLat=47.55&detailLon=-3.12&zoom=9&level=surface&overlay=wind&menu=&message=true&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=kt&metricTemp=%C2%B0C&radarRange=-1"></iframe>
+      <div class="meteo-consent" data-src="https://embed.windy.com/embed2.html?lat=47.55&lon=-3.12&detailLat=47.55&detailLon=-3.12&zoom=9&level=surface&overlay=wind&menu=&message=true&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=kt&metricTemp=%C2%B0C&radarRange=-1">
+        <p class="mc-titre">Carte des vents Windy</p>
+        <p>Cette carte est fournie par Windy.com, qui peut déposer des cookies et recevoir votre adresse IP. Elle ne se charge que si vous le demandez. <a href="confidentialite.html#services-tiers">En savoir plus</a></p>
+        <button type="button" class="btn btn-sun">Afficher la carte <span class="arr" aria-hidden="true">→</span></button>
+      </div>
     </div>
   </div>
 </section>
@@ -492,6 +496,7 @@
         <button type="submit" class="btn btn-sun">Envoyer ma demande <span class="arr" aria-hidden="true">→</span></button>
         <span class="form-note">Réponse sous 24 h · sans engagement</span>
       </div>
+      <p class="form-rgpd">Vos informations servent uniquement à répondre à votre demande et sont conservées 3 ans au plus après notre dernier échange. Vous pouvez y accéder, les corriger ou les faire effacer en écrivant à infos@yccarnac.com. <a href="confidentialite.html#contact">Politique de confidentialité</a></p>
       <p class="form-msg" id="formmsg" role="status">Votre logiciel de messagerie s'ouvre avec la demande pré-remplie — envoyez-la et nous vous répondons sous 24 h. 🌊</p>
     </form>
   </div>
@@ -560,12 +565,14 @@
           <input id="nl" type="email" placeholder="votre@email.fr" autocomplete="email">
           <button type="submit">OK</button>
         </form>
+        <p class="news-note">Un e-mail par mois, désinscription en un clic. Votre adresse ne sert qu\'à cet envoi. <a href="confidentialite.html#lettre">Confidentialité</a></p>
       </div>
     </div>
     <div class="ft-bot">
       <div>© 2026 Yacht Club de Carnac · Port en Dro, 56340 Carnac</div>
       <div class="legal">
-        <a href="https://www.yccarnac.com/mentions-legales" target="_blank" rel="noopener">Mentions légales</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="confidentialite.html">Confidentialité</a>
         <a href="https://yccarnac.ouiresa.fr/" target="_blank" rel="noopener">Réserver en ligne</a>
         <a href="#reserver">Nous contacter</a>
       </div>
@@ -691,5 +698,6 @@
 })();
 </script>
 <script src="js/formulaires.js" defer></script>
+<script src="js/consentement.js" defer></script>
 </body>
 </html>

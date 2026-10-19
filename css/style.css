@@ -598,3 +598,14 @@
     *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important;}
     .reveal{opacity:1;transform:none;}
   }
+  /* --- RGPD : contenu tiers au clic, mentions sous les formulaires --- */
+  .meteo-consent{min-height:460px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px;padding:32px 24px;
+    background:linear-gradient(160deg,#0B3A46 0%,#0E4757 52%,#14708A 100%);color:rgba(255,255,255,.86);}
+  .meteo-consent .mc-titre{font-family:var(--ff-display);font-size:1.6rem;color:#fff;margin:0;}
+  .meteo-consent p{max-width:52ch;margin:0;line-height:1.6;}
+  .meteo-consent a{color:var(--sand);text-decoration:underline;}
+  @media(max-width:560px){.meteo-consent{min-height:380px;}}
+  .form-rgpd{font-size:.8rem;color:var(--muted);line-height:1.55;margin:14px 0 0;}
+  .form-rgpd a{color:var(--sea);text-decoration:underline;}
+  .news-note{font-size:.76rem;color:rgba(255,255,255,.55);line-height:1.5;margin:10px 0 0;}
+  .news-note a{color:rgba(255,255,255,.75);text-decoration:underline;}

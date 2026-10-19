@@ -34,3 +34,17 @@
   .faq summary::after{content:"+";font-family:var(--ff-display);font-size:1.5rem;color:var(--sea);transition:transform .3s var(--ease);line-height:1;}
   .faq details[open] summary::after{transform:rotate(45deg);}
   .faq .a{padding:0 22px 20px;color:var(--muted);font-size:1rem;line-height:1.6;}
+  /* --- pages légales --- */
+  .legal-doc{max-width:780px;}
+  .legal-doc h2{font-size:clamp(1.5rem,2.6vw,1.9rem);margin:44px 0 12px;scroll-margin-top:110px;}
+  .legal-doc h2:first-child{margin-top:0;}
+  .legal-doc h3{font-size:1.1rem;font-weight:600;margin:24px 0 8px;color:var(--deep);}
+  .legal-doc p,.legal-doc li{color:var(--muted);line-height:1.7;font-size:1rem;}
+  .legal-doc ul{padding-left:20px;margin:8px 0;}
+  .legal-doc li{margin:4px 0;}
+  .legal-doc a{color:var(--sea);text-decoration:underline;}
+  .legal-doc .todo{background:#fff3d6;color:#6a4c22;border-radius:4px;padding:0 5px;font-size:.92em;}
+  .legal-doc table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.94rem;}
+  .legal-doc th,.legal-doc td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line);color:var(--muted);}
+  .legal-doc th{color:var(--deep);font-weight:600;}
+  @media(max-width:560px){.legal-doc table,.legal-doc tbody,.legal-doc tr,.legal-doc td,.legal-doc th{display:block;}.legal-doc thead{display:none;}.legal-doc td{border:0;padding:4px 0;}.legal-doc tr{border-bottom:1px solid var(--line);padding:10px 0;}}
