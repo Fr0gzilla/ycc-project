@@ -11,13 +11,71 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Devenir moniteur de voile (CQPIV) — Yacht Club de Carnac">
+<meta property="og:description" content="Devenez moniteur de voile au Yacht Club de Carnac : préparez le CQPIV (Certificat de Qualification Professionnelle d'Initiateur Voile), dès 14 ans, de l'aide-moniteur à l'enseignement. Formation en alternance.">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:image" content="https://fr0gzilla.github.io/ycc-project/img/partage.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/pages.css">
 <style>.ph-bg::after{background:linear-gradient(150deg,rgba(11,58,70,.82) 0%,rgba(14,71,87,.7) 50%,rgba(20,112,138,.58) 100%);}</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "À partir de quel âge peut-on se lancer ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Dès 14 ans comme aide-moniteur, 15 ans pour le Niveau 4 EFV, et 16 ans pour les stages pédagogiques du CQPIV. On avance étape par étape, à son rythme."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Quels sont les prérequis ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Un certificat médical CQPIV et une attestation de natation de 25 m. Les formulaires sont à télécharger un peu plus haut sur cette page."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Qu'est-ce que le CQPIV, concrètement ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Le Certificat de Qualification Professionnelle d'Initiateur Voile. Il valide 6 unités de compétences capitalisables — sécurité, animation et enseignement — et permet d'encadrer la voile contre rémunération."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Comment se déroule la formation ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "En alternance : on se forme en encadrant sur l'eau, aux côtés d'un tuteur du club, jusqu'à valider les 6 unités de compétences. On apprend en enseignant."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Est-ce un plus pour Parcoursup ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Oui. L'engagement et les responsabilités d'encadrement sont valorisables dans le dossier Parcoursup — pensez à la date limite des vœux, début avril."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Comment candidater ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Par e-mail à infos@yccarnac.com, par téléphone au 02 97 52 10 98, ou directement à l'accueil du club, à Port en Dro."
+   }
+  }
+ ]
+}
+</script>
 </head>
 <body>
 <a class="skip" href="#contenu">Aller au contenu</a>
@@ -202,7 +260,7 @@
         </div>
       </div>
       <nav aria-label="Activités">
-        <h4>Naviguer</h4>
+        <h2>Naviguer</h2>
         <ul>
           <li><a href="index.html#stages">Stages enfants &amp; ados</a></li>
           <li><a href="index.html#activites">Cours particuliers</a></li>
@@ -212,7 +270,7 @@
         </ul>
       </nav>
       <nav aria-label="Le club">
-        <h4>Le club</h4>
+        <h2>Le club</h2>
         <ul>
           <li><a href="index.html#club">Qui sommes-nous</a></li>
           <li><a href="devenir-moniteur.html">Devenir moniteur</a></li>
@@ -222,7 +280,7 @@
         </ul>
       </nav>
       <div>
-        <h4>La lettre de la baie</h4>
+        <h2>La lettre de la baie</h2>
         <p class="about" style="margin-bottom:0">Programmes, météo des stages et dates de régates, une fois par mois.</p>
         <form class="news" aria-label="Inscription à la newsletter">
           <label for="nl" class="skip">Votre e-mail</label>
@@ -233,7 +291,7 @@
       </div>
     </div>
     <div class="ft-bot">
-      <div>© 2026 Yacht Club de Carnac · Port en Dro, 56340 Carnac</div>
+      <div>© <span data-annee>2026</span> Yacht Club de Carnac · Port en Dro, 56340 Carnac</div>
       <div class="legal">
         <a href="mentions-legales.html">Mentions légales</a>
         <a href="confidentialite.html">Confidentialité</a>
@@ -269,6 +327,7 @@
   if(ph && !reduce){ var w = document.createElement('div'); w.className = 'ph-wind'; w.setAttribute('aria-hidden','true'); w.innerHTML = '<i></i><i></i><i></i>'; ph.insertBefore(w, ph.firstChild); }
 })();
 </script>
+<script src="js/site.js" defer></script>
 <script src="js/formulaires.js" defer></script>
 </body>
 </html>

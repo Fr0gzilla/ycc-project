@@ -11,12 +11,70 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Aviron de mer à Carnac (AVYCC) | Yacht Club de Carnac">
+<meta property="og:description" content="Pratiquez l'aviron de mer avec l'AVYCC au Yacht Club de Carnac, dans la Baie de Quiberon.">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:image" content="https://fr0gzilla.github.io/ycc-project/img/partage.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/pages.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Faut-il déjà savoir ramer pour commencer ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Non. Des sorties débutants ont lieu le samedi matin (rendez-vous à 10 h, fin de séance vers 12 h après le rangement du matériel). On progresse ensuite au club avec le passage des niveaux « pelle bronze » puis « pelle argent »."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Quels sont les créneaux de sortie ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Pour les rameurs « pelle argent » : samedi et lundi matin (RDV 9 h 30 en hiver, 9 h 00 en été), avec en plus le mardi et le jeudi soir à 18 h 30 d'avril à octobre. Les débutants sortent le samedi matin à 10 h. L'AVYCC organise aussi des randonnées, des entraînements et des stages compétition."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Quel équipement faut-il prévoir ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Des vêtements techniques près du corps (lycra, polaire fine, coupe-vent, gilet sans manche), des chaussons de voile ou de vieilles baskets — jamais pieds nus —, une bouteille d'eau et des vêtements de rechange. Pas de combinaison néoprène. Possibilité de se doucher après la séance."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Comment sont annoncées les sorties ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Tout passe par WhatsApp : les sorties y sont annoncées, vous répondez seulement si vous venez. En cas de météo défavorable (forte pluie, vent fort, grosse houle, brouillard ou température négative), une sortie peut être annulée — vous êtes prévenus par WhatsApp."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "La licence couvre quelle période, et comment s'inscrire ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "La licence aviron est valable du 1ᵉʳ septembre au 31 août. À l'inscription à l'accueil du club, vous signez le règlement AVYCC (annexe du règlement intérieur du YCC) et en recevez une copie. La réservation se fait aussi en ligne, ou par téléphone au 02 97 52 10 98."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Pour qui, et à quel rythme peut-on pratiquer ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "L'aviron de mer se pratique en deux catégories, − 23 ans et + 23 ans, à l'année, au trimestre, au mois ou à la journée (dès 27,90 € la séance). Le détail des tarifs est indiqué plus haut sur la page."
+   }
+  }
+ ]
+}
+</script>
 </head>
 <body>
 <a class="skip" href="#contenu">Aller au contenu</a>
@@ -217,7 +275,7 @@
         </div>
       </div>
       <nav aria-label="Activités">
-        <h4>Naviguer</h4>
+        <h2>Naviguer</h2>
         <ul>
           <li><a href="index.html#stages">Stages enfants &amp; ados</a></li>
           <li><a href="permis-cotier.html">Permis côtier</a></li>
@@ -227,7 +285,7 @@
         </ul>
       </nav>
       <nav aria-label="Le club">
-        <h4>Le club</h4>
+        <h2>Le club</h2>
         <ul>
           <li><a href="index.html#club">Qui sommes-nous</a></li>
           <li><a href="index.html#eco">Voile écoresponsable</a></li>
@@ -237,7 +295,7 @@
         </ul>
       </nav>
       <div>
-        <h4>La lettre de la baie</h4>
+        <h2>La lettre de la baie</h2>
         <p class="about" style="margin-bottom:0">Programmes, météo des stages et dates de régates, une fois par mois.</p>
         <form class="news" aria-label="Inscription à la newsletter">
           <label for="nl" class="skip">Votre e-mail</label>
@@ -248,7 +306,7 @@
       </div>
     </div>
     <div class="ft-bot">
-      <div>© 2026 Yacht Club de Carnac · Port en Dro, 56340 Carnac</div>
+      <div>© <span data-annee>2026</span> Yacht Club de Carnac · Port en Dro, 56340 Carnac</div>
       <div class="legal">
         <a href="mentions-legales.html">Mentions légales</a>
         <a href="confidentialite.html">Confidentialité</a>
@@ -284,6 +342,7 @@
   if(ph && !reduce){ var w = document.createElement('div'); w.className = 'ph-wind'; w.setAttribute('aria-hidden','true'); w.innerHTML = '<i></i><i></i><i></i>'; ph.insertBefore(w, ph.firstChild); }
 })();
 </script>
+<script src="js/site.js" defer></script>
 <script src="js/formulaires.js" defer></script>
 </body>
 </html>

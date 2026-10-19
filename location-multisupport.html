@@ -11,12 +11,62 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Location de supports & multi-supports à Carnac | Yacht Club de Carnac">
+<meta property="og:description" content="Louez planche à voile, catamaran, dériveur, foil, kayak ou paddle au Point Location du Yacht Club de Carnac, en Baie de Quiberon. Location à l'heure, cours particuliers et baptêmes.">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:image" content="https://fr0gzilla.github.io/ycc-project/img/partage.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/pages.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Faut-il déjà savoir naviguer pour louer ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "La location en autonomie s'adresse aux pratiquants qui maîtrisent leur support. Débutant ? Optez pour un baptême ou un cours particulier avec un moniteur, ou choisissez un support de niveau « découverte » — l'équipe vous oriente sur place."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Quels supports peut-on louer ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Planche à voile, catamaran, dériveur, foil (windfoil, wingfoil, foil dériveur), kayak de mer et stand-up paddle. La flotte va du support d'initiation aux modèles sportifs et experts."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Quels sont les horaires et la saison ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "En juillet-août, le Point Location est ouvert tous les jours de 10 h à 18 h. Hors saison, l'accueil se fait de 9 h 30 à 12 h et de 13 h 30 à 17 h 30 sur réservation. Fermeture de novembre à février."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Propose-t-on des cours ou des baptêmes ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Oui. Une heure de cours particulier coûte 76 € (seul), 100 € (à deux) ou 38 €/personne à partir de 3. Le baptême de 30 minutes est à 38 € (seul) ou 48 € (à deux)."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Comment réserver ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "En ligne via la plateforme du club, ou directement au Point Location au 06 63 51 59 94. Astuce : pour toute location entre 10 h et 13 h 30, 30 minutes vous sont offertes."
+   }
+  }
+ ]
+}
+</script>
 </head>
 <body>
 <a class="skip" href="#contenu">Aller au contenu</a>
@@ -208,7 +258,7 @@
         </div>
       </div>
       <nav aria-label="Activités">
-        <h4>Naviguer</h4>
+        <h2>Naviguer</h2>
         <ul>
           <li><a href="index.html#stages">Stages enfants &amp; ados</a></li>
           <li><a href="permis-cotier.html">Permis côtier</a></li>
@@ -218,7 +268,7 @@
         </ul>
       </nav>
       <nav aria-label="Le club">
-        <h4>Le club</h4>
+        <h2>Le club</h2>
         <ul>
           <li><a href="index.html#club">Qui sommes-nous</a></li>
           <li><a href="index.html#eco">Voile écoresponsable</a></li>
@@ -228,7 +278,7 @@
         </ul>
       </nav>
       <div>
-        <h4>La lettre de la baie</h4>
+        <h2>La lettre de la baie</h2>
         <p class="about" style="margin-bottom:0">Programmes, météo des stages et dates de régates, une fois par mois.</p>
         <form class="news" aria-label="Inscription à la newsletter">
           <label for="nl" class="skip">Votre e-mail</label>
@@ -239,7 +289,7 @@
       </div>
     </div>
     <div class="ft-bot">
-      <div>© 2026 Yacht Club de Carnac · Port en Dro, 56340 Carnac</div>
+      <div>© <span data-annee>2026</span> Yacht Club de Carnac · Port en Dro, 56340 Carnac</div>
       <div class="legal">
         <a href="mentions-legales.html">Mentions légales</a>
         <a href="confidentialite.html">Confidentialité</a>
@@ -275,6 +325,7 @@
   if(ph && !reduce){ var w = document.createElement('div'); w.className = 'ph-wind'; w.setAttribute('aria-hidden','true'); w.innerHTML = '<i></i><i></i><i></i>'; ph.insertBefore(w, ph.firstChild); }
 })();
 </script>
+<script src="js/site.js" defer></script>
 <script src="js/formulaires.js" defer></script>
 </body>
 </html>
